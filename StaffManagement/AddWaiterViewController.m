@@ -8,7 +8,6 @@
 
 #import "AddWaiterViewController.h"
 #import "AppDelegate.h"
-#import "Waiter.h"
 #import "RestaurantManager.h"
 
 
