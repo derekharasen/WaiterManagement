@@ -10,6 +10,7 @@
 #import "Restaurant.h"
 #import "RestaurantManager.h"
 #import "Waiter.h"
+#import "ShiftsViewController.h"
 
 static NSString * const kCellIdentifier = @"CellIdentifier";
 
@@ -25,7 +26,7 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCellIdentifier];
     NSSortDescriptor *sortByName = [[NSSortDescriptor alloc]initWithKey:@"name" ascending:YES];
     self.waiters = [[[RestaurantManager sharedManager]currentRestaurant].staff sortedArrayUsingDescriptors:@[sortByName]];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.title = @"Waiters";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,5 +45,16 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     Waiter *waiter = self.waiters[indexPath.row];
     cell.textLabel.text = waiter.name;
     return cell;
+}
+
+#pragma mark - TableView Delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    ShiftsViewController *shiftsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ShiftsViewController"];
+    
+    shiftsViewController.waiter = [self.waiters objectAtIndex:indexPath.row];
+    
+    [self.navigationController pushViewController:shiftsViewController animated:YES];
 }
 @end
