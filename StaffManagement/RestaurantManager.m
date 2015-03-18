@@ -8,8 +8,7 @@
 
 #import "RestaurantManager.h"
 #import "AppDelegate.h"
-#import "Waiter.h"
-#import "Restaurant.h"
+
 @interface RestaurantManager()
 @property (nonatomic, retain) Restaurant *restaurant;
 @end
@@ -50,4 +49,38 @@
     }
     return self.restaurant;
 }
+
+- (void)addWaiterFromString:(NSString *)string{
+    
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    NSManagedObjectContext *context = appDelegate.managedObjectContext;
+    
+    NSEntityDescription *waiterEntity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:context];
+    
+    Waiter *newWaiter = [[Waiter alloc]initWithEntity:waiterEntity insertIntoManagedObjectContext:context];
+    newWaiter.name = string;
+    newWaiter.restaurant = self.restaurant;
+    
+    [self.restaurant addStaffObject:newWaiter];
+    
+    NSError *error = nil;
+    [context save:&error];
+}
+
+- (void)deleteWaiter:(Waiter *)waiter{
+    
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    NSManagedObjectContext *context = appDelegate.managedObjectContext;
+    
+    [context deleteObject:waiter];
+        
+    NSError *error = nil;
+    [context save:&error];
+}
+
+
+
+
+
+
 @end

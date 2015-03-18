@@ -7,15 +7,15 @@
 //
 
 #import "ViewController.h"
-#import "Restaurant.h"
 #import "RestaurantManager.h"
 #import "Waiter.h"
+#import "AddWaiterViewController.h"
 
 static NSString * const kCellIdentifier = @"CellIdentifier";
 
 @interface ViewController ()
 @property IBOutlet UITableView *tableView;
-@property (nonatomic, retain) NSArray *waiters;
+@property (nonatomic, retain) NSMutableArray *waiters;
 @end
 
 @implementation ViewController
@@ -23,9 +23,23 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCellIdentifier];
+    self.title = @"Waiters";
+    // moved code to viewWillAppear in order to show newly added waiters
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+
     NSSortDescriptor *sortByName = [[NSSortDescriptor alloc]initWithKey:@"name" ascending:YES];
-    self.waiters = [[[RestaurantManager sharedManager]currentRestaurant].staff sortedArrayUsingDescriptors:@[sortByName]];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.waiters = [NSMutableArray arrayWithArray:[[[RestaurantManager sharedManager]currentRestaurant].staff sortedArrayUsingDescriptors:@[sortByName]]];
+    
+    [self.tableView reloadData];
+}
+
+- (IBAction)add{
+    AddWaiterViewController *addWaiterViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AddWaiterViewController"];
+    
+    [self.navigationController pushViewController:addWaiterViewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,4 +59,29 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     cell.textLabel.text = waiter.name;
     return cell;
 }
+
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+}
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        Waiter *waiter = [self.waiters objectAtIndex:indexPath.row];
+        RestaurantManager *restaurantManager = [RestaurantManager sharedManager];
+        [restaurantManager deleteWaiter:waiter];
+        
+        //remove from tableview
+        [self.waiters removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        [self.tableView reloadData];
+    }
+}
+
+
+
 @end

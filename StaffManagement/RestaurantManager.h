@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "Restaurant.h"
+#import "Waiter.h"
 @interface RestaurantManager : NSObject
 + (id)sharedManager;
 -(Restaurant*)currentRestaurant;
+- (void)addWaiterFromString:(NSString *)string;
+- (void)deleteWaiter:(Waiter *)waiter;
 @end
