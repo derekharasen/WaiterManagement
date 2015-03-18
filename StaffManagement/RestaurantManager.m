@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "Waiter.h"
 #import "Restaurant.h"
+#import "Shift.h"
 @interface RestaurantManager()
 @property (nonatomic, retain) Restaurant *restaurant;
 @end
@@ -50,4 +51,33 @@
     }
     return self.restaurant;
 }
+
+-(void)addShiftWithDate:(NSString *)date start:(NSString *)start end:(NSString *)end forWaiter:(Waiter *)waiter{
+    
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    NSEntityDescription *shiftEntity = [NSEntityDescription entityForName:@"Shift" inManagedObjectContext:appDelegate.managedObjectContext];
+    
+    Shift *shift = [[Shift alloc]initWithEntity:shiftEntity insertIntoManagedObjectContext:appDelegate.managedObjectContext];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    formatter.dateStyle = NSDateFormatterMediumStyle;
+    NSDate *formattedDate = [formatter dateFromString:date];
+    shift.date = formattedDate;
+    shift.start = start;
+    shift.end = end;
+    [waiter addShiftsObject:shift];
+    
+    NSError *error = nil;
+    [appDelegate.managedObjectContext save:&error];
+}
+
+- (void)deleteShift:(Shift *)shift{
+    
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate.managedObjectContext deleteObject:shift];
+    
+    NSError *error = nil;
+    [appDelegate.managedObjectContext save:&error];
+}
+
+
 @end

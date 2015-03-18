@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1Ez-mg-lx0">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -27,12 +28,142 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="LS9-it-ahm"/>
                     <connections>
                         <outlet property="tableView" destination="idB-MD-rVO" id="ugC-k3-Uqe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1057" y="286"/>
+        </scene>
+        <!--ShiftsViewController-->
+        <scene sceneID="OKz-dr-n5R">
+            <objects>
+                <viewController storyboardIdentifier="ShiftsViewController" title="ShiftsViewController" id="Rni-sT-iPv" customClass="ShiftsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zvw-aK-pa8"/>
+                        <viewControllerLayoutGuide type="bottom" id="Pop-ty-rdC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0dI-x6-K6D">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Qcm-1q-Cw4">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Rni-sT-iPv" id="7gS-LL-YLF"/>
+                                    <outlet property="delegate" destination="Rni-sT-iPv" id="JVz-4P-m0T"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Qcm-1q-Cw4" secondAttribute="trailing" constant="-16" id="8Mr-yM-cIT"/>
+                            <constraint firstItem="Qcm-1q-Cw4" firstAttribute="top" secondItem="0dI-x6-K6D" secondAttribute="topMargin" id="Hkg-OH-tQa"/>
+                            <constraint firstItem="Pop-ty-rdC" firstAttribute="top" secondItem="Qcm-1q-Cw4" secondAttribute="bottom" id="QQp-Hw-h8b"/>
+                            <constraint firstItem="Qcm-1q-Cw4" firstAttribute="leading" secondItem="0dI-x6-K6D" secondAttribute="leadingMargin" constant="-16" id="wn0-bc-vPP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Qcm-1q-Cw4" id="QDo-9T-Elg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ncO-ZR-vkJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1714" y="286"/>
+        </scene>
+        <!--AddShiftViewController-->
+        <scene sceneID="pic-oI-PSx">
+            <objects>
+                <viewController storyboardIdentifier="AddShiftViewController" title="AddShiftViewController" id="O2s-CA-Rt4" customClass="AddShiftViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FdK-4c-xL1"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rk9-yA-Ttp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="W9V-fR-jkZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yyG-wg-Ppd">
+                                <rect key="frame" x="207" y="128" width="187" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="187" id="yh2-c0-SYC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="O2s-CA-Rt4" id="AVx-9L-8be"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="End Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Um2-SI-jaf">
+                                <rect key="frame" x="207" y="174" width="187" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="O2s-CA-Rt4" id="BZw-5N-ua1"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIm-8N-kyc">
+                                <rect key="frame" x="282" y="237" width="37" height="30"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addShift" destination="O2s-CA-Rt4" eventType="touchUpInside" id="F6U-qU-JTf"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xx8-Kv-1dw">
+                                <rect key="frame" x="207" y="83" width="187" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="O2s-CA-Rt4" id="fPL-gI-aK0"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nIm-8N-kyc" firstAttribute="top" secondItem="Um2-SI-jaf" secondAttribute="bottom" constant="33" id="37H-B4-ZTQ"/>
+                            <constraint firstItem="yyG-wg-Ppd" firstAttribute="leading" secondItem="Um2-SI-jaf" secondAttribute="leading" id="FCE-vN-ZSP"/>
+                            <constraint firstItem="Um2-SI-jaf" firstAttribute="top" secondItem="yyG-wg-Ppd" secondAttribute="bottom" constant="16" id="QNE-lN-e64"/>
+                            <constraint firstItem="xx8-Kv-1dw" firstAttribute="leading" secondItem="yyG-wg-Ppd" secondAttribute="leading" id="Rds-1F-Oc6"/>
+                            <constraint firstItem="xx8-Kv-1dw" firstAttribute="top" secondItem="FdK-4c-xL1" secondAttribute="bottom" constant="63" id="Th9-k9-Bkp"/>
+                            <constraint firstItem="yyG-wg-Ppd" firstAttribute="top" secondItem="FdK-4c-xL1" secondAttribute="bottom" constant="108" id="dUB-fv-POF"/>
+                            <constraint firstItem="yyG-wg-Ppd" firstAttribute="trailing" secondItem="Um2-SI-jaf" secondAttribute="trailing" id="kWP-zK-B1X"/>
+                            <constraint firstAttribute="centerX" secondItem="yyG-wg-Ppd" secondAttribute="centerX" constant="-0.5" id="oMn-5s-hn6"/>
+                            <constraint firstItem="yyG-wg-Ppd" firstAttribute="centerX" secondItem="nIm-8N-kyc" secondAttribute="centerX" id="spf-GV-NWI"/>
+                            <constraint firstAttribute="centerX" secondItem="xx8-Kv-1dw" secondAttribute="centerX" constant="-0.5" id="yVU-AM-Hhb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dateField" destination="xx8-Kv-1dw" id="stz-GS-egW"/>
+                        <outlet property="endField" destination="Um2-SI-jaf" id="MdB-16-H7s"/>
+                        <outlet property="startField" destination="yyG-wg-Ppd" id="3aZ-T5-IWl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MJ7-EC-xsq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2392" y="286"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="VCD-uS-jxP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Ez-mg-lx0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="j6u-LS-PJ3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="hzq-Fk-ohe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Scj-0o-bGc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="306" y="286"/>
         </scene>
     </scenes>
 </document>

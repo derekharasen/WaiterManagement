@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "Restaurant.h"
+#import "Waiter.h"
 @interface RestaurantManager : NSObject
 + (id)sharedManager;
 -(Restaurant*)currentRestaurant;
+-(void)addShiftWithDate:(NSString *)date start:(NSString *)start end:(NSString *)end forWaiter:(Waiter *)waiter;
+- (void)deleteShift:(Shift *)shift;
 @end
