@@ -7,6 +7,9 @@
 //
 
 #import "NewWaiterViewController.h"
+#import "AppDelegate.h"
+#import "Waiter.h"
+#import "RestaurantManager.h"
 
 @interface NewWaiterViewController ()
 
@@ -47,6 +50,17 @@
 
 - (IBAction)saveButtonPressed:(id)sender {
     
+    NSError *error;
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    NSEntityDescription *waiterEntity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:appDelegate.managedObjectContext];
+    
+    Waiter *newWaiter = [[Waiter alloc]initWithEntity:waiterEntity insertIntoManagedObjectContext:appDelegate.managedObjectContext];
+    newWaiter.name = self.waiterNameTextField.text;
+    [[[RestaurantManager sharedManager]currentRestaurant] addStaffObject:newWaiter];
+    
+    [appDelegate.managedObjectContext save:&error];
+    [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 
