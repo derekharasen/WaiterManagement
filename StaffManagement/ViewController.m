@@ -45,4 +45,22 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     cell.textLabel.text = waiter.name;
     return cell;
 }
+- (IBAction)addButtonPressed:(id)sender {
+    NSLog(@"add button pressed");
+    
+    [self performSegueWithIdentifier:@"addWaiter" sender:sender];
+
+}
+
+- (IBAction)editButtonPressed:(id)sender {
+    
+    //NSLog(@"Edit mode");
+    
+    if (self.isEditing) {
+        [self setEditing:NO animated:YES];
+    } else {
+        [self setEditing:YES animated:YES];
+    }
+}
+
 @end
