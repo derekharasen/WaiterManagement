@@ -10,6 +10,9 @@
 
 @interface NewWaiterViewController ()
 
+@property (strong, nonatomic) IBOutlet UITextField *waiterNameTextField;
+
+
 @end
 
 @implementation NewWaiterViewController
@@ -33,5 +36,19 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - IBAction
+
+- (IBAction)closeButtonPressed:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+- (IBAction)saveButtonPressed:(id)sender {
+    
+}
+
+
 
 @end

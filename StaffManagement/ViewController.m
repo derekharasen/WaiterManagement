@@ -32,6 +32,32 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+#pragma mark - TableView Delegate
+
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+
+//  Swipe to Delete
+- (UITableViewCellEditingStyle)tableView:(UITableView * )tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath * )indexPath {
+    
+    return UITableViewCellEditingStyleDelete;
+    
+}
+
+//  Edit Button Delegate Method
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    
+    [super setEditing:editing animated:animated];
+    [self.tableView setEditing:editing animated:YES];
+
+}
+
+
 #pragma mark - TableView Data Source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -45,6 +71,9 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     cell.textLabel.text = waiter.name;
     return cell;
 }
+
+#pragma mark - IBActions
+
 - (IBAction)addButtonPressed:(id)sender {
     NSLog(@"add button pressed");
     
