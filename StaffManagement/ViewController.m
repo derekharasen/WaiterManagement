@@ -10,6 +10,7 @@
 #import "Restaurant.h"
 #import "RestaurantManager.h"
 #import "Waiter.h"
+#import "AppDelegate.h"
 
 static NSString * const kCellIdentifier = @"CellIdentifier";
 
@@ -20,11 +21,17 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCellIdentifier];
     NSSortDescriptor *sortByName = [[NSSortDescriptor alloc]initWithKey:@"name" ascending:YES];
     self.waiters = [[[RestaurantManager sharedManager]currentRestaurant].staff sortedArrayUsingDescriptors:@[sortByName]];
+    [self.tableView reloadData];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -32,6 +39,8 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 
 #pragma mark - TableView Delegate
@@ -43,9 +52,20 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 
 
 //  Swipe to Delete
-- (UITableViewCellEditingStyle)tableView:(UITableView * )tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath * )indexPath {
+- (void)tableView:(UITableView * )tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath * )indexPath {
     
-    return UITableViewCellEditingStyleDelete;
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        NSError *error;
+        AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+        
+        Waiter *waiter = self.waiters [indexPath.row];
+        [appDelegate.managedObjectContext deleteObject:self.waiters[indexPath.row]];
+        [[[RestaurantManager sharedManager]currentRestaurant] removeStaffObject:waiter];
+        [appDelegate.managedObjectContext save:&error];
+        [self.tableView reloadData];
+
+    }
     
 }
 
