@@ -7,6 +7,7 @@
 //
 
 #import <CoreData/CoreData.h>
+
 @class Waiter;
 
 @interface Shift : NSManagedObject
