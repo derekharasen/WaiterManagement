@@ -64,6 +64,10 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
         [appDelegate.managedObjectContext deleteObject:self.waiters[indexPath.row]];
         [[[RestaurantManager sharedManager]currentRestaurant] removeStaffObject:waiter];
         [appDelegate.managedObjectContext save:&error];
+        
+        NSSortDescriptor *sortByName = [[NSSortDescriptor alloc]initWithKey:@"name" ascending:YES];
+        self.waiters = [[[RestaurantManager sharedManager]currentRestaurant].staff sortedArrayUsingDescriptors:@[sortByName]];
+        
         [self.tableView reloadData];
 
     }
