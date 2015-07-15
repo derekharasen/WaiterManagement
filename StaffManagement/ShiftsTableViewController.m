@@ -41,6 +41,41 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
+
+
+#pragma mark - TableView Delegate
+
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+
+//  Swipe to Delete
+- (void)tableView:(UITableView * )tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath * )indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        NSError *error;
+        AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+        
+        Shift *shift = self.shiftsList [indexPath.row];
+        [appDelegate.managedObjectContext deleteObject:self.shiftsList[indexPath.row]];
+        
+        Waiter *aWaiter;
+        aWaiter = self.waiter;
+        
+        [aWaiter removeShiftsObject:shift];
+        [appDelegate.managedObjectContext save:&error];
+        [self.tableView reloadData];
+        
+    }
+    
+}
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -66,6 +101,21 @@
     cell.detailTextLabel.text = aShift.endDate;
     return cell;
 }
+
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqualToString:@"newShift"]) {
+        ShiftsTableViewController *destViewController = segue.destinationViewController;
+        destViewController.waiter = self.waiter;
+    }
+}
+
 
 
 /*
@@ -101,20 +151,6 @@
     return YES;
 }
 */
-
-
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    
-    if ([segue.identifier isEqualToString:@"newShift"]) {
-        ShiftsTableViewController *destViewController = segue.destinationViewController;
-        destViewController.waiter = self.waiter;
-    }
-}
 
 
 @end
