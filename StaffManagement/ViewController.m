@@ -78,6 +78,14 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 }
 
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self performSegueWithIdentifier:@"shiftPush" sender:self];
+    
+}
+
+
 #pragma mark - TableView Data Source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
