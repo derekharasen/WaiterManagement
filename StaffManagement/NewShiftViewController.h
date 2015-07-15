@@ -8,6 +8,10 @@
 
 #import "ViewController.h"
 
+@class Waiter;
+
 @interface NewShiftViewController : ViewController
+
+@property (strong, nonatomic) Waiter *waiter;
 
 @end

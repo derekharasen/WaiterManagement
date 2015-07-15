@@ -7,8 +7,11 @@
 //
 
 #import "NewShiftViewController.h"
+#import "AppDelegate.h"
+#import "Shift.h"
+#import "Waiter.h"
 
-@interface NewShiftViewController ()
+@interface NewShiftViewController () <UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *startDateTextField;
 @property (strong, nonatomic) IBOutlet UITextField *endDateTextField;
 
@@ -32,6 +35,23 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)saveButtonPressed:(id)sender {
+    
+    NSError *error;
+    
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    NSEntityDescription *shiftEntity = [NSEntityDescription entityForName:@"Shift" inManagedObjectContext:appDelegate.managedObjectContext];
+    
+    Shift *aShift = [[Shift alloc]initWithEntity:shiftEntity insertIntoManagedObjectContext:appDelegate.managedObjectContext];
+    aShift.startDate = self.startDateTextField.text;
+    aShift.endDate = self.endDateTextField.text;
+    Waiter *aWaiter = [[Waiter alloc]init];
+    aWaiter = self.waiter;
+    
+    [aWaiter addShiftsObject:aShift];
+    
+    [appDelegate.managedObjectContext save:&error];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 

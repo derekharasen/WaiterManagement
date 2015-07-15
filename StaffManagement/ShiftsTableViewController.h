@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class Waiter;
+
 @interface ShiftsTableViewController : UITableViewController
+
+@property (strong, nonatomic) Waiter *waiter;
 
 @end

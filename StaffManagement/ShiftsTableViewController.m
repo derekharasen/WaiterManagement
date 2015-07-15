@@ -7,21 +7,33 @@
 //
 
 #import "ShiftsTableViewController.h"
+#import "AppDelegate.h"
+#import "Waiter.h"
+#import "Shift.h"
 
 @interface ShiftsTableViewController ()
+
+@property (retain, nonatomic) NSArray *shiftsList;
 
 @end
 
 @implementation ShiftsTableViewController
 
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    
+    NSSortDescriptor *sortByDate = [[NSSortDescriptor alloc]initWithKey:@"startDate" ascending:YES];
+    
+    self.shiftsList = [self.waiter.shifts sortedArrayUsingDescriptors:@[sortByDate]];
+    
+    [self.tableView reloadData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,24 +46,27 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return self.shiftsList.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     // Configure the cell...
     
+    Shift *aShift = self.shiftsList[indexPath.row];
+    cell.textLabel.text = aShift.startDate;
+    cell.detailTextLabel.text = aShift.endDate;
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
