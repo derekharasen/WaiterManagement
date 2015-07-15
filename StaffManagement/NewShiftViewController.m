@@ -44,7 +44,7 @@
     Shift *aShift = [[Shift alloc]initWithEntity:shiftEntity insertIntoManagedObjectContext:appDelegate.managedObjectContext];
     aShift.startDate = self.startDateTextField.text;
     aShift.endDate = self.endDateTextField.text;
-    Waiter *aWaiter = [[Waiter alloc]init];
+    Waiter *aWaiter;
     aWaiter = self.waiter;
     
     [aWaiter addShiftsObject:aShift];

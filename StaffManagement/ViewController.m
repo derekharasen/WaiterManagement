@@ -11,6 +11,7 @@
 #import "RestaurantManager.h"
 #import "Waiter.h"
 #import "AppDelegate.h"
+#import "ShiftsTableViewController.h"
 
 static NSString * const kCellIdentifier = @"CellIdentifier";
 
@@ -77,6 +78,13 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"shiftPush"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        ShiftsTableViewController *destViewController = segue.destinationViewController;
+        destViewController.waiter = self.waiters[indexPath.row];
+    }
+}
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
