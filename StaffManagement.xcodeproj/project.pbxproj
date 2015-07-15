@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2A1253261B5696C100E04D5F /* ShiftsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1253251B5696C100E04D5F /* ShiftsTableViewController.m */; };
 		2A1253291B5696E900E04D5F /* NewShiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1253281B5696E900E04D5F /* NewShiftViewController.m */; };
+		2A12532C1B569B3600E04D5F /* Shift.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A12532B1B569B3600E04D5F /* Shift.m */; };
 		2AD71B551B54A49E00D25E73 /* NewWaiterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD71B541B54A49E00D25E73 /* NewWaiterViewController.m */; };
 		651CBBAF1AB4E1CC00F265E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBAE1AB4E1CC00F265E8 /* main.m */; };
 		651CBBB21AB4E1CC00F265E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBB11AB4E1CC00F265E8 /* AppDelegate.m */; };
@@ -38,6 +39,8 @@
 		2A1253251B5696C100E04D5F /* ShiftsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShiftsTableViewController.m; sourceTree = "<group>"; };
 		2A1253271B5696E900E04D5F /* NewShiftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewShiftViewController.h; sourceTree = "<group>"; };
 		2A1253281B5696E900E04D5F /* NewShiftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewShiftViewController.m; sourceTree = "<group>"; };
+		2A12532A1B569B3600E04D5F /* Shift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shift.h; sourceTree = "<group>"; };
+		2A12532B1B569B3600E04D5F /* Shift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shift.m; sourceTree = "<group>"; };
 		2AD71B531B54A49E00D25E73 /* NewWaiterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewWaiterViewController.h; sourceTree = "<group>"; };
 		2AD71B541B54A49E00D25E73 /* NewWaiterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewWaiterViewController.m; sourceTree = "<group>"; };
 		651CBBA91AB4E1CC00F265E8 /* StaffManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StaffManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,12 +108,12 @@
 				651CBBB11AB4E1CC00F265E8 /* AppDelegate.m */,
 				2AD71B531B54A49E00D25E73 /* NewWaiterViewController.h */,
 				2AD71B541B54A49E00D25E73 /* NewWaiterViewController.m */,
+				2A1253271B5696E900E04D5F /* NewShiftViewController.h */,
+				2A1253281B5696E900E04D5F /* NewShiftViewController.m */,
 				651CBBD51AB4E31400F265E8 /* RestaurantManager.h */,
 				651CBBD61AB4E31400F265E8 /* RestaurantManager.m */,
 				2A1253241B5696C100E04D5F /* ShiftsTableViewController.h */,
 				2A1253251B5696C100E04D5F /* ShiftsTableViewController.m */,
-				2A1253271B5696E900E04D5F /* NewShiftViewController.h */,
-				2A1253281B5696E900E04D5F /* NewShiftViewController.m */,
 				651CBBB61AB4E1CD00F265E8 /* ViewController.h */,
 				651CBBB71AB4E1CD00F265E8 /* ViewController.m */,
 				651CBBB91AB4E1CD00F265E8 /* Main.storyboard */,
@@ -152,10 +155,12 @@
 			isa = PBXGroup;
 			children = (
 				651CBBB31AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld */,
-				651CBBDB1AB4E4A100F265E8 /* Waiter.h */,
-				651CBBDC1AB4E4A100F265E8 /* Waiter.m */,
 				651CBBD81AB4E4A000F265E8 /* Restaurant.h */,
 				651CBBD91AB4E4A000F265E8 /* Restaurant.m */,
+				2A12532A1B569B3600E04D5F /* Shift.h */,
+				2A12532B1B569B3600E04D5F /* Shift.m */,
+				651CBBDB1AB4E4A100F265E8 /* Waiter.h */,
+				651CBBDC1AB4E4A100F265E8 /* Waiter.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 				651CBBDD1AB4E4A100F265E8 /* Waiter.m in Sources */,
 				651CBBDA1AB4E4A000F265E8 /* Restaurant.m in Sources */,
 				651CBBAF1AB4E1CC00F265E8 /* main.m in Sources */,
+				2A12532C1B569B3600E04D5F /* Shift.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
