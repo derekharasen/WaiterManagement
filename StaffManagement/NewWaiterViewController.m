@@ -23,6 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.waiterNameTextField.delegate = self;
+
 }
 
 - (void)didReceiveMemoryWarning {
