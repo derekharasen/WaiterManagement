@@ -65,7 +65,7 @@
             </objects>
             <point key="canvasLocation" x="1137" y="356"/>
         </scene>
-        <!--Shifts Table View Controller-->
+        <!--Shifts-->
         <scene sceneID="ivQ-Em-wtd">
             <objects>
                 <tableViewController id="BVm-qw-NME" customClass="ShiftsTableViewController" sceneMemberID="viewController">
@@ -86,7 +86,7 @@
                             <outlet property="delegate" destination="BVm-qw-NME" id="wq8-7t-0TI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="V5j-IM-A87">
+                    <navigationItem key="navigationItem" title="Shifts" id="V5j-IM-A87">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="RzV-wR-gID">
                             <connections>
                                 <segue destination="ax9-ZZ-7wo" kind="presentation" identifier="newShift" id="h93-tQ-sEc"/>

@@ -7,7 +7,12 @@
 //
 
 #import <CoreData/CoreData.h>
+@class Waiter;
 
 @interface Shift : NSManagedObject
+
+@property (retain, nonatomic) NSString *startDate;
+@property (retain, nonatomic) NSString *endDate;
+@property (retain, nonatomic) Waiter *waiter;
 
 @end
