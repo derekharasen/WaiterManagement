@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "Restaurant.h"
 @interface RestaurantManager : NSObject
+
 + (id)sharedManager;
--(Restaurant*)currentRestaurant;
+- (Restaurant*)currentRestaurant;
+
 @end
