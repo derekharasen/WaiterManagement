@@ -1,47 +1,28 @@
 //
-//  ViewController.m
+//  ShiftsViewController.m
 //  StaffManagement
 //
-//  Created by Derek Harasen on 2015-03-14.
-//  Copyright (c) 2015 Derek Harasen. All rights reserved.
+//  Created by Daniel Hooper on 2016-04-14.
+//  Copyright © 2016 Derek Harasen. All rights reserved.
 //
 
-#import "ViewController.h"
 #import "ShiftsViewController.h"
-#import "Restaurant.h"
-#import "RestaurantManager.h"
-#import "Waiter.h"
-#import "AddWaiterViewController.h"
-#import "AppDelegate.h"
+#import "StaffManagement-Swift.h"
 
 static NSString * const kCellIdentifier = @"CellIdentifier";
 
-@interface ViewController ()
+@interface ShiftsViewController ()
 
 @property IBOutlet UITableView *tableView;
-//@property (nonatomic, retain) NSArray *waiters;
 
 @end
 
-@implementation ViewController
+@implementation ShiftsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCellIdentifier];
-    
-    /*  We don't need a global waiters array when using NSFetechedResultsController
-     
-    NSSortDescriptor *sortByName = [[NSSortDescriptor alloc]initWithKey:@"name" ascending:YES];
-    self.waiters = [[[RestaurantManager sharedManager]currentRestaurant].staff sortedArrayUsingDescriptors:@[sortByName]];
-    */
-    
-    // We have to run this initially so we populate our table with "John Smith"
-    [[RestaurantManager sharedManager]currentRestaurant];
-    
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
-    self.managedObjectContext = [appDelegate managedObjectContext];
-    
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
@@ -62,9 +43,10 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 }
 
 - (void)insertNewObject:(id)sender {
-    AddWaiterViewController *addWaiterViewController = [[AddWaiterViewController alloc] init];
-    addWaiterViewController.managedObjectContext = self.managedObjectContext;
-    [self presentViewController:addWaiterViewController animated:YES completion:nil];
+    AddShiftViewController *addShiftViewController = [[AddShiftViewController alloc] init];
+    addShiftViewController.managedObjectContext = self.managedObjectContext;
+    addShiftViewController.detailItem = self.detailItem;
+    [self presentViewController:addShiftViewController animated:YES completion:nil];
 }
 
 #pragma mark - TableView Data Source
@@ -74,8 +56,6 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return self.waiters.count;
-
     NSArray *sections = [self.fetchedResultsController sections];
     id<NSFetchedResultsSectionInfo> sectionInfo = [sections objectAtIndex:section];
     return [sectionInfo numberOfObjects];
@@ -84,9 +64,6 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier forIndexPath:indexPath];
     
-//    Waiter *waiter = self.waiters[indexPath.row];
-//    cell.textLabel.text = waiter.name;
-        
     [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
@@ -113,11 +90,24 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     NSManagedObject *record = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [record valueForKey:@"name"];
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self performSegueWithIdentifier:@"showShifts" sender:self];
+    
+    NSDate *date      = [record valueForKey:@"date"];
+    NSDate *startTime = [record valueForKey:@"start"];
+    NSDate *endTime   = [record valueForKey:@"end"];
+    
+    NSString *dateFormatted = [NSDateFormatter localizedStringFromDate:endTime
+                                                   dateStyle:NSDateFormatterShortStyle
+                                                   timeStyle:NSDateFormatterNoStyle];
+    
+    NSString *start = [NSDateFormatter localizedStringFromDate:startTime
+                                                          dateStyle:NSDateFormatterNoStyle
+                                                          timeStyle:NSDateFormatterShortStyle];
+                            
+    NSString *end = [NSDateFormatter localizedStringFromDate:endTime
+                                                     dateStyle:NSDateFormatterNoStyle
+                                                     timeStyle:NSDateFormatterShortStyle];
+    NSString *shiftString = [NSString stringWithFormat:@"%@, %@ - %@", dateFormatted, start, end];
+    cell.textLabel.text = shiftString;
 }
 
 #pragma mark - Fetched results controller
@@ -127,16 +117,20 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
         return _fetchedResultsController;
     }
     
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Shift" inManagedObjectContext:self.managedObjectContext];
     
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"start" ascending:YES];
+    
+    // We need a predicate to get the shifts of just the selected waiter. Thanks Ken!
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"waiter = %@", self.detailItem];
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     [fetchRequest setEntity:entity];
     [fetchRequest setFetchBatchSize:10];
     [fetchRequest setSortDescriptors:@[sortDescriptor]];
+    [fetchRequest setPredicate:predicate];
     
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
@@ -197,17 +191,14 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     [self.tableView endUpdates];
 }
 
+/*
+#pragma mark - Navigation
 
-#pragma mark - Segues
-
+// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"showShifts"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        ShiftsViewController *controller = [segue destinationViewController];
-        [controller setManagedObjectContext:self.managedObjectContext];
-        controller.detailItem = object;
-    }
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
+*/
 
 @end
