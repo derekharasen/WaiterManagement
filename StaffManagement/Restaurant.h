@@ -14,6 +14,7 @@
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSSet *staff;
+
 @end
 
 @interface Restaurant (CoreDataGeneratedAccessors)

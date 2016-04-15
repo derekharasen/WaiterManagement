@@ -10,11 +10,15 @@
 #import "AppDelegate.h"
 #import "Waiter.h"
 #import "Restaurant.h"
+
 @interface RestaurantManager()
+
 @property (nonatomic, retain) Restaurant *restaurant;
+
 @end
 
 @implementation RestaurantManager
+
 + (id)sharedManager {
     static RestaurantManager *sharedManager = nil;
     static dispatch_once_t once;
@@ -23,8 +27,9 @@
     });
     return sharedManager;
 }
--(Restaurant*)currentRestaurant{
-    if(self.restaurant == nil)
+
+- (Restaurant*)currentRestaurant{
+    if (self.restaurant == nil)
     {
         Restaurant *aRestaurant;
         NSError *error = nil;
@@ -32,10 +37,10 @@
         NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Restaurant"];
         NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:request error:&error];
         
-        if(results.count > 0){
+        if (results.count > 0) {
             aRestaurant = results[0];
         }
-        else{
+        else {
             NSEntityDescription *restaurantEntity = [NSEntityDescription entityForName:@"Restaurant" inManagedObjectContext:appDelegate.managedObjectContext];
             NSEntityDescription *waiterEntity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:appDelegate.managedObjectContext];
             aRestaurant = [[Restaurant alloc] initWithEntity:restaurantEntity insertIntoManagedObjectContext:appDelegate.managedObjectContext];
@@ -50,4 +55,5 @@
     }
     return self.restaurant;
 }
+
 @end
