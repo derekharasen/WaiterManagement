@@ -20,6 +20,19 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="idB-MD-rVO">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="vFU-8i-0VM">
+                                        <rect key="frame" x="0.0" y="86" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vFU-8i-0VM" id="rJQ-QR-hUB">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="JeS-b1-asH" kind="show" identifier="showShifts" id="lHG-Pz-Kwj"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="vXZ-lx-hvc" id="iE6-w6-mfH"/>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="XYW-pR-fGp"/>
@@ -42,6 +55,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1264" y="351"/>
+        </scene>
+        <!--Shifts View Controller-->
+        <scene sceneID="lm9-Nb-YNK">
+            <objects>
+                <viewController id="JeS-b1-asH" customClass="ShiftsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nwr-Yw-Vz6"/>
+                        <viewControllerLayoutGuide type="bottom" id="L5H-6E-JiQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AAP-ub-4Li">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZKQ-p1-3FP">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="JeS-b1-asH" id="Wy9-ld-yq9"/>
+                                    <outlet property="delegate" destination="JeS-b1-asH" id="Bfn-Gf-5hX"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ZKQ-p1-3FP" secondAttribute="trailing" id="9Wg-p2-vkD"/>
+                            <constraint firstItem="ZKQ-p1-3FP" firstAttribute="leading" secondItem="AAP-ub-4Li" secondAttribute="leading" id="DqK-Cu-j03"/>
+                            <constraint firstItem="L5H-6E-JiQ" firstAttribute="top" secondItem="ZKQ-p1-3FP" secondAttribute="bottom" id="SZC-VT-WfF"/>
+                            <constraint firstItem="ZKQ-p1-3FP" firstAttribute="top" secondItem="nwr-Yw-Vz6" secondAttribute="bottom" id="zBZ-2p-btO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="ZKQ-p1-3FP" id="ptW-Pv-uOH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HjB-Pc-0fb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1964" y="351"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zXR-pm-w1L">
