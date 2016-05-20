@@ -15,4 +15,11 @@
 @dynamic name;
 @dynamic restaurant;
 
++ (NSString *)entityName{
+  return @"Waiter";
+}
++ (instancetype)insertNewObjectIntoContext:(NSManagedObjectContext *)context{
+  return [NSEntityDescription insertNewObjectForEntityForName:[self entityName]
+                                       inManagedObjectContext:context];
+}
 @end

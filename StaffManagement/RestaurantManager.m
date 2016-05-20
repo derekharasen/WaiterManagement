@@ -50,4 +50,32 @@
     }
     return self.restaurant;
 }
+-(Waiter *)addWaiter:(NSString *)name{
+  //Get app delegate instance
+  AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+  NSManagedObjectContext *moc = appDelegate.managedObjectContext;
+  
+  Waiter *newWaiter = [Waiter insertNewObjectIntoContext:moc];
+  newWaiter.name = name;
+  newWaiter.restaurant = self.currentRestaurant;
+  
+  NSError *error = nil;
+  if ([moc save:&error] == NO) {
+    NSAssert(NO, @"Error saving context: %@\n%@", [error localizedDescription], [error userInfo]);
+  }
+  
+  return newWaiter;
+}
+-(BOOL)deleteWaiter:(NSManagedObject *)waiter{
+  //Get app delegate instance
+  NSManagedObjectContext *moc = waiter.managedObjectContext;
+  
+  [moc deleteObject:waiter];
+  
+  NSError *error = nil;
+  if ([moc save:&error] == NO) {
+    NSAssert(NO, @"Error saving context: %@\n%@", [error localizedDescription], [error userInfo]);
+  }
+  return true;
+}
 @end

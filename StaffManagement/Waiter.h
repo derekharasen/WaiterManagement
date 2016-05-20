@@ -16,4 +16,6 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) Restaurant *restaurant;
 
++ (NSString *)entityName;
++ (instancetype)insertNewObjectIntoContext:(NSManagedObjectContext *)context;
 @end

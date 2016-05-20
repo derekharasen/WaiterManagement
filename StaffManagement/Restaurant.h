@@ -18,6 +18,9 @@
 
 @interface Restaurant (CoreDataGeneratedAccessors)
 
++ (NSString *)entityName;
++ (instancetype)insertNewObjectIntoContext:(NSManagedObjectContext *)context;
+
 - (void)addStaffObject:(NSManagedObject *)value;
 - (void)removeStaffObject:(NSManagedObject *)value;
 - (void)addStaff:(NSSet *)values;
