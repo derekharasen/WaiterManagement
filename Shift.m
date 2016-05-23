@@ -1,23 +1,24 @@
 //
-//  Waiter.m
+//  Shift.m
 //  StaffManagement
 //
-//  Created by Derek Harasen on 2015-03-14.
-//  Copyright (c) 2015 Derek Harasen. All rights reserved.
+//  Created by Karlo Pagtakhan on 05/20/2016.
+//  Copyright © 2016 Derek Harasen. All rights reserved.
 //
 
+#import "Shift.h"
 #import "Waiter.h"
-#import "Restaurant.h"
 
-
-@implementation Waiter
+@implementation Shift
 
 @dynamic name;
-@dynamic restaurant;
-@dynamic shift;
+@dynamic startTime;
+@dynamic endTime;
+@dynamic waiter;
 
+// Insert code here to add functionality to your managed object subclass
 + (NSString *)entityName{
-  return @"Waiter";
+  return @"Shift";
 }
 + (instancetype)insertNewObjectIntoContext:(NSManagedObjectContext *)context{
   return [NSEntityDescription insertNewObjectForEntityForName:[self entityName]

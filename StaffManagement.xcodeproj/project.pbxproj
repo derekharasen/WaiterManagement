@@ -18,6 +18,11 @@
 		651CBBD71AB4E31400F265E8 /* RestaurantManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBD61AB4E31400F265E8 /* RestaurantManager.m */; };
 		651CBBDA1AB4E4A000F265E8 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBD91AB4E4A000F265E8 /* Restaurant.m */; };
 		651CBBDD1AB4E4A100F265E8 /* Waiter.m in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBDC1AB4E4A100F265E8 /* Waiter.m */; };
+		A75484A21CEEC016002B75A5 /* ShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75484A11CEEC016002B75A5 /* ShiftViewController.swift */; };
+		A75484A81CEEC4AC002B75A5 /* Shift.m in Sources */ = {isa = PBXBuildFile; fileRef = A75484A61CEEC4AC002B75A5 /* Shift.m */; };
+		A77530761CEFF90A0071BF3C /* AddShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77530751CEFF90A0071BF3C /* AddShiftViewController.swift */; };
+		A77530781CEFFA110071BF3C /* TimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77530771CEFFA110071BF3C /* TimeTableViewCell.swift */; };
+		A7C9586D1CF2246900BC1FF1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C9586C1CF2246900BC1FF1 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,13 @@
 		651CBBD91AB4E4A000F265E8 /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
 		651CBBDB1AB4E4A100F265E8 /* Waiter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Waiter.h; sourceTree = "<group>"; };
 		651CBBDC1AB4E4A100F265E8 /* Waiter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Waiter.m; sourceTree = "<group>"; };
+		A75484A01CEEC015002B75A5 /* StaffManagement-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StaffManagement-Bridging-Header.h"; sourceTree = "<group>"; };
+		A75484A11CEEC016002B75A5 /* ShiftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftViewController.swift; sourceTree = "<group>"; };
+		A75484A51CEEC4AC002B75A5 /* Shift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Shift.h; path = ../Shift.h; sourceTree = "<group>"; };
+		A75484A61CEEC4AC002B75A5 /* Shift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Shift.m; path = ../Shift.m; sourceTree = "<group>"; };
+		A77530751CEFF90A0071BF3C /* AddShiftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddShiftViewController.swift; sourceTree = "<group>"; };
+		A77530771CEFFA110071BF3C /* TimeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTableViewCell.swift; sourceTree = "<group>"; };
+		A7C9586C1CF2246900BC1FF1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +110,16 @@
 				651CBBD61AB4E31400F265E8 /* RestaurantManager.m */,
 				651CBBB61AB4E1CD00F265E8 /* ViewController.h */,
 				651CBBB71AB4E1CD00F265E8 /* ViewController.m */,
+				A75484A11CEEC016002B75A5 /* ShiftViewController.swift */,
+				A77530751CEFF90A0071BF3C /* AddShiftViewController.swift */,
+				A77530771CEFFA110071BF3C /* TimeTableViewCell.swift */,
+				A7C9586C1CF2246900BC1FF1 /* Constants.swift */,
 				651CBBB91AB4E1CD00F265E8 /* Main.storyboard */,
 				651CBBBC1AB4E1CD00F265E8 /* Images.xcassets */,
 				651CBBBE1AB4E1CD00F265E8 /* LaunchScreen.xib */,
 				651CBBDE1AB4E4AC00F265E8 /* Core Data */,
 				651CBBAC1AB4E1CC00F265E8 /* Supporting Files */,
+				A75484A01CEEC015002B75A5 /* StaffManagement-Bridging-Header.h */,
 			);
 			path = StaffManagement;
 			sourceTree = "<group>";
@@ -141,6 +158,8 @@
 				651CBBDC1AB4E4A100F265E8 /* Waiter.m */,
 				651CBBD81AB4E4A000F265E8 /* Restaurant.h */,
 				651CBBD91AB4E4A000F265E8 /* Restaurant.m */,
+				A75484A51CEEC4AC002B75A5 /* Shift.h */,
+				A75484A61CEEC4AC002B75A5 /* Shift.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -189,6 +208,7 @@
 		651CBBA11AB4E1CC00F265E8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = "Derek Harasen";
 				TargetAttributes = {
@@ -246,12 +266,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				651CBBD71AB4E31400F265E8 /* RestaurantManager.m in Sources */,
+				A75484A21CEEC016002B75A5 /* ShiftViewController.swift in Sources */,
 				651CBBB51AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld in Sources */,
+				A77530761CEFF90A0071BF3C /* AddShiftViewController.swift in Sources */,
+				A75484A81CEEC4AC002B75A5 /* Shift.m in Sources */,
 				651CBBB21AB4E1CC00F265E8 /* AppDelegate.m in Sources */,
 				651CBBB81AB4E1CD00F265E8 /* ViewController.m in Sources */,
+				A77530781CEFFA110071BF3C /* TimeTableViewCell.swift in Sources */,
 				651CBBDD1AB4E4A100F265E8 /* Waiter.m in Sources */,
 				651CBBDA1AB4E4A000F265E8 /* Restaurant.m in Sources */,
 				651CBBAF1AB4E1CC00F265E8 /* main.m in Sources */,
+				A7C9586D1CF2246900BC1FF1 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,9 +398,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = StaffManagement/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "StaffManagement/StaffManagement-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -383,9 +411,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = StaffManagement/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "StaffManagement/StaffManagement-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -442,6 +472,7 @@
 				651CBBD11AB4E1CD00F265E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		651CBBD21AB4E1CD00F265E8 /* Build configuration list for PBXNativeTarget "StaffManagementTests" */ = {
 			isa = XCConfigurationList;
@@ -450,6 +481,7 @@
 				651CBBD41AB4E1CD00F265E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
