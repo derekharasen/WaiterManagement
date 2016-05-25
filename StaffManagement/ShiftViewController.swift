@@ -68,6 +68,7 @@ class ShiftViewController: UIViewController {
   }
   func updateData(reload:Bool = false){
     shifts = RestaurantManager.sharedManager().getShiftsForWaiter(waiter) as [Shift]
+    shifts.sortInPlace { $0.name.compare($1.name) == NSComparisonResult.OrderedAscending }
     if reload{
       tableView.reloadData()
     }

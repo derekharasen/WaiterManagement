@@ -58,7 +58,8 @@
   
   //Fetch Request
   NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:[Shift entityName]];
-  request.predicate = [NSPredicate predicateWithFormat:@"%K like %@",@"waiter.name", waiter.name];
+  request.predicate = [NSPredicate predicateWithFormat:@"%K == %@",@"waiter.name", waiter.name];
+  request.returnsObjectsAsFaults = NO;//Get all Shift objects right away
   
   NSError *error = nil;
   return [moc executeFetchRequest:request error:&error];
