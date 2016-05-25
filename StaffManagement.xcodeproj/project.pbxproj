@@ -92,16 +92,14 @@
 		651CBBAB1AB4E1CC00F265E8 /* StaffManagement */ = {
 			isa = PBXGroup;
 			children = (
+				A7F9F0BC1CEE3996003BA99D /* View Controllers */,
+				A7F9F0BD1CEE39A6003BA99D /* Data Managers */,
+				651CBBDE1AB4E4AC00F265E8 /* Core Data */,
+				A7F9F0BE1CEE39B8003BA99D /* Storyboard */,
 				651CBBB01AB4E1CC00F265E8 /* AppDelegate.h */,
 				651CBBB11AB4E1CC00F265E8 /* AppDelegate.m */,
-				651CBBD51AB4E31400F265E8 /* RestaurantManager.h */,
-				651CBBD61AB4E31400F265E8 /* RestaurantManager.m */,
-				651CBBB61AB4E1CD00F265E8 /* ViewController.h */,
-				651CBBB71AB4E1CD00F265E8 /* ViewController.m */,
-				651CBBB91AB4E1CD00F265E8 /* Main.storyboard */,
 				651CBBBC1AB4E1CD00F265E8 /* Images.xcassets */,
 				651CBBBE1AB4E1CD00F265E8 /* LaunchScreen.xib */,
-				651CBBDE1AB4E4AC00F265E8 /* Core Data */,
 				651CBBAC1AB4E1CC00F265E8 /* Supporting Files */,
 			);
 			path = StaffManagement;
@@ -143,6 +141,32 @@
 				651CBBD91AB4E4A000F265E8 /* Restaurant.m */,
 			);
 			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		A7F9F0BC1CEE3996003BA99D /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				651CBBB61AB4E1CD00F265E8 /* ViewController.h */,
+				651CBBB71AB4E1CD00F265E8 /* ViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		A7F9F0BD1CEE39A6003BA99D /* Data Managers */ = {
+			isa = PBXGroup;
+			children = (
+				651CBBD51AB4E31400F265E8 /* RestaurantManager.h */,
+				651CBBD61AB4E31400F265E8 /* RestaurantManager.m */,
+			);
+			name = "Data Managers";
+			sourceTree = "<group>";
+		};
+		A7F9F0BE1CEE39B8003BA99D /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				651CBBB91AB4E1CD00F265E8 /* Main.storyboard */,
+			);
+			name = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,7 +213,7 @@
 		651CBBA11AB4E1CC00F265E8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Derek Harasen";
 				TargetAttributes = {
 					651CBBA81AB4E1CC00F265E8 = {
@@ -313,6 +337,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -375,6 +400,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = StaffManagement/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.TouchBistro.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -385,6 +411,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = StaffManagement/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.TouchBistro.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -403,6 +430,7 @@
 				);
 				INFOPLIST_FILE = StaffManagementTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.TouchBistro.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StaffManagement.app/StaffManagement";
 			};
@@ -418,6 +446,7 @@
 				);
 				INFOPLIST_FILE = StaffManagementTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.TouchBistro.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StaffManagement.app/StaffManagement";
 			};
@@ -442,6 +471,7 @@
 				651CBBD11AB4E1CD00F265E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		651CBBD21AB4E1CD00F265E8 /* Build configuration list for PBXNativeTarget "StaffManagementTests" */ = {
 			isa = XCConfigurationList;
@@ -450,6 +480,7 @@
 				651CBBD41AB4E1CD00F265E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
