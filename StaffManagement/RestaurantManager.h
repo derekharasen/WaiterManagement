@@ -8,7 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "Restaurant.h"
+@class Shift;
+@class Waiter;
 @interface RestaurantManager : NSObject
 + (id)sharedManager;
 -(Restaurant*)currentRestaurant;
+-(Shift *)saveShiftToWaiter:(Waiter*)waiter
+                  WithShift:(NSString *)shiftName
+                  WithStart:(NSDate *)start
+                    withEnd:(NSDate *)end;
+-(BOOL)deleteShift:(Shift*)shift;
+-(NSArray<Shift *> *)getShiftsForWaiter:(Waiter *)waiter;
 @end

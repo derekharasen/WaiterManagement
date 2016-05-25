@@ -10,10 +10,11 @@
 #import "Restaurant.h"
 #import "RestaurantManager.h"
 #import "Waiter.h"
+#import "StaffManagement-Swift.h"
 
 static NSString * const kCellIdentifier = @"CellIdentifier";
 
-@interface ViewController ()
+@interface ViewController ()<UITableViewDelegate>
 @property IBOutlet UITableView *tableView;
 @property (nonatomic, retain) NSArray *waiters;
 @end
@@ -26,12 +27,20 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     NSSortDescriptor *sortByName = [[NSSortDescriptor alloc]initWithKey:@"name" ascending:YES];
     self.waiters = [[[RestaurantManager sharedManager]currentRestaurant].staff sortedArrayUsingDescriptors:@[sortByName]];
     // Do any additional setup after loading the view, typically from a nib.
+  
+    [self prepareView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark - Preparation
+- (void)prepareView{
+  //Set Navigation Controller Title
+  [self.navigationItem setTitle:@"Staff Management"];
+}
+
 #pragma mark - TableView Data Source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -44,5 +53,18 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     Waiter *waiter = self.waiters[indexPath.row];
     cell.textLabel.text = waiter.name;
     return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+  [self performSegueWithIdentifier:@"showShift" sender:self];
+}
+#pragma mark - Navigation
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+  if ([segue.identifier isEqualToString:@"showShift"]){
+    [self prepareShiftViewController:(ShiftViewController *)segue.destinationViewController];
+  }
+}
+-(void)prepareShiftViewController:(ShiftViewController *)viewController{
+  NSInteger selectedRow = [self.tableView indexPathForSelectedRow].row;
+  viewController.waiter = self.waiters[selectedRow];
 }
 @end
