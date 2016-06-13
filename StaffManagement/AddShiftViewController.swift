@@ -9,31 +9,51 @@
 import UIKit
 
 class AddShiftViewController: UIViewController {
+    
+    var waiter: Waiter!
 
+    @IBOutlet var startDatePicker: UIDatePicker!
+    @IBOutlet var endDatePicker: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Button Functions
+    @IBAction func addButton(sender: UIButton) {
+        
+        //Add new shift to Core Data
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        
+        let entity =  NSEntityDescription.entityForName("Shift", inManagedObjectContext: managedContext)
+        
+        let newShift = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+        let startDate: NSDate = startDatePicker.date
+        let endDate: NSDate = endDatePicker.date
+        
+        newShift.setValue(self.waiter, forKey: "waiter")
+        newShift.setValue(startDate, forKey: "start")
+        newShift.setValue(endDate, forKey: "end")
+        
+        //Save context
+        do {
+            try managedContext.save()
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+        
+        //Dismiss to previous view
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
+    // MARK: - Dismiss to previous view
     @IBAction func backButton(sender: UIButton) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

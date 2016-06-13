@@ -2,7 +2,7 @@
 //  Shift+CoreDataProperties.h
 //  StaffManagement
 //
-//  Created by Stephen Gilroy on 2016-06-10.
+//  Created by Stephen Gilroy on 2016-06-13.
 //  Copyright © 2016 Derek Harasen. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -17,16 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nullable, nonatomic, retain) NSDate *start;
 @property (nullable, nonatomic, retain) NSDate *end;
-@property (nullable, nonatomic, retain) NSSet<Waiter *> *waiter;
-
-@end
-
-@interface Shift (CoreDataGeneratedAccessors)
-
-- (void)addWaiterObject:(Waiter *)value;
-- (void)removeWaiterObject:(Waiter *)value;
-- (void)addWaiter:(NSSet<Waiter *> *)values;
-- (void)removeWaiter:(NSSet<Waiter *> *)values;
+@property (nullable, nonatomic, retain) Waiter *waiter;
 
 @end
 

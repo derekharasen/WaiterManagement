@@ -14,5 +14,6 @@
 
 @dynamic name;
 @dynamic restaurant;
+@dynamic shift;
 
 @end

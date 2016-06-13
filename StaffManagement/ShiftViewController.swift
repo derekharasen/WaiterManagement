@@ -8,12 +8,26 @@
 
 import UIKit
 
-class ShiftViewController: UIViewController {
+class ShiftViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var waiter: Waiter!
+    var shifts = [Shift]()
 
+    @IBOutlet var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        loadShifts()
+        tableView.reloadData()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        loadShifts()
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,21 +35,92 @@ class ShiftViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    @IBAction func addShiftButton(sender: UIButton) {
-        performSegueWithIdentifier("AddShift", sender: self)
+    // MARK: - TableView
+    
+    // Table data source
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.shifts.count
     }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("ShiftCell", forIndexPath: indexPath)
+        
+        // Format date/time
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.FullStyle
+        
+        let timeFormatter = NSDateFormatter()
+        timeFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        
+        let formattedDate = dateFormatter.stringFromDate(self.shifts[indexPath.row].start!)
+        let formattedStartTime = timeFormatter.stringFromDate(self.shifts[indexPath.row].start!)
+        let formattedEndTime = timeFormatter.stringFromDate(self.shifts[indexPath.row].end!)
+        
+        // Display on label
+        cell.textLabel?.text = formattedDate
+        cell.detailTextLabel?.text = "\(formattedStartTime) to \(formattedEndTime)"
+        
+        return cell
+    }
+    
+    // Allow deletion of rows
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if (editingStyle == .Delete) {
+            // Delete object from Core Data
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            let managedContext = appDelegate.managedObjectContext
+            
+            managedContext.deleteObject(shifts[indexPath.row])
+            
+            // Save context
+            do {
+                try managedContext.save()
+            } catch let error as NSError {
+                print("Could not delete \(error), \(error.userInfo)")
+            }
+            
+            // Update table view
+            loadShifts()
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+    }
+    
+    // MARK: - Navigation
+    
     @IBAction func backButton(sender: UIButton) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        (segue.destinationViewController as? AddShiftViewController)?.waiter = self.waiter
     }
-    */
-
+    
+    // MARK: - Core Data helper functions
+    
+    func loadShifts(){
+        
+        // Fetch shift information from Core Data
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        
+        // Create fetch request and predicate
+        let fetchRequest = NSFetchRequest(entityName: "Shift")
+        fetchRequest.predicate = NSPredicate(format: "%K LIKE %@", "waiter.name", waiter.name)
+        
+        // Attempt the fetch, save to local shifts array and order
+        do {
+            let results = try managedContext.executeFetchRequest(fetchRequest) as! [Shift]
+            self.shifts = results
+            self.shifts.sortInPlace({$0.start!.compare($1.start!) == .OrderedAscending})
+            
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+    }
 }

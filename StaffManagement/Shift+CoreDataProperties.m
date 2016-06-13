@@ -2,7 +2,7 @@
 //  Shift+CoreDataProperties.m
 //  StaffManagement
 //
-//  Created by Stephen Gilroy on 2016-06-10.
+//  Created by Stephen Gilroy on 2016-06-13.
 //  Copyright © 2016 Derek Harasen. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
