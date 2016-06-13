@@ -10,6 +10,7 @@
 #import "Restaurant.h"
 #import "RestaurantManager.h"
 #import "Waiter.h"
+#import "StaffManagement-Swift.h"
 
 static NSString * const kCellIdentifier = @"CellIdentifier";
 
@@ -45,4 +46,32 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     cell.textLabel.text = waiter.name;
     return cell;
 }
+
+#pragma mark - Segue
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    [self performSegueWithIdentifier:@"WaiterShifts" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"WaiterShifts"])
+    {
+        
+        ShiftViewController * destination = segue.destinationViewController;
+        //NSIndexPath * indexPath = (NSIndexPath*)sender;
+        
+    }
+    
+
+}
+
+
+
+
+
+
+
+
 @end
