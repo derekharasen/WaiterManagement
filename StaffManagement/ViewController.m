@@ -33,68 +33,9 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-#pragma mark - Add Waiter Button
-
-- (IBAction)addWaiterButton:(UIButton *)sender {
-    UIAlertView *alertViewAddName =[[UIAlertView alloc]initWithTitle:@"Add Waiter"
-                                                                message:@"What is the waiter's name?"
-                                                               delegate:self
-                                                      cancelButtonTitle:@"Cancel"
-                                                      otherButtonTitles:nil];
-    
-    alertViewAddName.alertViewStyle = UIAlertViewStylePlainTextInput;
-    [alertViewAddName show];
-}
-
-#pragma - Alert View
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    if ([[[alertView textFieldAtIndex:0] text] isEqualToString:@""]){
-        UIAlertView *emptyTextFieldAlertView =[[UIAlertView alloc]initWithTitle:@"Error"
-                                                                 message:@"No name was entered."
-                                                                delegate:self
-                                                       cancelButtonTitle:@"Okay"
-                                                       otherButtonTitles:nil];
-        [emptyTextFieldAlertView show];
-    }else{
-    
-    // Create a new managed object
-    NSEntityDescription *waiterEntity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:context];
-    Waiter *newWaiter = [[Waiter alloc]initWithEntity:waiterEntity insertIntoManagedObjectContext:context];
-    newWaiter.name = NSLocalizedString([[alertView textFieldAtIndex:0] text], nil);
-    [[[RestaurantManager sharedManager]currentRestaurant]  addStaffObject:newWaiter];
-
-    
-    NSError *error = nil;
-    // Save the object to persistent store
-    if (![context save:&error]) {
-        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-    }
-    
-    // Fetch latest list from persistent store
-    
-    NSSortDescriptor *sortByName = [[NSSortDescriptor alloc]initWithKey:@"name" ascending:YES];
-    self.waiters = [[[[RestaurantManager sharedManager]currentRestaurant].staff sortedArrayUsingDescriptors:@[sortByName]] mutableCopy];
-    [self.tableView reloadData];
-    }
-}
-
-#pragma mark - Core Data
-
-- (NSManagedObjectContext *)managedObjectContext {
-    NSManagedObjectContext *context = nil;
-    id delegate = [[UIApplication sharedApplication] delegate];
-    if ([delegate performSelector:@selector(managedObjectContext)]) {
-        context = [delegate managedObjectContext];
-    }
-    return context;
-}
-
 
 #pragma mark - TableView Data Source
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -108,28 +49,108 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     return cell;
 }
 
+#pragma mark - TableView editing (delete row)
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        if (editingStyle == UITableViewCellEditingStyleDelete) {
-            
-            NSManagedObjectContext *context = [self managedObjectContext];
-            
-            // Delete object from database
-            [context deleteObject:[self.waiters objectAtIndex:indexPath.row]];
-            
-            NSError *error = nil;
-            if (![context save:&error]) {
-                NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
-                return;
-            }
-            
-            // Remove device from table view
-            [self.waiters removeObjectAtIndex:indexPath.row];
-            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        //Get Managed Object Context from AppDelegate
+        id delegate = [[UIApplication sharedApplication] delegate];
+        NSManagedObjectContext *context = [delegate managedObjectContext];
+        
+        // Delete object from database/handle error
+        [context deleteObject:[self.waiters objectAtIndex:indexPath.row]];
+        
+        NSError *error = nil;
+        if (![context save:&error]) {
+            NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+            return;
         }
+        
+        // Remove waiter from table view
+        [self.waiters removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+#pragma mark - Add Waiter
+
+- (IBAction)addWaiterButton:(UIButton *)sender {
+    
+    // Create Alert Controller to add waiter
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Add Waiter"
+                                  message:@"What is the waiter's name?"
+                                  preferredStyle:UIAlertControllerStyleAlert
+                                  ];
+    
+    UIAlertAction* addButton = [UIAlertAction
+                                actionWithTitle:@"Add"
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action)
+                                {
+                                    [self addWaiter: alert.textFields[0].text];
+                                    
+                                }];
+    
+    UIAlertAction* cancelButton = [UIAlertAction
+                               actionWithTitle:@"Cancel"
+                               style:UIAlertActionStyleDefault
+                               handler: nil];
+    
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"Enter Name Here";
+    }];
+    [alert addAction:addButton];
+    [alert addAction:cancelButton];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+#pragma - Helper functions
+
+- (void)addWaiter:(NSString *)waiterName {
+    
+    // Handle empty textfield exception, else save to Core Data
+    
+    if ([waiterName isEqualToString:@""]){
+        UIAlertController *emptyTextFieldAlert =[UIAlertController alertControllerWithTitle:@"Error"
+                                                                                    message:@"No name was entered."
+                                                                             preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* cancelButton = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil];
+        
+        [emptyTextFieldAlert addAction:cancelButton];
+        [self presentViewController:emptyTextFieldAlert animated:YES completion:nil];
+    }else{
+    
+        // Create a new managed object
+        id delegate = [[UIApplication sharedApplication] delegate];
+        NSManagedObjectContext *context = [delegate managedObjectContext];
+        
+        NSEntityDescription *waiterEntity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:context];
+        Waiter *newWaiter = [[Waiter alloc]initWithEntity:waiterEntity insertIntoManagedObjectContext:context];
+        
+        // Add waiter to current restaurant
+        newWaiter.name = NSLocalizedString(waiterName, nil);
+        [[[RestaurantManager sharedManager]currentRestaurant]  addStaffObject:newWaiter];
+
+        // Save the object to Core Data
+        NSError *error = nil;
+        if (![context save:&error]) {
+            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+        }
+        
+        // Modify local waiters array, update table
+        [self.waiters addObject:newWaiter];
+        
+        NSSortDescriptor *sortByName = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+        self.waiters = [[self.waiters sortedArrayUsingDescriptors:@[sortByName]] mutableCopy];
+        
+        [self.tableView reloadData];
     }
 }
 

@@ -31,7 +31,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Ev4-a6-4z5"/>
                                 </constraints>
-                                <state key="normal" title="Add Waiter">
+                                <state key="normal" title="Add Waiter (+)">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
