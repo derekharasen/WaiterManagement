@@ -10,19 +10,22 @@
 #import "Restaurant.h"
 #import "RestaurantManager.h"
 #import "Waiter.h"
+#import "AddWaiterViewController.h"
 
 static NSString * const kCellIdentifier = @"CellIdentifier";
 
-@interface ViewController ()
-@property IBOutlet UITableView *tableView;
+@interface ViewController() <UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, retain) NSArray *waiters;
 @end
 
 @implementation ViewController
 
+#pragma mark - View Controller Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCellIdentifier];
+    [self prepareTableView];
+    [self prepareNavigationItems];
     NSSortDescriptor *sortByName = [[NSSortDescriptor alloc]initWithKey:@"name" ascending:YES];
     self.waiters = [[[RestaurantManager sharedManager]currentRestaurant].staff sortedArrayUsingDescriptors:@[sortByName]];
     // Do any additional setup after loading the view, typically from a nib.
@@ -32,6 +35,46 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - View Preparation Methods
+- (void) prepareTableView {
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCellIdentifier];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    [self.view addSubview:self.tableView];
+}
+
+-(void) prepareNavigationItems {
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+                                              initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(pushNewWaiterVC)];
+    self.navigationItem.title = @"Waiters";
+}
+
+#pragma mark - Layout
+
+- (void) viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    [self layoutTableView];
+}
+
+- (void) layoutTableView {
+    CGRect viewRect = self.view.bounds;
+    self.tableView.frame = CGRectMake(0, 0, viewRect.size.width, viewRect.size.height);
+}
+
+#pragma mark - Navigation
+
+- (void) pushNewWaiterVC {
+    
+    AddWaiterViewController *vc = [[AddWaiterViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    
+    [self presentViewController:nav animated:true completion:nil];
+}
+
+
 #pragma mark - TableView Data Source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -45,4 +88,16 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     cell.textLabel.text = waiter.name;
     return cell;
 }
+
+#pragma mark - TableView Delegate
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    //will push waiter vc to add shifts
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60;
+}
+
 @end
