@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "Restaurant.h"
+#import "AppDelegate.h"
 #import "RestaurantManager.h"
 #import "Waiter.h"
 #import "AddWaiterViewController.h"
@@ -26,9 +27,17 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     [super viewDidLoad];
     [self prepareTableView];
     [self prepareNavigationItems];
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self updateWaiters];
+    [self.tableView reloadData];
+}
+
+- (void) updateWaiters {
     NSSortDescriptor *sortByName = [[NSSortDescriptor alloc]initWithKey:@"name" ascending:YES];
     self.waiters = [[[RestaurantManager sharedManager]currentRestaurant].staff sortedArrayUsingDescriptors:@[sortByName]];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,8 +55,8 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 }
 
 -(void) prepareNavigationItems {
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-                                              initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(pushNewWaiterVC)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(pushNewWaiterVC)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editTableView)];
     self.navigationItem.title = @"Waiters";
 }
 
@@ -67,6 +76,8 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 #pragma mark - Navigation
 
 - (void) pushNewWaiterVC {
+    
+    [self.tableView setEditing:NO animated:YES];
     
     AddWaiterViewController *vc = [[AddWaiterViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
@@ -98,6 +109,32 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 60;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        Waiter *waiter = self.waiters[indexPath.row];
+        
+        [tableView beginUpdates];
+        [self deleteWaiter: waiter];
+        [self updateWaiters];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+        [tableView endUpdates];
+    }
+}
+
+#pragma mark - TableView editing
+
+- (void) editTableView {
+    self.tableView.isEditing ? [self.tableView setEditing:NO animated:YES] : [self.tableView setEditing:YES animated:YES];
+}
+
+- (void) deleteWaiter: (Waiter *) waiter {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = appDelegate.managedObjectContext;
+    
+    [context deleteObject:waiter];
+    [appDelegate saveContext];
 }
 
 @end

@@ -7,6 +7,10 @@
 //
 
 #import "AddWaiterViewController.h"
+#import "AppDelegate.h"
+#import "Waiter.h"
+#import "Restaurant.h"
+#import "RestaurantManager.h"
 
 @interface AddWaiterViewController () <UITextFieldDelegate>
 
@@ -25,6 +29,10 @@
     [self prepareNavigationItem];
     [self prepareLabel];
     [self prepareTextField];
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    [self.textField becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,6 +89,16 @@
 #pragma mark - BarButton Handlers
 
 - (void) save {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    NSEntityDescription *waiterEntity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:appDelegate.managedObjectContext];
+    Waiter *newWaiter = [[Waiter alloc] initWithEntity:waiterEntity insertIntoManagedObjectContext:appDelegate.managedObjectContext];
+    newWaiter.name = self.textField.text;
+    [[RestaurantManager.sharedManager currentRestaurant] addStaffObject:newWaiter];
+    
+    [appDelegate saveContext];
+    
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     
 }
 
