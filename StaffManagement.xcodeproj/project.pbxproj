@@ -16,9 +16,16 @@
 		651CBBC01AB4E1CD00F265E8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 651CBBBE1AB4E1CD00F265E8 /* LaunchScreen.xib */; };
 		651CBBCC1AB4E1CD00F265E8 /* StaffManagementTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBCB1AB4E1CD00F265E8 /* StaffManagementTests.m */; };
 		651CBBD71AB4E31400F265E8 /* RestaurantManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBD61AB4E31400F265E8 /* RestaurantManager.m */; };
-		651CBBDA1AB4E4A000F265E8 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBD91AB4E4A000F265E8 /* Restaurant.m */; };
-		651CBBDD1AB4E4A100F265E8 /* Waiter.m in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBDC1AB4E4A100F265E8 /* Waiter.m */; };
 		EDEF67D91D847C02005FD682 /* AddWaiterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEF67D81D847C02005FD682 /* AddWaiterViewController.m */; };
+		EDEF67DC1D84B8C2005FD682 /* ShiftDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF67DB1D84B8C2005FD682 /* ShiftDetailViewController.swift */; };
+		EDEF67DE1D84C259005FD682 /* WaiterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF67DD1D84C259005FD682 /* WaiterDetailView.swift */; };
+		EDEF67FA1D850A8D005FD682 /* Restaurant+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEF67EF1D850A8D005FD682 /* Restaurant+CoreDataProperties.m */; };
+		EDEF67FB1D850A8D005FD682 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEF67F11D850A8D005FD682 /* Restaurant.m */; };
+		EDEF67FC1D850A8D005FD682 /* Waiter+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEF67F31D850A8D005FD682 /* Waiter+CoreDataProperties.m */; };
+		EDEF67FD1D850A8D005FD682 /* Waiter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEF67F51D850A8D005FD682 /* Waiter.m */; };
+		EDEF67FE1D850A8D005FD682 /* Shift+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEF67F71D850A8D005FD682 /* Shift+CoreDataProperties.m */; };
+		EDEF67FF1D850A8D005FD682 /* Shift.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEF67F91D850A8D005FD682 /* Shift.m */; };
+		EDEF68021D85CDA1005FD682 /* AddShiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEF68011D85CDA1005FD682 /* AddShiftViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,12 +55,25 @@
 		651CBBCB1AB4E1CD00F265E8 /* StaffManagementTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaffManagementTests.m; sourceTree = "<group>"; };
 		651CBBD51AB4E31400F265E8 /* RestaurantManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantManager.h; sourceTree = "<group>"; };
 		651CBBD61AB4E31400F265E8 /* RestaurantManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantManager.m; sourceTree = "<group>"; };
-		651CBBD81AB4E4A000F265E8 /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurant.h; sourceTree = "<group>"; };
-		651CBBD91AB4E4A000F265E8 /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
-		651CBBDB1AB4E4A100F265E8 /* Waiter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Waiter.h; sourceTree = "<group>"; };
-		651CBBDC1AB4E4A100F265E8 /* Waiter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Waiter.m; sourceTree = "<group>"; };
 		EDEF67D71D847C02005FD682 /* AddWaiterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddWaiterViewController.h; sourceTree = "<group>"; };
 		EDEF67D81D847C02005FD682 /* AddWaiterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddWaiterViewController.m; sourceTree = "<group>"; };
+		EDEF67DA1D84B8C1005FD682 /* StaffManagement-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StaffManagement-Bridging-Header.h"; sourceTree = "<group>"; };
+		EDEF67DB1D84B8C2005FD682 /* ShiftDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftDetailViewController.swift; sourceTree = "<group>"; };
+		EDEF67DD1D84C259005FD682 /* WaiterDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaiterDetailView.swift; sourceTree = "<group>"; };
+		EDEF67EE1D850A8D005FD682 /* Restaurant+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Restaurant+CoreDataProperties.h"; path = "../Restaurant+CoreDataProperties.h"; sourceTree = "<group>"; };
+		EDEF67EF1D850A8D005FD682 /* Restaurant+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Restaurant+CoreDataProperties.m"; path = "../Restaurant+CoreDataProperties.m"; sourceTree = "<group>"; };
+		EDEF67F01D850A8D005FD682 /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Restaurant.h; path = ../Restaurant.h; sourceTree = "<group>"; };
+		EDEF67F11D850A8D005FD682 /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Restaurant.m; path = ../Restaurant.m; sourceTree = "<group>"; };
+		EDEF67F21D850A8D005FD682 /* Waiter+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Waiter+CoreDataProperties.h"; path = "../Waiter+CoreDataProperties.h"; sourceTree = "<group>"; };
+		EDEF67F31D850A8D005FD682 /* Waiter+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Waiter+CoreDataProperties.m"; path = "../Waiter+CoreDataProperties.m"; sourceTree = "<group>"; };
+		EDEF67F41D850A8D005FD682 /* Waiter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Waiter.h; path = ../Waiter.h; sourceTree = "<group>"; };
+		EDEF67F51D850A8D005FD682 /* Waiter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Waiter.m; path = ../Waiter.m; sourceTree = "<group>"; };
+		EDEF67F61D850A8D005FD682 /* Shift+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Shift+CoreDataProperties.h"; path = "../Shift+CoreDataProperties.h"; sourceTree = "<group>"; };
+		EDEF67F71D850A8D005FD682 /* Shift+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Shift+CoreDataProperties.m"; path = "../Shift+CoreDataProperties.m"; sourceTree = "<group>"; };
+		EDEF67F81D850A8D005FD682 /* Shift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Shift.h; path = ../Shift.h; sourceTree = "<group>"; };
+		EDEF67F91D850A8D005FD682 /* Shift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Shift.m; path = ../Shift.m; sourceTree = "<group>"; };
+		EDEF68001D85CDA1005FD682 /* AddShiftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddShiftViewController.h; sourceTree = "<group>"; };
+		EDEF68011D85CDA1005FD682 /* AddShiftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddShiftViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,11 +123,16 @@
 				651CBBD61AB4E31400F265E8 /* RestaurantManager.m */,
 				651CBBB61AB4E1CD00F265E8 /* ViewController.h */,
 				651CBBB71AB4E1CD00F265E8 /* ViewController.m */,
+				EDEF67DB1D84B8C2005FD682 /* ShiftDetailViewController.swift */,
+				EDEF67DD1D84C259005FD682 /* WaiterDetailView.swift */,
+				EDEF68001D85CDA1005FD682 /* AddShiftViewController.h */,
+				EDEF68011D85CDA1005FD682 /* AddShiftViewController.m */,
 				651CBBB91AB4E1CD00F265E8 /* Main.storyboard */,
 				651CBBBC1AB4E1CD00F265E8 /* Images.xcassets */,
 				651CBBBE1AB4E1CD00F265E8 /* LaunchScreen.xib */,
 				651CBBDE1AB4E4AC00F265E8 /* Core Data */,
 				651CBBAC1AB4E1CC00F265E8 /* Supporting Files */,
+				EDEF67DA1D84B8C1005FD682 /* StaffManagement-Bridging-Header.h */,
 			);
 			path = StaffManagement;
 			sourceTree = "<group>";
@@ -142,10 +167,18 @@
 			isa = PBXGroup;
 			children = (
 				651CBBB31AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld */,
-				651CBBDB1AB4E4A100F265E8 /* Waiter.h */,
-				651CBBDC1AB4E4A100F265E8 /* Waiter.m */,
-				651CBBD81AB4E4A000F265E8 /* Restaurant.h */,
-				651CBBD91AB4E4A000F265E8 /* Restaurant.m */,
+				EDEF67EE1D850A8D005FD682 /* Restaurant+CoreDataProperties.h */,
+				EDEF67EF1D850A8D005FD682 /* Restaurant+CoreDataProperties.m */,
+				EDEF67F01D850A8D005FD682 /* Restaurant.h */,
+				EDEF67F11D850A8D005FD682 /* Restaurant.m */,
+				EDEF67F21D850A8D005FD682 /* Waiter+CoreDataProperties.h */,
+				EDEF67F31D850A8D005FD682 /* Waiter+CoreDataProperties.m */,
+				EDEF67F41D850A8D005FD682 /* Waiter.h */,
+				EDEF67F51D850A8D005FD682 /* Waiter.m */,
+				EDEF67F61D850A8D005FD682 /* Shift+CoreDataProperties.h */,
+				EDEF67F71D850A8D005FD682 /* Shift+CoreDataProperties.m */,
+				EDEF67F81D850A8D005FD682 /* Shift.h */,
+				EDEF67F91D850A8D005FD682 /* Shift.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -194,6 +227,7 @@
 		651CBBA11AB4E1CC00F265E8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = "Derek Harasen";
 				TargetAttributes = {
@@ -253,11 +287,18 @@
 				EDEF67D91D847C02005FD682 /* AddWaiterViewController.m in Sources */,
 				651CBBD71AB4E31400F265E8 /* RestaurantManager.m in Sources */,
 				651CBBB51AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld in Sources */,
+				EDEF67DE1D84C259005FD682 /* WaiterDetailView.swift in Sources */,
+				EDEF67FC1D850A8D005FD682 /* Waiter+CoreDataProperties.m in Sources */,
 				651CBBB21AB4E1CC00F265E8 /* AppDelegate.m in Sources */,
 				651CBBB81AB4E1CD00F265E8 /* ViewController.m in Sources */,
-				651CBBDD1AB4E4A100F265E8 /* Waiter.m in Sources */,
-				651CBBDA1AB4E4A000F265E8 /* Restaurant.m in Sources */,
+				EDEF68021D85CDA1005FD682 /* AddShiftViewController.m in Sources */,
+				EDEF67FD1D850A8D005FD682 /* Waiter.m in Sources */,
+				EDEF67FB1D850A8D005FD682 /* Restaurant.m in Sources */,
+				EDEF67DC1D84B8C2005FD682 /* ShiftDetailViewController.swift in Sources */,
+				EDEF67FA1D850A8D005FD682 /* Restaurant+CoreDataProperties.m in Sources */,
 				651CBBAF1AB4E1CC00F265E8 /* main.m in Sources */,
+				EDEF67FF1D850A8D005FD682 /* Shift.m in Sources */,
+				EDEF67FE1D850A8D005FD682 /* Shift+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,9 +420,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = StaffManagement/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "StaffManagement/StaffManagement-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -389,9 +433,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = StaffManagement/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "StaffManagement/StaffManagement-Bridging-Header.h";
 			};
 			name = Release;
 		};

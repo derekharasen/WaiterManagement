@@ -12,6 +12,7 @@
 #import "RestaurantManager.h"
 #import "Waiter.h"
 #import "AddWaiterViewController.h"
+#import "StaffManagement-Swift.h"
 
 static NSString * const kCellIdentifier = @"CellIdentifier";
 
@@ -85,6 +86,12 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     [self presentViewController:nav animated:true completion:nil];
 }
 
+- (void) pushDetailVC: (Waiter *)waiter {
+    ShiftDetailViewController *detail = [[ShiftDetailViewController alloc] initWithWaiter:waiter];
+    
+    [self.navigationController pushViewController:detail animated:YES];
+}
+
 
 #pragma mark - TableView Data Source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -104,7 +111,9 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    //will push waiter vc to add shifts
+    
+    [self pushDetailVC:self.waiters[indexPath.row]];
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
