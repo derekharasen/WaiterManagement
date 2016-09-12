@@ -14,11 +14,11 @@ import CoreData
 class ShiftDetailViewController: UIViewController {
     
     // MARK: Properties
-    let kCellIdentifier: String = "ShiftReuseIdentifier"
-    let tableView: UITableView = UITableView(frame: CGRect.zero, style: .Plain)
+    private let kCellIdentifier: String = "ShiftReuseIdentifier"
+    private let tableView: UITableView = UITableView(frame: CGRect.zero, style: .Plain)
     let waiter: Waiter
-    let headerView: WaiterDetailView
-    let formatter = NSDateFormatter()
+    private let headerView: WaiterDetailView
+    private let formatter = NSDateFormatter()
     var shifts: [Shift] = [Shift]()
     
     // MARK: Initialization
@@ -49,11 +49,11 @@ class ShiftDetailViewController: UIViewController {
     
     // MARK: View Preparation
     
-    func prepareDateFormatter() {
+    private func prepareDateFormatter() {
         formatter.dateFormat = "M/dd/yy hh:ss a"
     }
     
-    func prepareTableView() {
+    private func prepareTableView() {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: kCellIdentifier)
@@ -72,7 +72,7 @@ class ShiftDetailViewController: UIViewController {
     
     // MARK: Helper
     
-    func updateShifts(waiter: Waiter) -> [Shift] {
+    private func updateShifts(waiter: Waiter) -> [Shift] {
         if let s = waiter.shift {
             return s.sort({ (a, b) -> Bool in
                 a.startTime?.compare(b.startTime!) == NSComparisonResult.OrderedAscending

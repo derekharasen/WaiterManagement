@@ -17,8 +17,8 @@ class WaiterDetailView: UIView {
     
     // MARK: Properties
     let waiter: Waiter
-    let label = UILabel()
-    let button = UIButton()
+    private let label = UILabel()
+    private let button = UIButton()
     var delegate: WaiterDetailViewDelegate?
     
     // MARK: Initialization
@@ -38,11 +38,11 @@ class WaiterDetailView: UIView {
     
     // MARK: Prep
     
-    func prepareBackground() {
+    private func prepareBackground() {
         backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
     }
     
-    func prepareLabel() {
+    private func prepareLabel() {
         label.font = UIFont.systemFontOfSize(30)
         label.textColor = UIColor.whiteColor()
         label.textAlignment = .Center
@@ -50,7 +50,7 @@ class WaiterDetailView: UIView {
         addSubview(label)
     }
     
-    func prepareButton(title: String) {
+    private func prepareButton(title: String) {
         button.setTitle(title, forState: .Normal)
         button.titleLabel?.textColor = UIColor.whiteColor()
         button.layer.borderColor = UIColor.whiteColor().CGColor
@@ -67,17 +67,17 @@ class WaiterDetailView: UIView {
         layoutButton()
     }
     
-    func layoutLabel() {
+    private func layoutLabel() {
         label.frame = CGRect(x: 10, y: bounds.height/4, width: bounds.width - 20, height: bounds.height/3)
     }
     
-    func layoutButton() {
+    private func layoutButton() {
         button.frame = CGRect(x: 10, y: bounds.height - 40, width: 200, height: 30)
     }
     
     // MARK: Delegation
     
-    func handleButton() {
+    @objc private func handleButton() {
         if let d = delegate {
             d.handleButton()
         }
