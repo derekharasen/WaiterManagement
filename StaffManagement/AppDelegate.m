@@ -10,6 +10,10 @@
 
 @interface AppDelegate ()
 
+@property (strong, nonatomic) UINavigationController *navController;
+@property (strong, nonatomic) ViewController *viewController;
+@property (strong, nonatomic) UIBarButtonItem *rightBarButtonItem;
+
 @end
 
 @implementation AppDelegate
@@ -17,6 +21,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Override point for customization after application launch.
+
+    //self.viewController = [[ViewController alloc] init];
+    //self.navController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    //self.viewController = (ViewController *)self.navController.topViewController;
+    //self.window.rootViewController = self.navController;
+    //self.window.backgroundColor = [UIColor whiteColor];
+    //[self.window makeKeyAndVisible];
+    
     return YES;
 }
 
