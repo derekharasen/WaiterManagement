@@ -5,11 +5,12 @@
 //  Created by Derek Harasen on 2015-03-14.
 //  Copyright (c) 2015 Derek Harasen. All rights reserved.
 //
-
+#import "StaffManagement-Swift.h"
 #import "ViewController.h"
 #import "Restaurant.h"
 #import "RestaurantManager.h"
 #import "Waiter.h"
+
 
 static NSString * const kCellIdentifier = @"CellIdentifier";
 
@@ -25,6 +26,13 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCellIdentifier];
     NSSortDescriptor *sortByName = [[NSSortDescriptor alloc]initWithKey:@"name" ascending:YES];
     self.waiters = [[[RestaurantManager sharedManager]currentRestaurant].staff sortedArrayUsingDescriptors:@[sortByName]];
+    [self.tableView reloadData];
+    // Do any additional setup after loading the view, typically from a nib.
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:YES];
+    [self.tableView reloadData];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -45,4 +53,10 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     cell.textLabel.text = waiter.name;
     return cell;
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //Pushes to shift table view controller when select waiter
+    ShiftsTableViewController *shiftsTableViewController = [ShiftsTableViewController new];
+    [self.navigationController pushViewController:shiftsTableViewController animated:YES];
+    
+    }
 @end
