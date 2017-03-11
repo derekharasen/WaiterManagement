@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "Waiter+CoreDataClass.h"
 #import "Restaurant+CoreDataClass.h"
+
 @interface RestaurantManager()
 @property (nonatomic, retain) Restaurant *restaurant;
 @end

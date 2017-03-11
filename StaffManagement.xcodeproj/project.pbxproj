@@ -20,8 +20,9 @@
 		893357791E73A8B3006B75FA /* Waiter+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 8933576F1E73A8B3006B75FA /* Waiter+CoreDataProperties.m */; };
 		8933577A1E73A8B3006B75FA /* Shift+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 893357711E73A8B3006B75FA /* Shift+CoreDataClass.m */; };
 		8933577B1E73A8B3006B75FA /* Shift+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 893357731E73A8B3006B75FA /* Shift+CoreDataProperties.m */; };
-		8933577C1E73A8B3006B75FA /* Restaurant+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 893357751E73A8B3006B75FA /* Restaurant+CoreDataClass.m */; };
-		8933577D1E73A8B3006B75FA /* Restaurant+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 893357771E73A8B3006B75FA /* Restaurant+CoreDataProperties.m */; };
+		8933577E1E73AA2C006B75FA /* Restaurant+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 893357751E73A8B3006B75FA /* Restaurant+CoreDataClass.m */; };
+		8933577F1E73AA31006B75FA /* Restaurant+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 893357771E73A8B3006B75FA /* Restaurant+CoreDataProperties.m */; };
+		893357821E73AA85006B75FA /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893357811E73AA85006B75FA /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,8 @@
 		893357751E73A8B3006B75FA /* Restaurant+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Restaurant+CoreDataClass.m"; path = "../Restaurant+CoreDataClass.m"; sourceTree = "<group>"; };
 		893357761E73A8B3006B75FA /* Restaurant+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Restaurant+CoreDataProperties.h"; path = "../Restaurant+CoreDataProperties.h"; sourceTree = "<group>"; };
 		893357771E73A8B3006B75FA /* Restaurant+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Restaurant+CoreDataProperties.m"; path = "../Restaurant+CoreDataProperties.m"; sourceTree = "<group>"; };
+		893357801E73AA84006B75FA /* StaffManagement-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StaffManagement-Bridging-Header.h"; sourceTree = "<group>"; };
+		893357811E73AA85006B75FA /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,10 +114,12 @@
 				651CBBB61AB4E1CD00F265E8 /* ViewController.h */,
 				651CBBB71AB4E1CD00F265E8 /* ViewController.m */,
 				651CBBB91AB4E1CD00F265E8 /* Main.storyboard */,
+				893357811E73AA85006B75FA /* DataManager.swift */,
 				651CBBBC1AB4E1CD00F265E8 /* Images.xcassets */,
 				651CBBBE1AB4E1CD00F265E8 /* LaunchScreen.xib */,
 				651CBBDE1AB4E4AC00F265E8 /* Core Data */,
 				651CBBAC1AB4E1CC00F265E8 /* Supporting Files */,
+				893357801E73AA84006B75FA /* StaffManagement-Bridging-Header.h */,
 			);
 			path = StaffManagement;
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 				TargetAttributes = {
 					651CBBA81AB4E1CC00F265E8 = {
 						CreatedOnToolsVersion = 6.2;
+						LastSwiftMigration = 0820;
 					};
 					651CBBC41AB4E1CD00F265E8 = {
 						CreatedOnToolsVersion = 6.2;
@@ -265,10 +271,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8933577C1E73A8B3006B75FA /* Restaurant+CoreDataClass.m in Sources */,
+				8933577E1E73AA2C006B75FA /* Restaurant+CoreDataClass.m in Sources */,
+				893357821E73AA85006B75FA /* DataManager.swift in Sources */,
 				8933577B1E73A8B3006B75FA /* Shift+CoreDataProperties.m in Sources */,
 				651CBBD71AB4E31400F265E8 /* RestaurantManager.m in Sources */,
-				8933577D1E73A8B3006B75FA /* Restaurant+CoreDataProperties.m in Sources */,
+				8933577F1E73AA31006B75FA /* Restaurant+CoreDataProperties.m in Sources */,
 				651CBBB51AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld in Sources */,
 				8933577A1E73A8B3006B75FA /* Shift+CoreDataClass.m in Sources */,
 				893357791E73A8B3006B75FA /* Waiter+CoreDataProperties.m in Sources */,
@@ -403,28 +410,38 @@
 		651CBBD01AB4E1CD00F265E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = StaffManagement/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.TouchBistro.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "StaffManagement/StaffManagement-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		651CBBD11AB4E1CD00F265E8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = StaffManagement/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.TouchBistro.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "StaffManagement/StaffManagement-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		651CBBD31AB4E1CD00F265E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -445,6 +462,7 @@
 		651CBBD41AB4E1CD00F265E8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
