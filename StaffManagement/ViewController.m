@@ -16,7 +16,7 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 @interface ViewController ()
 @property IBOutlet UITableView *tableView;
 @property (nonatomic, retain) NSMutableArray *waiters;
-//@property RestaurantManager *manager;
+@property RestaurantManager *manager;
 @end
 
 @implementation ViewController
@@ -26,7 +26,7 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCellIdentifier];
     NSSortDescriptor *sortByName = [[NSSortDescriptor alloc]initWithKey:@"name" ascending:YES];
     self.waiters = [[[[RestaurantManager sharedManager]currentRestaurant].staff sortedArrayUsingDescriptors:@[sortByName]] mutableCopy];
-//    self.manager = [RestaurantManager sharedManager];
+    self.manager = [RestaurantManager sharedManager];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -35,6 +35,20 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)addWaiter:(id)sender {
+    if (self.waiters.count > 0){
+        [self.manager saveWaiter:@"New Waiter"];
+        [self.tableView reloadData];
+    }
+}
+
+- (IBAction)removeWaiter:(id)sender {
+    if (self.waiters.count > 0){
+        if([self.manager removeWaiter:self.waiters[0]]){
+            [self.waiters removeObject:self.waiters[0]];
+        }
+    }
+}
 
 
 #pragma mark - TableView Data Source

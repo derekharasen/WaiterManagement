@@ -13,6 +13,7 @@
 @interface RestaurantManager()
 @property (nonatomic, retain) Restaurant *restaurant;
 @property (nonatomic) NSManagedObjectContext *managedContext;
+@property (nonatomic) NSMutableArray *waiterNames;
 @end
 
 @implementation RestaurantManager
@@ -50,23 +51,44 @@
         }
         self.restaurant = aRestaurant;
     }
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"Waiter"];
+    [request setResultType:NSDictionaryResultType];
+    [request setReturnsDistinctResults:YES];
+    [request setPropertiesToFetch: @[@"name"]];
+    
+    self.waiterNames = [NSMutableArray new];
+    for (Waiter *waiter in self.restaurant.staff) {
+        [self.waiterNames addObject:waiter.name];
+    }
     return self.restaurant;
 }
 
+
 #pragma mark - Core Data Functions
 
--(void)saveWaiter:(NSString*)name{
-    NSManagedObject *waiter = [NSEntityDescription insertNewObjectForEntityForName:@"Waiter" inManagedObjectContext:self.managedContext];
-    [waiter setValue:name forKey:@"name"];
-    [waiter setValue:self.restaurant forKey:@"restaurant"];
-    
+-(BOOL)saveWaiter:(NSString*)name{
     NSError *error = nil;
+    for (NSString *waiterName in self.waiterNames) {
+        if ([waiterName isEqualToString:name]){
+            return false;
+        }
+    }
+    
+    Waiter *waiter = [[Waiter alloc] initWithContext:self.managedContext];
+    NSEntityDescription *waiterEntity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:self.managedContext];
+    waiter = [[Waiter alloc] initWithEntity:waiterEntity insertIntoManagedObjectContext:self.managedContext];
+    waiter.name = name;
+    waiter.restaurant = self.restaurant;
+    
     if(![self.managedContext save:&error]){
         NSLog(@"error: %@",error.localizedDescription);
+        return false;
     }
+    return true;
 }
 
--(void)removeWaiter:(NSString*)name{
+-(BOOL)removeWaiter:(Waiter*)waiter{
+    NSString *name = waiter.name;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:self.managedContext];
     [fetchRequest setEntity:entity];
@@ -78,7 +100,13 @@
     NSArray *fetchedObjects = [self.managedContext executeFetchRequest:fetchRequest error:&error];
     if (fetchedObjects == nil) {
         NSLog(@"error: %@", error.localizedDescription);
+        return false;
     }
+    if (fetchedObjects.count > 0){
+        [self.managedContext deleteObject:waiter];
+        return true;
+    }
+    return false;
 }
 
 @end
