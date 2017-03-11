@@ -8,8 +8,8 @@
 
 #import "RestaurantManager.h"
 #import "AppDelegate.h"
-#import "Waiter.h"
-#import "Restaurant.h"
+#import "Waiter+CoreDataClass.h"
+#import "Restaurant+CoreDataClass.h"
 @interface RestaurantManager()
 @property (nonatomic, retain) Restaurant *restaurant;
 @end
@@ -28,7 +28,7 @@
     {
         Restaurant *aRestaurant;
         NSError *error = nil;
-        AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+        AppDelegate *appDelegate = (AppDelegate *) [UIApplication sharedApplication].delegate;
         NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Restaurant"];
         NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:request error:&error];
         

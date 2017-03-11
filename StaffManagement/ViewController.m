@@ -7,9 +7,9 @@
 //
 
 #import "ViewController.h"
-#import "Restaurant.h"
+#import "Restaurant+CoreDataClass.h"
 #import "RestaurantManager.h"
-#import "Waiter.h"
+#import "Waiter+CoreDataClass.h"
 
 static NSString * const kCellIdentifier = @"CellIdentifier";
 
