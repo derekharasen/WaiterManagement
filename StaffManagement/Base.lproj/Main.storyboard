@@ -80,6 +80,71 @@
             </objects>
             <point key="canvasLocation" x="1023.1884057971015" y="122.28260869565219"/>
         </scene>
+        <!--Shift View Controller-->
+        <scene sceneID="hr1-0Q-81l">
+            <objects>
+                <viewController storyboardIdentifier="ShiftViewController" id="bMt-xk-j7T" customClass="ShiftViewController" customModule="StaffManagement" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XaU-Mb-gSl"/>
+                        <viewControllerLayoutGuide type="bottom" id="gNO-Sb-uBl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9iF-lb-RtY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qc4-31-lnA">
+                                <rect key="frame" x="0.0" y="436" width="414" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ShiftTableViewCell" id="qaq-xk-hdK" customClass="ShiftTableViewCell" customModule="StaffManagement" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qaq-xk-hdK" id="Vtt-28-W1M">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="bMt-xk-j7T" id="Wjy-ag-aji"/>
+                                    <outlet property="delegate" destination="bMt-xk-j7T" id="zrL-MM-VCv"/>
+                                </connections>
+                            </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Waiter's Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YzM-fm-PA5">
+                                <rect key="frame" x="78" y="28" width="316" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLl-eW-bJf">
+                                <rect key="frame" x="20" y="33" width="50" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MLl-eW-bJf" firstAttribute="leading" secondItem="9iF-lb-RtY" secondAttribute="leadingMargin" id="BdM-DF-3lQ"/>
+                            <constraint firstItem="YzM-fm-PA5" firstAttribute="centerY" secondItem="MLl-eW-bJf" secondAttribute="centerY" id="HRT-xq-Maa"/>
+                            <constraint firstAttribute="trailing" secondItem="Qc4-31-lnA" secondAttribute="trailing" id="MXB-fa-fXW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YzM-fm-PA5" secondAttribute="trailing" id="Q7B-FN-hbL"/>
+                            <constraint firstItem="Qc4-31-lnA" firstAttribute="top" secondItem="YzM-fm-PA5" secondAttribute="bottom" constant="8" id="Yje-ZE-INv"/>
+                            <constraint firstItem="MLl-eW-bJf" firstAttribute="top" secondItem="XaU-Mb-gSl" secondAttribute="bottom" constant="13" id="gdY-sv-k0r"/>
+                            <constraint firstItem="Qc4-31-lnA" firstAttribute="leading" secondItem="9iF-lb-RtY" secondAttribute="leading" id="nYj-qc-C6A"/>
+                            <constraint firstItem="YzM-fm-PA5" firstAttribute="leading" secondItem="MLl-eW-bJf" secondAttribute="trailing" constant="8" id="w4G-vT-Oaa"/>
+                            <constraint firstItem="gNO-Sb-uBl" firstAttribute="top" secondItem="Qc4-31-lnA" secondAttribute="bottom" id="xYs-Ls-yKK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="shiftTableView" destination="Qc4-31-lnA" id="KNA-fb-I0a"/>
+                        <outlet property="waiterNameTextField" destination="YzM-fm-PA5" id="Kt1-uV-qCG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="82c-Ir-KHc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1731.8840579710147" y="121.46739130434784"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="luj-wi-azn">
             <objects>

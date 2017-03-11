@@ -24,6 +24,10 @@ class DataManager: NSObject {
         return shift
     }
     
+    func deleteObject(_ managedObject: NSManagedObject) {
+        appDelegate.managedObjectContext.delete(managedObject)
+    }
+    
     func saveContext() {
         appDelegate.saveContext()
     }

@@ -14,7 +14,7 @@
 
 static NSString * const kCellIdentifier = @"CellIdentifier";
 
-@interface ViewController ()
+@interface ViewController () <UITableViewDelegate, UITableViewDataSource>
     @property (weak, nonatomic) IBOutlet UIButton *addWaiterButton;
     @property IBOutlet UITableView *tableView;
     @property (weak, nonatomic) IBOutlet UITextField *addWaiterTextField;
@@ -35,6 +35,7 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     self.addWaiterButton.hidden = YES;
     self.addWaiterTextField.hidden = YES;
     self.dataManager = [DataManager sharedInstance];
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 }
     
 #pragma mark - TableView Data Source
@@ -75,7 +76,7 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
           initialSpringVelocity:10
                         options:UIViewAnimationOptionCurveEaseIn
                      animations:^ {
-                         self.tableViewTopAnchor.constant = 40;
+                         self.tableViewTopAnchor.constant = 50;
                          [self.view layoutIfNeeded];
                      }    completion:^(BOOL finished) {
                      }];
@@ -87,12 +88,38 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
         waiter.name = self.addWaiterTextField.text;
         [self.waiters addObject:waiter];
         waiter.restaurant = [[RestaurantManager sharedManager] currentRestaurant];
-        [self.tableView reloadData];
+        [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.waiters.count - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
         [self.dataManager saveContext];
         self.addWaiterTextField.placeholder = @"Waiter's name";
         self.addWaiterTextField.text = @"";
         return;
     }
     self.addWaiterTextField.placeholder = @"Name is mandatory";
+}
+    
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+    
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        Waiter *waiter = self.waiters[indexPath.row];
+        [self.dataManager deleteObject:waiter];
+        [self.waiters removeObject:waiter];
+        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section]] withRowAnimation:UITableViewRowAnimationTop];
+        [self.dataManager saveContext];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ShiftViewController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"ShiftViewController"];
+    Waiter *waiter = self.waiters[indexPath.row];
+    svc.waiter = waiter;
+    [self.navigationController pushViewController:svc animated:YES];
+}
+    
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+        [super setEditing:editing animated:animated];
+        [self.tableView setEditing:editing animated:animated];
 }
     @end

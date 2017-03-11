@@ -23,6 +23,8 @@
 		8933577E1E73AA2C006B75FA /* Restaurant+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 893357751E73A8B3006B75FA /* Restaurant+CoreDataClass.m */; };
 		8933577F1E73AA31006B75FA /* Restaurant+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 893357771E73A8B3006B75FA /* Restaurant+CoreDataProperties.m */; };
 		893357821E73AA85006B75FA /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893357811E73AA85006B75FA /* DataManager.swift */; };
+		893357D91E7448BC006B75FA /* ShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893357D81E7448BC006B75FA /* ShiftViewController.swift */; };
+		893357DB1E744DCC006B75FA /* ShiftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893357DA1E744DCC006B75FA /* ShiftTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		893357771E73A8B3006B75FA /* Restaurant+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Restaurant+CoreDataProperties.m"; path = "../Restaurant+CoreDataProperties.m"; sourceTree = "<group>"; };
 		893357801E73AA84006B75FA /* StaffManagement-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StaffManagement-Bridging-Header.h"; sourceTree = "<group>"; };
 		893357811E73AA85006B75FA /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		893357D81E7448BC006B75FA /* ShiftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftViewController.swift; sourceTree = "<group>"; };
+		893357DA1E744DCC006B75FA /* ShiftTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +117,9 @@
 				651CBBD61AB4E31400F265E8 /* RestaurantManager.m */,
 				651CBBB61AB4E1CD00F265E8 /* ViewController.h */,
 				651CBBB71AB4E1CD00F265E8 /* ViewController.m */,
+				893357D81E7448BC006B75FA /* ShiftViewController.swift */,
+				893357DA1E744DCC006B75FA /* ShiftTableViewCell.swift */,
 				651CBBB91AB4E1CD00F265E8 /* Main.storyboard */,
-				893357811E73AA85006B75FA /* DataManager.swift */,
 				651CBBBC1AB4E1CD00F265E8 /* Images.xcassets */,
 				651CBBBE1AB4E1CD00F265E8 /* LaunchScreen.xib */,
 				651CBBDE1AB4E4AC00F265E8 /* Core Data */,
@@ -166,6 +171,7 @@
 				893357761E73A8B3006B75FA /* Restaurant+CoreDataProperties.h */,
 				893357771E73A8B3006B75FA /* Restaurant+CoreDataProperties.m */,
 				651CBBB31AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld */,
+				893357811E73AA85006B75FA /* DataManager.swift */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -277,12 +283,14 @@
 				651CBBD71AB4E31400F265E8 /* RestaurantManager.m in Sources */,
 				8933577F1E73AA31006B75FA /* Restaurant+CoreDataProperties.m in Sources */,
 				651CBBB51AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld in Sources */,
+				893357DB1E744DCC006B75FA /* ShiftTableViewCell.swift in Sources */,
 				8933577A1E73A8B3006B75FA /* Shift+CoreDataClass.m in Sources */,
 				893357791E73A8B3006B75FA /* Waiter+CoreDataProperties.m in Sources */,
 				651CBBB21AB4E1CC00F265E8 /* AppDelegate.m in Sources */,
 				651CBBB81AB4E1CD00F265E8 /* ViewController.m in Sources */,
 				651CBBAF1AB4E1CC00F265E8 /* main.m in Sources */,
 				893357781E73A8B3006B75FA /* Waiter+CoreDataClass.m in Sources */,
+				893357D91E7448BC006B75FA /* ShiftViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
