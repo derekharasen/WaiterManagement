@@ -12,6 +12,7 @@
 #import "Restaurant.h"
 @interface RestaurantManager()
 @property (nonatomic, retain) Restaurant *restaurant;
+@property (nonatomic) NSManagedObjectContext *managedContext;
 @end
 
 @implementation RestaurantManager
@@ -28,7 +29,8 @@
     {
         Restaurant *aRestaurant;
         NSError *error = nil;
-        AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+        AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+        self.managedContext = appDelegate.managedObjectContext;
         NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Restaurant"];
         NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:request error:&error];
         
@@ -50,4 +52,33 @@
     }
     return self.restaurant;
 }
+
+#pragma mark - Core Data Functions
+
+-(void)saveWaiter:(NSString*)name{
+    NSManagedObject *waiter = [NSEntityDescription insertNewObjectForEntityForName:@"Waiter" inManagedObjectContext:self.managedContext];
+    [waiter setValue:name forKey:@"name"];
+    [waiter setValue:self.restaurant forKey:@"restaurant"];
+    
+    NSError *error = nil;
+    if(![self.managedContext save:&error]){
+        NSLog(@"error: %@",error.localizedDescription);
+    }
+}
+
+-(void)removeWaiter:(NSString*)name{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:self.managedContext];
+    [fetchRequest setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@", name];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [self.managedContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"error: %@", error.localizedDescription);
+    }
+}
+
 @end
