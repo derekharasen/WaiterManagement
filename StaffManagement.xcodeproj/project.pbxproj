@@ -17,8 +17,11 @@
 		651CBBCC1AB4E1CD00F265E8 /* StaffManagementTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBCB1AB4E1CD00F265E8 /* StaffManagementTests.m */; };
 		651CBBD71AB4E31400F265E8 /* RestaurantManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBD61AB4E31400F265E8 /* RestaurantManager.m */; };
 		651CBBDA1AB4E4A000F265E8 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBD91AB4E4A000F265E8 /* Restaurant.m */; };
-		651CBBDD1AB4E4A100F265E8 /* Waiter.m in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBDC1AB4E4A100F265E8 /* Waiter.m */; };
 		C8E528041E748EEC000EF7F5 /* ShiftsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E528031E748EEC000EF7F5 /* ShiftsViewController.m */; };
+		C8E5281C1E75FFA1000EF7F5 /* Shift+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E528191E75FFA1000EF7F5 /* Shift+CoreDataClass.m */; };
+		C8E5281D1E75FFA1000EF7F5 /* Shift+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E5281B1E75FFA1000EF7F5 /* Shift+CoreDataProperties.m */; };
+		C8E528221E75FFDF000EF7F5 /* Waiter+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E5281F1E75FFDF000EF7F5 /* Waiter+CoreDataClass.m */; };
+		C8E528231E75FFDF000EF7F5 /* Waiter+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E528211E75FFDF000EF7F5 /* Waiter+CoreDataProperties.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,10 +53,17 @@
 		651CBBD61AB4E31400F265E8 /* RestaurantManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantManager.m; sourceTree = "<group>"; };
 		651CBBD81AB4E4A000F265E8 /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurant.h; sourceTree = "<group>"; };
 		651CBBD91AB4E4A000F265E8 /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
-		651CBBDB1AB4E4A100F265E8 /* Waiter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Waiter.h; sourceTree = "<group>"; };
-		651CBBDC1AB4E4A100F265E8 /* Waiter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Waiter.m; sourceTree = "<group>"; };
 		C8E528021E748EEC000EF7F5 /* ShiftsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShiftsViewController.h; sourceTree = "<group>"; };
 		C8E528031E748EEC000EF7F5 /* ShiftsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShiftsViewController.m; sourceTree = "<group>"; };
+		C8E528171E75D83B000EF7F5 /* StaffManagement + shifts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "StaffManagement + shifts.xcdatamodel"; sourceTree = "<group>"; };
+		C8E528181E75FFA1000EF7F5 /* Shift+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Shift+CoreDataClass.h"; path = "../Shift+CoreDataClass.h"; sourceTree = "<group>"; };
+		C8E528191E75FFA1000EF7F5 /* Shift+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Shift+CoreDataClass.m"; path = "../Shift+CoreDataClass.m"; sourceTree = "<group>"; };
+		C8E5281A1E75FFA1000EF7F5 /* Shift+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Shift+CoreDataProperties.h"; path = "../Shift+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C8E5281B1E75FFA1000EF7F5 /* Shift+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Shift+CoreDataProperties.m"; path = "../Shift+CoreDataProperties.m"; sourceTree = "<group>"; };
+		C8E5281E1E75FFDF000EF7F5 /* Waiter+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Waiter+CoreDataClass.h"; path = "../Waiter+CoreDataClass.h"; sourceTree = "<group>"; };
+		C8E5281F1E75FFDF000EF7F5 /* Waiter+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Waiter+CoreDataClass.m"; path = "../Waiter+CoreDataClass.m"; sourceTree = "<group>"; };
+		C8E528201E75FFDF000EF7F5 /* Waiter+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Waiter+CoreDataProperties.h"; path = "../Waiter+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C8E528211E75FFDF000EF7F5 /* Waiter+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Waiter+CoreDataProperties.m"; path = "../Waiter+CoreDataProperties.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,10 +152,16 @@
 			isa = PBXGroup;
 			children = (
 				651CBBB31AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld */,
-				651CBBDB1AB4E4A100F265E8 /* Waiter.h */,
-				651CBBDC1AB4E4A100F265E8 /* Waiter.m */,
 				651CBBD81AB4E4A000F265E8 /* Restaurant.h */,
 				651CBBD91AB4E4A000F265E8 /* Restaurant.m */,
+				C8E5281E1E75FFDF000EF7F5 /* Waiter+CoreDataClass.h */,
+				C8E5281F1E75FFDF000EF7F5 /* Waiter+CoreDataClass.m */,
+				C8E528201E75FFDF000EF7F5 /* Waiter+CoreDataProperties.h */,
+				C8E528211E75FFDF000EF7F5 /* Waiter+CoreDataProperties.m */,
+				C8E528181E75FFA1000EF7F5 /* Shift+CoreDataClass.h */,
+				C8E528191E75FFA1000EF7F5 /* Shift+CoreDataClass.m */,
+				C8E5281A1E75FFA1000EF7F5 /* Shift+CoreDataProperties.h */,
+				C8E5281B1E75FFA1000EF7F5 /* Shift+CoreDataProperties.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -252,10 +268,13 @@
 			files = (
 				651CBBD71AB4E31400F265E8 /* RestaurantManager.m in Sources */,
 				C8E528041E748EEC000EF7F5 /* ShiftsViewController.m in Sources */,
+				C8E5281D1E75FFA1000EF7F5 /* Shift+CoreDataProperties.m in Sources */,
 				651CBBB51AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld in Sources */,
+				C8E528231E75FFDF000EF7F5 /* Waiter+CoreDataProperties.m in Sources */,
 				651CBBB21AB4E1CC00F265E8 /* AppDelegate.m in Sources */,
+				C8E528221E75FFDF000EF7F5 /* Waiter+CoreDataClass.m in Sources */,
+				C8E5281C1E75FFA1000EF7F5 /* Shift+CoreDataClass.m in Sources */,
 				651CBBB81AB4E1CD00F265E8 /* ViewController.m in Sources */,
-				651CBBDD1AB4E4A100F265E8 /* Waiter.m in Sources */,
 				651CBBDA1AB4E4A000F265E8 /* Restaurant.m in Sources */,
 				651CBBAF1AB4E1CC00F265E8 /* main.m in Sources */,
 			);
@@ -465,9 +484,10 @@
 		651CBBB31AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				C8E528171E75D83B000EF7F5 /* StaffManagement + shifts.xcdatamodel */,
 				651CBBB41AB4E1CD00F265E8 /* StaffManagement.xcdatamodel */,
 			);
-			currentVersion = 651CBBB41AB4E1CD00F265E8 /* StaffManagement.xcdatamodel */;
+			currentVersion = C8E528171E75D83B000EF7F5 /* StaffManagement + shifts.xcdatamodel */;
 			path = StaffManagement.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

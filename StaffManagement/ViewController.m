@@ -17,12 +17,14 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 @property IBOutlet UITableView *tableView;
 @property (nonatomic, retain) NSMutableArray *waiters;
 @property RestaurantManager *manager;
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.nameTextField setDelegate:self];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCellIdentifier];
     NSSortDescriptor *sortByName = [[NSSortDescriptor alloc]initWithKey:@"name" ascending:YES];
     self.waiters = [[[[RestaurantManager sharedManager]currentRestaurant].staff sortedArrayUsingDescriptors:@[sortByName]] mutableCopy];
@@ -36,31 +38,26 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 }
 
 - (IBAction)addWaiter:(id)sender {
-        Waiter *newWaiter = [self.manager saveWaiter:@"New Waiter"];
-        if (newWaiter != nil){
-            [self.waiters addObject:newWaiter];
-            [self.tableView reloadData];
-        }
-}
-
-- (IBAction)removeWaiter:(id)sender {
-    if (self.waiters.count > 0){
-        Waiter *removedWaiter = [self.manager removeWaiter:self.waiters[0]];
-        if(removedWaiter != nil){
-            [self.waiters removeObject:removedWaiter];
-            [self.tableView reloadData];
-        }
+    if (self.nameTextField.text == nil){
+        return;
     }
+    Waiter *newWaiter = [self.manager saveWaiter:self.nameTextField.text];
+    if (newWaiter != nil){
+        [self.waiters addObject:newWaiter];
+        [self.tableView reloadData];
+    }
+    self.nameTextField.text = nil;
 }
-
 
 #pragma mark - TableView Data Source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.waiters.count;
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier forIndexPath:indexPath];
     Waiter *waiter = self.waiters[indexPath.row];
@@ -70,6 +67,27 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self performSegueWithIdentifier:@"Shifts" sender:self];
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    // Return YES - we will be able to delete all rows
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.waiters.count > 0){
+        Waiter *removedWaiter = [self.manager removeWaiter:self.waiters[0]];
+        if(removedWaiter != nil){
+            [self.waiters removeObject:removedWaiter];
+            [self.tableView reloadData];
+        }
+    }
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 #pragma mark - Segue
