@@ -16,8 +16,16 @@
 		651CBBC01AB4E1CD00F265E8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 651CBBBE1AB4E1CD00F265E8 /* LaunchScreen.xib */; };
 		651CBBCC1AB4E1CD00F265E8 /* StaffManagementTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBCB1AB4E1CD00F265E8 /* StaffManagementTests.m */; };
 		651CBBD71AB4E31400F265E8 /* RestaurantManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBD61AB4E31400F265E8 /* RestaurantManager.m */; };
-		651CBBDA1AB4E4A000F265E8 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBD91AB4E4A000F265E8 /* Restaurant.m */; };
-		651CBBDD1AB4E4A100F265E8 /* Waiter.m in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBDC1AB4E4A100F265E8 /* Waiter.m */; };
+		893357821E73AA85006B75FA /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893357811E73AA85006B75FA /* DataManager.swift */; };
+		893357D91E7448BC006B75FA /* ShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893357D81E7448BC006B75FA /* ShiftViewController.swift */; };
+		893357DB1E744DCC006B75FA /* ShiftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893357DA1E744DCC006B75FA /* ShiftTableViewCell.swift */; };
+		893357DF1E74972D006B75FA /* AddShiftTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893357DE1E74972D006B75FA /* AddShiftTableViewController.swift */; };
+		894BA6551E75CE3900126F8B /* Shift+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 894BA64A1E75CE3900126F8B /* Shift+CoreDataClass.m */; };
+		894BA6561E75CE3900126F8B /* Shift+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 894BA64C1E75CE3900126F8B /* Shift+CoreDataProperties.m */; };
+		894BA6571E75CE3900126F8B /* Waiter+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 894BA64E1E75CE3900126F8B /* Waiter+CoreDataClass.m */; };
+		894BA6581E75CE3900126F8B /* Waiter+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 894BA6501E75CE3900126F8B /* Waiter+CoreDataProperties.m */; };
+		894BA6591E75CE3900126F8B /* Restaurant+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 894BA6521E75CE3900126F8B /* Restaurant+CoreDataClass.m */; };
+		894BA65A1E75CE3900126F8B /* Restaurant+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 894BA6541E75CE3900126F8B /* Restaurant+CoreDataProperties.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,10 +55,23 @@
 		651CBBCB1AB4E1CD00F265E8 /* StaffManagementTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaffManagementTests.m; sourceTree = "<group>"; };
 		651CBBD51AB4E31400F265E8 /* RestaurantManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantManager.h; sourceTree = "<group>"; };
 		651CBBD61AB4E31400F265E8 /* RestaurantManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantManager.m; sourceTree = "<group>"; };
-		651CBBD81AB4E4A000F265E8 /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurant.h; sourceTree = "<group>"; };
-		651CBBD91AB4E4A000F265E8 /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
-		651CBBDB1AB4E4A100F265E8 /* Waiter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Waiter.h; sourceTree = "<group>"; };
-		651CBBDC1AB4E4A100F265E8 /* Waiter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Waiter.m; sourceTree = "<group>"; };
+		893357801E73AA84006B75FA /* StaffManagement-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StaffManagement-Bridging-Header.h"; sourceTree = "<group>"; };
+		893357811E73AA85006B75FA /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		893357D81E7448BC006B75FA /* ShiftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftViewController.swift; sourceTree = "<group>"; };
+		893357DA1E744DCC006B75FA /* ShiftTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftTableViewCell.swift; sourceTree = "<group>"; };
+		893357DE1E74972D006B75FA /* AddShiftTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddShiftTableViewController.swift; sourceTree = "<group>"; };
+		894BA6491E75CE3900126F8B /* Shift+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Shift+CoreDataClass.h"; path = "../Shift+CoreDataClass.h"; sourceTree = "<group>"; };
+		894BA64A1E75CE3900126F8B /* Shift+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Shift+CoreDataClass.m"; path = "../Shift+CoreDataClass.m"; sourceTree = "<group>"; };
+		894BA64B1E75CE3900126F8B /* Shift+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Shift+CoreDataProperties.h"; path = "../Shift+CoreDataProperties.h"; sourceTree = "<group>"; };
+		894BA64C1E75CE3900126F8B /* Shift+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Shift+CoreDataProperties.m"; path = "../Shift+CoreDataProperties.m"; sourceTree = "<group>"; };
+		894BA64D1E75CE3900126F8B /* Waiter+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Waiter+CoreDataClass.h"; path = "../Waiter+CoreDataClass.h"; sourceTree = "<group>"; };
+		894BA64E1E75CE3900126F8B /* Waiter+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Waiter+CoreDataClass.m"; path = "../Waiter+CoreDataClass.m"; sourceTree = "<group>"; };
+		894BA64F1E75CE3900126F8B /* Waiter+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Waiter+CoreDataProperties.h"; path = "../Waiter+CoreDataProperties.h"; sourceTree = "<group>"; };
+		894BA6501E75CE3900126F8B /* Waiter+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Waiter+CoreDataProperties.m"; path = "../Waiter+CoreDataProperties.m"; sourceTree = "<group>"; };
+		894BA6511E75CE3900126F8B /* Restaurant+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Restaurant+CoreDataClass.h"; path = "../Restaurant+CoreDataClass.h"; sourceTree = "<group>"; };
+		894BA6521E75CE3900126F8B /* Restaurant+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Restaurant+CoreDataClass.m"; path = "../Restaurant+CoreDataClass.m"; sourceTree = "<group>"; };
+		894BA6531E75CE3900126F8B /* Restaurant+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Restaurant+CoreDataProperties.h"; path = "../Restaurant+CoreDataProperties.h"; sourceTree = "<group>"; };
+		894BA6541E75CE3900126F8B /* Restaurant+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Restaurant+CoreDataProperties.m"; path = "../Restaurant+CoreDataProperties.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +119,8 @@
 				651CBBD61AB4E31400F265E8 /* RestaurantManager.m */,
 				651CBBB61AB4E1CD00F265E8 /* ViewController.h */,
 				651CBBB71AB4E1CD00F265E8 /* ViewController.m */,
+				893357D81E7448BC006B75FA /* ShiftViewController.swift */,
+				893357DE1E74972D006B75FA /* AddShiftTableViewController.swift */,
 				651CBBB91AB4E1CD00F265E8 /* Main.storyboard */,
 				651CBBBC1AB4E1CD00F265E8 /* Images.xcassets */,
 				651CBBBE1AB4E1CD00F265E8 /* LaunchScreen.xib */,
@@ -110,6 +133,8 @@
 		651CBBAC1AB4E1CC00F265E8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				893357801E73AA84006B75FA /* StaffManagement-Bridging-Header.h */,
+				893357DA1E744DCC006B75FA /* ShiftTableViewCell.swift */,
 				651CBBAD1AB4E1CC00F265E8 /* Info.plist */,
 				651CBBAE1AB4E1CC00F265E8 /* main.m */,
 			);
@@ -136,11 +161,20 @@
 		651CBBDE1AB4E4AC00F265E8 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				894BA6491E75CE3900126F8B /* Shift+CoreDataClass.h */,
+				894BA64A1E75CE3900126F8B /* Shift+CoreDataClass.m */,
+				894BA64B1E75CE3900126F8B /* Shift+CoreDataProperties.h */,
+				894BA64C1E75CE3900126F8B /* Shift+CoreDataProperties.m */,
+				894BA64D1E75CE3900126F8B /* Waiter+CoreDataClass.h */,
+				894BA64E1E75CE3900126F8B /* Waiter+CoreDataClass.m */,
+				894BA64F1E75CE3900126F8B /* Waiter+CoreDataProperties.h */,
+				894BA6501E75CE3900126F8B /* Waiter+CoreDataProperties.m */,
+				894BA6511E75CE3900126F8B /* Restaurant+CoreDataClass.h */,
+				894BA6521E75CE3900126F8B /* Restaurant+CoreDataClass.m */,
+				894BA6531E75CE3900126F8B /* Restaurant+CoreDataProperties.h */,
+				894BA6541E75CE3900126F8B /* Restaurant+CoreDataProperties.m */,
 				651CBBB31AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld */,
-				651CBBDB1AB4E4A100F265E8 /* Waiter.h */,
-				651CBBDC1AB4E4A100F265E8 /* Waiter.m */,
-				651CBBD81AB4E4A000F265E8 /* Restaurant.h */,
-				651CBBD91AB4E4A000F265E8 /* Restaurant.m */,
+				893357811E73AA85006B75FA /* DataManager.swift */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -189,11 +223,12 @@
 		651CBBA11AB4E1CC00F265E8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Derek Harasen";
 				TargetAttributes = {
 					651CBBA81AB4E1CC00F265E8 = {
 						CreatedOnToolsVersion = 6.2;
+						LastSwiftMigration = 0820;
 					};
 					651CBBC41AB4E1CD00F265E8 = {
 						CreatedOnToolsVersion = 6.2;
@@ -245,13 +280,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				894BA6591E75CE3900126F8B /* Restaurant+CoreDataClass.m in Sources */,
+				893357821E73AA85006B75FA /* DataManager.swift in Sources */,
 				651CBBD71AB4E31400F265E8 /* RestaurantManager.m in Sources */,
+				894BA6561E75CE3900126F8B /* Shift+CoreDataProperties.m in Sources */,
 				651CBBB51AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld in Sources */,
+				893357DB1E744DCC006B75FA /* ShiftTableViewCell.swift in Sources */,
+				894BA6571E75CE3900126F8B /* Waiter+CoreDataClass.m in Sources */,
+				893357DF1E74972D006B75FA /* AddShiftTableViewController.swift in Sources */,
 				651CBBB21AB4E1CC00F265E8 /* AppDelegate.m in Sources */,
+				894BA6581E75CE3900126F8B /* Waiter+CoreDataProperties.m in Sources */,
+				894BA65A1E75CE3900126F8B /* Restaurant+CoreDataProperties.m in Sources */,
+				894BA6551E75CE3900126F8B /* Shift+CoreDataClass.m in Sources */,
 				651CBBB81AB4E1CD00F265E8 /* ViewController.m in Sources */,
-				651CBBDD1AB4E4A100F265E8 /* Waiter.m in Sources */,
-				651CBBDA1AB4E4A000F265E8 /* Restaurant.m in Sources */,
 				651CBBAF1AB4E1CC00F265E8 /* main.m in Sources */,
+				893357D91E7448BC006B75FA /* ShiftViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,15 +349,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -347,8 +394,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -356,6 +405,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -372,26 +422,38 @@
 		651CBBD01AB4E1CD00F265E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = StaffManagement/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.TouchBistro.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "StaffManagement/StaffManagement-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		651CBBD11AB4E1CD00F265E8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = StaffManagement/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.TouchBistro.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "StaffManagement/StaffManagement-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		651CBBD31AB4E1CD00F265E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -403,6 +465,7 @@
 				);
 				INFOPLIST_FILE = StaffManagementTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.TouchBistro.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StaffManagement.app/StaffManagement";
 			};
@@ -411,6 +474,7 @@
 		651CBBD41AB4E1CD00F265E8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -418,6 +482,7 @@
 				);
 				INFOPLIST_FILE = StaffManagementTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.TouchBistro.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StaffManagement.app/StaffManagement";
 			};
@@ -442,6 +507,7 @@
 				651CBBD11AB4E1CD00F265E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		651CBBD21AB4E1CD00F265E8 /* Build configuration list for PBXNativeTarget "StaffManagementTests" */ = {
 			isa = XCConfigurationList;
@@ -450,6 +516,7 @@
 				651CBBD41AB4E1CD00F265E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
