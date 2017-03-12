@@ -66,7 +66,7 @@
 
 #pragma mark - Core Data Functions
 
--(BOOL)saveWaiter:(NSString*)name{
+-(Waiter*)saveWaiter:(NSString*)name{
     NSError *error = nil;
     for (NSString *waiterName in self.waiterNames) {
         if ([waiterName isEqualToString:name]){
@@ -74,20 +74,24 @@
         }
     }
     
-    Waiter *waiter = [[Waiter alloc] initWithContext:self.managedContext];
+//    Waiter *waiter = [[Waiter alloc] initWithContext:self.managedContext];
     NSEntityDescription *waiterEntity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:self.managedContext];
+    Waiter *waiter = [[Waiter alloc] initWithEntity:waiterEntity insertIntoManagedObjectContext:self.managedContext];
     waiter = [[Waiter alloc] initWithEntity:waiterEntity insertIntoManagedObjectContext:self.managedContext];
     waiter.name = name;
-    waiter.restaurant = self.restaurant;
+   // waiter.restaurant = self.restaurant;
     
+    [self.restaurant addStaffObject:waiter];
     if(![self.managedContext save:&error]){
         NSLog(@"error: %@",error.localizedDescription);
-        return false;
+        return nil;
     }
-    return true;
+    
+    [self.waiterNames addObject:name];
+    return waiter;
 }
 
--(BOOL)removeWaiter:(Waiter*)waiter{
+-(Waiter*)removeWaiter:(Waiter*)waiter{
     NSString *name = waiter.name;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:self.managedContext];
@@ -95,18 +99,25 @@
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@", name];
     [fetchRequest setPredicate:predicate];
-    
     NSError *error = nil;
     NSArray *fetchedObjects = [self.managedContext executeFetchRequest:fetchRequest error:&error];
+    
     if (fetchedObjects == nil) {
         NSLog(@"error: %@", error.localizedDescription);
-        return false;
+        return nil;
     }
+    
     if (fetchedObjects.count > 0){
-        [self.managedContext deleteObject:waiter];
-        return true;
+        [self.managedContext deleteObject:fetchedObjects[0]];
+        [self.waiterNames removeObject:name];
+        if (![self.managedContext save:&error]){
+            NSLog(@"Error ! %@", error.localizedDescription);
+            return nil;
+        }
+        return fetchedObjects[0];
     }
-    return false;
+    
+    return nil;
 }
 
 @end

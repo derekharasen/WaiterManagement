@@ -36,16 +36,19 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 }
 
 - (IBAction)addWaiter:(id)sender {
-    if (self.waiters.count > 0){
-        [self.manager saveWaiter:@"New Waiter"];
-        [self.tableView reloadData];
-    }
+        Waiter *newWaiter = [self.manager saveWaiter:@"New Waiter"];
+        if (newWaiter != nil){
+            [self.waiters addObject:newWaiter];
+            [self.tableView reloadData];
+        }
 }
 
 - (IBAction)removeWaiter:(id)sender {
     if (self.waiters.count > 0){
-        if([self.manager removeWaiter:self.waiters[0]]){
-            [self.waiters removeObject:self.waiters[0]];
+        Waiter *removedWaiter = [self.manager removeWaiter:self.waiters[0]];
+        if(removedWaiter != nil){
+            [self.waiters removeObject:removedWaiter];
+            [self.tableView reloadData];
         }
     }
 }

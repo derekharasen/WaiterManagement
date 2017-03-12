@@ -13,6 +13,6 @@
 @interface RestaurantManager : NSObject
 + (id)sharedManager;
 -(Restaurant*)currentRestaurant;
--(BOOL)saveWaiter:(NSString*)name;
--(BOOL)removeWaiter:(Waiter*)waiter;
+-(Waiter*)saveWaiter:(NSString*)name;
+-(Waiter*)removeWaiter:(Waiter*)waiter;
 @end
