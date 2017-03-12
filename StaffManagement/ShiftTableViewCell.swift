@@ -10,6 +10,8 @@ import UIKit
 
 class ShiftTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var endTimeLabel: UILabel!
+    @IBOutlet weak var startTimeLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -25,6 +25,7 @@
 		893357821E73AA85006B75FA /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893357811E73AA85006B75FA /* DataManager.swift */; };
 		893357D91E7448BC006B75FA /* ShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893357D81E7448BC006B75FA /* ShiftViewController.swift */; };
 		893357DB1E744DCC006B75FA /* ShiftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893357DA1E744DCC006B75FA /* ShiftTableViewCell.swift */; };
+		893357DF1E74972D006B75FA /* AddShiftTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893357DE1E74972D006B75FA /* AddShiftTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		893357811E73AA85006B75FA /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		893357D81E7448BC006B75FA /* ShiftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftViewController.swift; sourceTree = "<group>"; };
 		893357DA1E744DCC006B75FA /* ShiftTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftTableViewCell.swift; sourceTree = "<group>"; };
+		893357DE1E74972D006B75FA /* AddShiftTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddShiftTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				651CBBB71AB4E1CD00F265E8 /* ViewController.m */,
 				893357D81E7448BC006B75FA /* ShiftViewController.swift */,
 				893357DA1E744DCC006B75FA /* ShiftTableViewCell.swift */,
+				893357DE1E74972D006B75FA /* AddShiftTableViewController.swift */,
 				651CBBB91AB4E1CD00F265E8 /* Main.storyboard */,
 				651CBBBC1AB4E1CD00F265E8 /* Images.xcassets */,
 				651CBBBE1AB4E1CD00F265E8 /* LaunchScreen.xib */,
@@ -285,6 +288,7 @@
 				651CBBB51AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld in Sources */,
 				893357DB1E744DCC006B75FA /* ShiftTableViewCell.swift in Sources */,
 				8933577A1E73A8B3006B75FA /* Shift+CoreDataClass.m in Sources */,
+				893357DF1E74972D006B75FA /* AddShiftTableViewController.swift in Sources */,
 				893357791E73A8B3006B75FA /* Waiter+CoreDataProperties.m in Sources */,
 				651CBBB21AB4E1CC00F265E8 /* AppDelegate.m in Sources */,
 				651CBBB81AB4E1CD00F265E8 /* ViewController.m in Sources */,
