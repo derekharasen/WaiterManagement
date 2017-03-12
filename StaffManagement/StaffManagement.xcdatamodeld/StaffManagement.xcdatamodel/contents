@@ -5,8 +5,8 @@
         <relationship name="staff" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Waiter" inverseName="restaurant" inverseEntity="Waiter" syncable="YES"/>
     </entity>
     <entity name="Shift" representedClassName="Shift" syncable="YES">
-        <attribute name="endTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="startTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="endTime" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="startTime" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="waiter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Waiter" inverseName="shifts" inverseEntity="Waiter" syncable="YES"/>
     </entity>
     <entity name="Waiter" representedClassName="Waiter" syncable="YES">
@@ -16,7 +16,7 @@
     </entity>
     <elements>
         <element name="Restaurant" positionX="-63" positionY="-18" width="128" height="73"/>
-        <element name="Waiter" positionX="-54" positionY="-9" width="128" height="90"/>
         <element name="Shift" positionX="-54" positionY="18" width="128" height="90"/>
+        <element name="Waiter" positionX="-54" positionY="-9" width="128" height="90"/>
     </elements>
 </model>

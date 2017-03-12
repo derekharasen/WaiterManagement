@@ -39,7 +39,8 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 }
 
-- (void) reloadTableView {
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self.tableView reloadData];
 }
 
@@ -62,6 +63,36 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     cell.textLabel.text = name;
     return cell;
 }
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        Waiter *waiter = self.waiters[indexPath.row];
+        [self.dataManager deleteObject:waiter];
+        [self.waiters removeObject:waiter];
+        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section]] withRowAnimation:UITableViewRowAnimationTop];
+        [self.dataManager saveContext];
+    }
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
+    [self.tableView setEditing:editing animated:animated];
+}
+
+#pragma mark TableView Delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ShiftViewController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"ShiftViewController"];
+    Waiter *waiter = self.waiters[indexPath.row];
+    svc.waiter = waiter;
+    [self.navigationController pushViewController:svc animated:YES];
+}
+
+#pragma mark Add new waiter methods
+//Toggles the availability of the textfield for adding new waiters
 - (IBAction)addWaiterModeToggle:(UIBarButtonItem *)sender {
     self.addWaiterButton.hidden = !self.addWaiterButton.hidden;
     self.addWaiterTextField.hidden = !self.addWaiterTextField.hidden;
@@ -94,36 +125,21 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     Waiter *waiter = [self.dataManager generateWaiter];
     waiter.name = self.addWaiterTextField.text;
     [self.waiters addObject:waiter];
+    [self sortWaiterArray];
     waiter.restaurant = [[RestaurantManager sharedManager] currentRestaurant];
-    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.waiters.count - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
+    NSInteger index = [self.waiters indexOfObject:waiter];
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
     [self.dataManager saveContext];
     self.addWaiterTextField.text = @"";
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        Waiter *waiter = self.waiters[indexPath.row];
-        [self.dataManager deleteObject:waiter];
-        [self.waiters removeObject:waiter];
-        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section]] withRowAnimation:UITableViewRowAnimationTop];
-        [self.dataManager saveContext];
-    }
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    ShiftViewController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"ShiftViewController"];
-    Waiter *waiter = self.waiters[indexPath.row];
-    svc.waiter = waiter;
-    [self.navigationController pushViewController:svc animated:YES];
-}
-
-- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
-    [super setEditing:editing animated:animated];
-    [self.tableView setEditing:editing animated:animated];
+#pragma mark Helper methods
+//Alphabetizes the waiter array. This is used when a new waiter is added so we know where to insert it into the tableView
+- (void) sortWaiterArray {
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name"
+                                                                   ascending:YES];
+    NSArray *sortedArray = [self.waiters sortedArrayUsingDescriptors:@[sortDescriptor]];
+    self.waiters = [NSMutableArray arrayWithArray:sortedArray];
 }
 
 @end

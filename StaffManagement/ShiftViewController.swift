@@ -26,19 +26,8 @@ class ShiftViewController: UIViewController, UITableViewDataSource, UITableViewD
         waiterNameTextField.alpha = 0.5
         setUpArray()
     }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return shiftArray.count
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Shifts"
-    }
-    
+
+    //This button/method is used to enable editing the waiter's name
     @IBAction func tapWaiterNameButton(_ sender: UIButton) {
         if sender.title(for: .normal) == "Edit" {
             waiterNameTextField.isUserInteractionEnabled = true
@@ -51,6 +40,20 @@ class ShiftViewController: UIViewController, UITableViewDataSource, UITableViewD
         waiterNameTextField.alpha = 0.5
         waiter.name = waiterNameTextField.text
         DataManager.sharedInstance.saveContext()
+    }
+    
+
+    //MARK: TableView Data Source
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return shiftArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Shifts"
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -69,14 +72,38 @@ class ShiftViewController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let dataManager = DataManager.sharedInstance
+            dataManager.deleteObject(shiftArray[indexPath.row])
+            dataManager.saveContext()
+            shiftArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    //MARK: Segue methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddShiftTableViewController" {
             let astvc = segue.destination as! AddShiftTableViewController
             astvc.delegate = self
             astvc.waiter = waiter
         }
+        
+        if segue.identifier == "EditShift" {
+            let astvc = segue.destination as! AddShiftTableViewController
+            astvc.delegate = self
+            astvc.waiter = waiter
+            astvc.shift = shiftArray[shiftTableView.indexPathForSelectedRow!.row]
+        }
     }
     
+    //MARK: Helper methods
+    //This method gest the shift array and sorts it by start date
     func setUpArray() {
         guard let shifts = waiter.shifts else {
             return
@@ -85,6 +112,7 @@ class ShiftViewController: UIViewController, UITableViewDataSource, UITableViewD
         shiftArray.sort(by: { $0.startTime!.compare($1.startTime!) == .orderedAscending})
     }
     
+    //This method is used to reset the data when a new shift is added
     func reloadTableView() {
         setUpArray()
         shiftTableView.reloadData()

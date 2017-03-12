@@ -133,6 +133,7 @@
                                         <connections>
                                             <outlet property="endTimeLabel" destination="Roj-aP-cmp" id="VLi-r5-P13"/>
                                             <outlet property="startTimeLabel" destination="6Tz-su-0DM" id="cXQ-zs-hrn"/>
+                                            <segue destination="ELf-XC-rPh" kind="show" identifier="EditShift" id="ewE-Ro-gUS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -208,10 +209,10 @@
                             <tableViewSection headerTitle="New Shift" footerTitle="Set the start and end time of the shift" id="Ncm-RO-jsE">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Aj9-hh-dkJ">
-                                        <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="56" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Aj9-hh-dkJ" id="1bA-TT-hBO">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sXx-XN-EFg">
@@ -236,10 +237,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="lbI-3z-RFk">
-                                        <rect key="frame" x="0.0" y="99.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="100" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lbI-3z-RFk" id="7od-7a-k9Q">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="4lV-hF-pJ0">
@@ -261,10 +262,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="hal-lM-vfk">
-                                        <rect key="frame" x="0.0" y="143.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="144" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hal-lM-vfk" id="eJd-aQ-kdp">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ends" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Vy-2Z-APa">
@@ -289,10 +290,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="K1L-eC-TZj">
-                                        <rect key="frame" x="0.0" y="187.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="188" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K1L-eC-TZj" id="hpU-i5-ixB">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ev4-uA-EH7">
@@ -333,7 +334,6 @@
                         <outlet property="endDatePicker" destination="ev4-uA-EH7" id="ohy-50-mdd"/>
                         <outlet property="endTimeLabel" destination="XwX-Pz-kRl" id="F3P-gv-THK"/>
                         <outlet property="saveButton" destination="3yc-WU-fZi" id="jYe-H4-P10"/>
-                        <outlet property="startCell" destination="Aj9-hh-dkJ" id="nNh-bl-NcO"/>
                         <outlet property="startDatePicker" destination="4lV-hF-pJ0" id="Ska-cn-n2D"/>
                         <outlet property="startTimeLabel" destination="m6I-8S-4hh" id="y5f-YW-KF5"/>
                     </connections>
@@ -361,4 +361,7 @@
             <point key="canvasLocation" x="115.94202898550725" y="122.28260869565219"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ewE-Ro-gUS"/>
+    </inferredMetricsTieBreakers>
 </document>

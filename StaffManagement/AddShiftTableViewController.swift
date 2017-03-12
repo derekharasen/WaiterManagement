@@ -11,21 +11,34 @@ import UIKit
 class AddShiftTableViewController: UITableViewController {
     var delegate: ReloadTableView?
     var waiter: Waiter!
+    var shift: Shift?
+    let dateFormatter = DateFormatter()
     @IBOutlet weak var endTimeLabel: UILabel!
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet var addShiftTableView: UITableView!
-    var row1Height = 0
-    var row3Height = 0
     @IBOutlet weak var startDatePicker: UIDatePicker!
     @IBOutlet weak var endDatePicker: UIDatePicker!
-    
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    var row1Height = 0
+    var row3Height = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        saveButton.isEnabled = false
+        dateFormatter.dateFormat = "MMMM dd yyyy      HH:mm"
+        if let shift = shift {
+            startDatePicker.date = shift.startTime!
+            endDatePicker.date = shift.endTime!
+            startTimeLabel.text = dateFormatter.string(from: shift.startTime!)
+            endTimeLabel.text = dateFormatter.string(from: shift.endTime!)
+            return
+        }
+        startTimeLabel.text = dateFormatter.string(from: Date())
+        endTimeLabel.text = dateFormatter.string(from: Date()+3600)
+        endDatePicker.date = Date()+3600
     }
     
-    @IBOutlet weak var startCell: UITableViewCell!
+    //MARK: TableView Data Source
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 1 {
             return CGFloat(row1Height)
@@ -36,6 +49,7 @@ class AddShiftTableViewController: UITableViewController {
         return 44
     }
     
+    //MARK: TableView Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             toggleRow(1)
@@ -46,26 +60,32 @@ class AddShiftTableViewController: UITableViewController {
         }
     }
     
+    //MARK: Toggle the pickers from expanded to closed
     func toggleRow(_ row: Int) {
+        self.addShiftTableView.beginUpdates()
         if row == 1 {
             if row1Height == 0 {
+                startDatePicker.isHidden = false
                 row1Height = 150
             } else {
+                startDatePicker.isHidden = true
                 row1Height = 0
             }
         }
         
         if row == 3 {
             if row3Height == 0 {
+                endDatePicker.isHidden = false
                 row3Height = 150
             } else {
+                endDatePicker.isHidden = true
                 row3Height = 0
             }
         }
-        self.addShiftTableView.beginUpdates()
         self.addShiftTableView.endUpdates()
     }
     
+    //MARK: Shift setting methods
     @IBAction func startTimePicked(_ sender: UIDatePicker) {
         startTimeLabel.text = formatDate(sender.date)
         toggleSaveButton()
@@ -77,8 +97,6 @@ class AddShiftTableViewController: UITableViewController {
     }
     
     func formatDate(_ date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM dd yyyy      HH:mm"
         return dateFormatter.string(from: date)
     }
     
@@ -87,19 +105,18 @@ class AddShiftTableViewController: UITableViewController {
             saveButton.isEnabled = false
             return
         }
-        if startTimeLabel.text != "" && endTimeLabel.text != "" {
-            saveButton.isEnabled = true
-        }
+        saveButton.isEnabled = true
     }
     
     @IBAction func saveShift(_ sender: UIBarButtonItem) {
-        let shift = DataManager.sharedInstance.generateShift()
-        shift.startTime = startDatePicker.date
-        shift.endTime = endDatePicker.date
-        waiter.addShiftsObject(shift)
+        if shift == nil {
+            shift = DataManager.sharedInstance.generateShift()
+            waiter.addShiftsObject(shift!)
+        }
+        shift!.startTime = startDatePicker.date
+        shift!.endTime = endDatePicker.date
         DataManager.sharedInstance.saveContext()
         delegate?.reloadTableView()
         _ = navigationController?.popViewController(animated: true)
     }
-    
 }
