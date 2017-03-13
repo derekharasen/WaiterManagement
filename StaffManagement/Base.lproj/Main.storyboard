@@ -68,7 +68,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter waiter's name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cu0-OX-CE9">
-                                <rect key="frame" x="37" y="156.5" width="300" height="53.5"/>
+                                <rect key="frame" x="37" y="84" width="300" height="53.5"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
@@ -76,7 +76,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Cu0-OX-CE9" firstAttribute="top" secondItem="8km-JD-BOc" secondAttribute="bottom" constant="92.5" id="Fpt-s1-Vbh"/>
+                            <constraint firstItem="Cu0-OX-CE9" firstAttribute="top" secondItem="8km-JD-BOc" secondAttribute="bottom" constant="20" id="Fpt-s1-Vbh"/>
                             <constraint firstItem="Cu0-OX-CE9" firstAttribute="centerX" secondItem="0tv-NU-gfD" secondAttribute="centerX" id="Ng9-6a-Kxs"/>
                             <constraint firstItem="Cu0-OX-CE9" firstAttribute="width" secondItem="0tv-NU-gfD" secondAttribute="width" multiplier="0.8" id="j83-Yq-SM9"/>
                             <constraint firstItem="Cu0-OX-CE9" firstAttribute="height" secondItem="0tv-NU-gfD" secondAttribute="height" multiplier="0.08" id="kM5-Wt-Irj"/>
@@ -107,7 +107,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDh-tO-ys7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="447" y="148"/>
+            <point key="canvasLocation" x="222" y="148"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Dj5-WS-Bg6">
