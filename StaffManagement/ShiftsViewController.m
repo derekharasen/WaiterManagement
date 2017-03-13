@@ -21,9 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.manager = [RestaurantManager sharedManager];
-  //  [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
-   
+    self.manager = [RestaurantManager sharedManager];   
     // Do any additional setup after loading the view.
 }
 
@@ -65,7 +63,6 @@
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
-    // Return YES - we will be able to delete all rows
     return YES;
 }
 
@@ -83,15 +80,5 @@
     NSString *newDateString = [dateFormatter stringFromDate:date];
     return newDateString;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

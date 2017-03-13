@@ -77,7 +77,6 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
-    // Return YES - we will be able to delete all rows
     return YES;
 }
 
@@ -97,16 +96,6 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 {
     [textField resignFirstResponder];
     return YES;
-}
-
-#pragma mark - Segue
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([segue.identifier isEqualToString:@"Shifts"]){
-        ShiftsViewController *svc = (ShiftsViewController*)[segue destinationViewController];
-//        svc.waiter = self.selected;
-//        self.selected = nil;
-    }
 }
 
 @end

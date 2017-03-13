@@ -22,6 +22,7 @@
 		C8E528291E7605C9000EF7F5 /* Shift.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E528281E7605C9000EF7F5 /* Shift.m */; };
 		C8E5282C1E761611000EF7F5 /* NewShiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E5282B1E761611000EF7F5 /* NewShiftViewController.m */; };
 		C8E5282F1E76F1D5000EF7F5 /* ShiftsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E5282E1E76F1D5000EF7F5 /* ShiftsTableViewCell.m */; };
+		C8E528391E7712D7000EF7F5 /* SwiftRestaurantManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E528381E7712D7000EF7F5 /* SwiftRestaurantManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		C8E5282B1E761611000EF7F5 /* NewShiftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewShiftViewController.m; sourceTree = "<group>"; };
 		C8E5282D1E76F1D5000EF7F5 /* ShiftsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShiftsTableViewCell.h; sourceTree = "<group>"; };
 		C8E5282E1E76F1D5000EF7F5 /* ShiftsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShiftsTableViewCell.m; sourceTree = "<group>"; };
+		C8E528371E7712D7000EF7F5 /* StaffManagement-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StaffManagement-Bridging-Header.h"; sourceTree = "<group>"; };
+		C8E528381E7712D7000EF7F5 /* SwiftRestaurantManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRestaurantManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +112,8 @@
 				651CBBB11AB4E1CC00F265E8 /* AppDelegate.m */,
 				651CBBD51AB4E31400F265E8 /* RestaurantManager.h */,
 				651CBBD61AB4E31400F265E8 /* RestaurantManager.m */,
+				C8E528371E7712D7000EF7F5 /* StaffManagement-Bridging-Header.h */,
+				C8E528381E7712D7000EF7F5 /* SwiftRestaurantManager.swift */,
 				651CBBB61AB4E1CD00F265E8 /* ViewController.h */,
 				651CBBB71AB4E1CD00F265E8 /* ViewController.m */,
 				C8E528021E748EEC000EF7F5 /* ShiftsViewController.h */,
@@ -215,6 +220,7 @@
 				TargetAttributes = {
 					651CBBA81AB4E1CC00F265E8 = {
 						CreatedOnToolsVersion = 6.2;
+						LastSwiftMigration = 0820;
 					};
 					651CBBC41AB4E1CD00F265E8 = {
 						CreatedOnToolsVersion = 6.2;
@@ -266,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8E528391E7712D7000EF7F5 /* SwiftRestaurantManager.swift in Sources */,
 				C8E5282C1E761611000EF7F5 /* NewShiftViewController.m in Sources */,
 				651CBBD71AB4E31400F265E8 /* RestaurantManager.m in Sources */,
 				C8E528041E748EEC000EF7F5 /* ShiftsViewController.m in Sources */,
@@ -398,9 +405,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = StaffManagement/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "StaffManagement/StaffManagement-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -408,15 +419,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = StaffManagement/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "StaffManagement/StaffManagement-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		651CBBD31AB4E1CD00F265E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -436,6 +451,7 @@
 		651CBBD41AB4E1CD00F265E8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

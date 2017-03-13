@@ -12,6 +12,4 @@
 
 @interface ShiftsViewController : UIViewController
 
-//@property (nonatomic) Waiter *waiter;
-
 @end
