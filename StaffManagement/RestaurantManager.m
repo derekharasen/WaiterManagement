@@ -74,9 +74,7 @@
     
     NSEntityDescription *waiterEntity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:self.managedContext];
     Waiter *waiter = [[Waiter alloc] initWithEntity:waiterEntity insertIntoManagedObjectContext:self.managedContext];
-    waiter = [[Waiter alloc] initWithEntity:waiterEntity insertIntoManagedObjectContext:self.managedContext];
     waiter.name = name;
-    waiter.restaurant = self.restaurant;
     
     [self.restaurant addStaffObject:waiter];
     if(![self.managedContext save:&error]){

@@ -38,18 +38,6 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)addWaiter:(id)sender {
-    if (self.nameTextField.text == nil){
-        return;
-    }
-    Waiter *newWaiter = [self.manager newWaiter:self.nameTextField.text];
-    if (newWaiter != nil){
-        [self.waiters addObject:newWaiter];
-        [self.tableView reloadData];
-    }
-    self.nameTextField.text = nil;
-}
-
 #pragma mark - TableView Data Source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -87,6 +75,7 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
         Waiter *removedWaiter = [self.manager getWaiter:name];
         if(removedWaiter != nil){
             [self.waiters removeObject:removedWaiter];
+            [self.manager removeWaiter:name];
             [self.tableView reloadData];
         }
     }
@@ -94,6 +83,15 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    if (self.nameTextField.text == nil){
+        return YES;
+    }
+    Waiter *newWaiter = [self.manager newWaiter:self.nameTextField.text];
+    if (newWaiter != nil){
+        [self.waiters addObject:newWaiter];
+        [self.tableView reloadData];
+    }
+    self.nameTextField.text = nil;
     [textField resignFirstResponder];
     return YES;
 }

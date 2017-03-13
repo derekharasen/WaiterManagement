@@ -68,7 +68,6 @@ class SwiftRestaurantManager: NSObject {
         let waiterEntity = NSEntityDescription.entity(forEntityName: "Waiter", in: managedContext!)
         let waiter = Waiter.init(entity: waiterEntity!, insertInto: managedContext!)
         waiter.name = name
-        waiter.restaurant = restaurant!
         
         restaurant?.addStaffObject(waiter)
         
@@ -81,57 +80,64 @@ class SwiftRestaurantManager: NSObject {
         waiterNames.append(name)
         return waiter
     }
-    //    -(BOOL)removeShift:(Shift*)shift{
-    //    NSError *error = nil;
-    //
-    //    if (self.selected != nil){
-    //    [self.selected removeShiftsObject:shift];
-    //    [self.managedContext deleteObject:shift];
-    //    if (![self.managedContext save:&error]){
-    //    NSLog(@"Error ! %@", error.localizedDescription);
-    //    return false;
-    //    }
-    //    return true;
-    //    }
-    //    return false;
-    //    }
-    //
-    //    -(Waiter*)removeWaiter:(NSString*)name{
-    //    Waiter *waiter = [self getWaiter:name];
-    //    NSError *error = nil;
-    //
-    //    if (waiter != nil){
-    //    [self.managedContext deleteObject:waiter];
-    //    [self.waiterNames removeObject:name];
-    //    if (![self.managedContext save:&error]){
-    //    NSLog(@"Error ! %@", error.localizedDescription);
-    //    return nil;
-    //    }
-    //    }
-    //
-    //    return waiter;
-    //    }
-    //
-    //    -(Waiter*)getWaiter:(NSString*)name{
-    //    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    //    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:self.managedContext];
-    //    [fetchRequest setEntity:entity];
-    //
-    //    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@", name];
-    //    [fetchRequest setPredicate:predicate];
-    //    NSError *error = nil;
-    //    NSArray *fetchedObjects = [self.managedContext executeFetchRequest:fetchRequest error:&error];
-    //    
-    //    if (fetchedObjects == nil) {
-    //    NSLog(@"error: %@", error.localizedDescription);
-    //    return nil;
-    //    }
-    //    
-    //    if (fetchedObjects.count > 0){
-    //    return fetchedObjects[0];
-    //    }
-    //    return nil;
-    //    }
     
+    func removeShift(shift: Shift) -> Bool{
+        guard selected != nil else{
+            return false
+        }
+        selected?.removeShiftsObject(shift)
+        managedContext?.delete(shift)
+        do{
+            try managedContext?.save()
+        }
+        catch{
+          return false
+        }
+        return true
+    }
+
+    func removeWaiter(name: String) -> Waiter?{
+        let waiter = getWaiter(name: name)
+        
+        guard (waiter != nil) else {
+            return nil
+        }
+        
+        managedContext?.delete(waiter!)
+        if let index = waiterNames.index(of:name) {
+            waiterNames.remove(at: index)
+        }
+        
+        do{
+            try managedContext?.save()
+        }
+        catch{
+            return nil
+        }
     
+        return waiter
+    }
+    
+    func getWaiter(name: String) -> Waiter?{
+        var fetchedObjects = [Waiter]()
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
+        let entity = NSEntityDescription.entity(forEntityName: "Waiter", in: managedContext!)
+        fetchRequest.entity = entity
+        
+        let predicate = NSPredicate.init(format: "name", name)
+        fetchRequest.predicate = predicate
+        
+        do{
+            fetchedObjects = try managedContext?.fetch(fetchRequest) as! [Waiter]
+        }
+        catch{
+            return nil
+        }
+        
+        guard (fetchedObjects.count > 0) else{
+            return nil
+        }
+        
+        return fetchedObjects[0]
+    }
 }

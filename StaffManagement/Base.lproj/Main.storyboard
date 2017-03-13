@@ -24,39 +24,37 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="idB-MD-rVO">
-                                <rect key="frame" x="0.0" y="67" width="375" height="600"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="vXZ-lx-hvc" id="iE6-w6-mfH"/>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="XYW-pR-fGp"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Waiter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZg-5i-dF9">
+                                <rect key="frame" x="145" y="28" width="85" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kL0-rQ-amM">
-                                <rect key="frame" x="0.0" y="20" width="187.5" height="30"/>
+                                <rect key="frame" x="0.0" y="59" width="375" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0H-jx-gxh">
-                                <rect key="frame" x="187" y="20" width="187.5" height="30"/>
-                                <state key="normal" title="Add Waiter"/>
-                                <connections>
-                                    <action selector="addWaiter:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jbc-Se-qje"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="f0H-jx-gxh" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="0.5" id="8XN-Jw-8JV"/>
+                            <constraint firstItem="bZg-5i-dF9" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="A5h-Jl-fWq"/>
                             <constraint firstAttribute="trailing" secondItem="idB-MD-rVO" secondAttribute="trailing" id="G5K-Gm-fnH"/>
-                            <constraint firstItem="f0H-jx-gxh" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="LKd-bN-GYB"/>
+                            <constraint firstItem="kL0-rQ-amM" firstAttribute="top" secondItem="bZg-5i-dF9" secondAttribute="bottom" constant="10" id="OVf-wZ-rHT"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="idB-MD-rVO" secondAttribute="bottom" id="Zac-So-JwP"/>
                             <constraint firstItem="kL0-rQ-amM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="foV-oy-ZWh"/>
-                            <constraint firstItem="kL0-rQ-amM" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="geJ-zQ-3A1"/>
+                            <constraint firstItem="bZg-5i-dF9" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="fwy-Kz-XEC"/>
                             <constraint firstItem="idB-MD-rVO" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="gvr-iI-5AH"/>
-                            <constraint firstAttribute="trailing" secondItem="f0H-jx-gxh" secondAttribute="trailing" id="l0W-p1-6dM"/>
-                            <constraint firstItem="kL0-rQ-amM" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="0.5" id="tj7-hL-x1d"/>
-                            <constraint firstItem="idB-MD-rVO" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.9" id="z7u-xT-dir"/>
+                            <constraint firstItem="kL0-rQ-amM" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="0.5" constant="187.5" id="tj7-hL-x1d"/>
+                            <constraint firstItem="idB-MD-rVO" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.9" constant="-41.300000000000068" id="z7u-xT-dir"/>
                         </constraints>
                     </view>
                     <connections>
@@ -67,7 +65,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
+            <point key="canvasLocation" x="41" y="37"/>
         </scene>
         <!--Shifts View Controller-->
         <scene sceneID="O2n-XF-FzB">
