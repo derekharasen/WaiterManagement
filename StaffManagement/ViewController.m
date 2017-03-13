@@ -56,12 +56,25 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
         [self.waiters removeObjectAtIndex:indexPath.row];
         [[[RestaurantManager sharedManager] managedObjectContext] deleteObject:self.waiters[indexPath.row]];
         [tableView reloadData];
-        [[RestaurantManager sharedManager] saveContext];
+        [[[RestaurantManager sharedManager] appDelegate] saveContext];
     }
 }
 
 - (IBAction)addWaiter:(UIBarButtonItem *)sender {
-//    [[RestaurantManager sharedManager] currentRestaurant];
+    
+    
+    [[[RestaurantManager sharedManager] appDelegate] saveContext];
 }
+
+
+//#pragma mark - Core Data Methods
+//
+//- (NSManagedObjectContext *)getContext {
+//    return [self getContainer].viewContext;
+//}
+
+//- (NSPersistentContainer *)getContainer{
+//    return [RestaurantManager sharedManager].persistentStoreCoordinator;
+//}
 
 @end

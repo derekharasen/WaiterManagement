@@ -8,16 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "Restaurant.h"
+#import "AppDelegate.h"
 
 @interface RestaurantManager : NSObject
 
-@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (nonatomic) AppDelegate *appDelegate;
 
 + (id)sharedManager;
-- (void)saveContext;
-- (NSURL *)applicationDocumentsDirectory;
 -(Restaurant*)currentRestaurant;
 
 @end

@@ -9,7 +9,7 @@
 #import "RestaurantManager.h"
 #import "Waiter.h"
 #import "Restaurant.h"
-#import "AppDelegate.h"
+//#import "AppDelegate.h"
 
 @interface RestaurantManager()
 
@@ -54,4 +54,5 @@
     }
     return self.restaurant;
 }
+
 @end
