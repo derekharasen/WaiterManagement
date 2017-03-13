@@ -58,7 +58,7 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
         [self.waiters removeObjectAtIndex:indexPath.row];
         [[[RestaurantManager sharedManager] managedObjectContext] deleteObject:self.waiters[indexPath.row]];
         [tableView reloadData];
-        [[[RestaurantManager sharedManager] appDelegate] saveContext];
+        [[RestaurantManager sharedManager] saveContext];
     }
 }
 

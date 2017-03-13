@@ -12,9 +12,15 @@
 
 @interface RestaurantManager : NSObject
 
-@property (nonatomic) AppDelegate *appDelegate;
+@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (readonly, strong) NSPersistentContainer *persistentContainer;
 
 + (id)sharedManager;
 -(Restaurant*)currentRestaurant;
+- (void)saveContext;
+- (NSURL *)applicationDocumentsDirectory;
+- (NSManagedObjectContext *)getContext;
 
 @end

@@ -34,34 +34,34 @@
 
 - (IBAction)addWaiter:(UIBarButtonItem*)sender {
     
-//    Waiter *newWaiter = [[NSEntityDescription insertNewObjectForEntityForName:@"Waiter" inManagedObjectContext:[RestaurantManager sharedManager]
-    
-    NSManagedObjectContext *context = [[RestaurantManager sharedManager] appDelegate].managedObjectContext;
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:context];
+    NSManagedObjectContext *context = [[RestaurantManager sharedManager] managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Restaurant" inManagedObjectContext:context];
     NSFetchRequest *fetch = [Waiter fetchRequest];
     [fetch setEntity:entity];
     
-    Waiter *newWaiter = [NSEntityDescription insertNewObjectForEntityForName:@"Waiter" inManagedObjectContext:[self getContext]];
+    
+    Waiter *newWaiter = [NSEntityDescription insertNewObjectForEntityForName:@"Waiter" inManagedObjectContext:context];
     newWaiter.name = self.addWaiterTextField.text;
-    self.waiter.restaurant = [[RestaurantManager sharedManager] restaurant];
-    [[[RestaurantManager sharedManager] currentRestaurant] addStaffObject:newWaiter];
-    [[[RestaurantManager sharedManager] appDelegate] saveContext];
+    newWaiter.restaurant = [[RestaurantManager sharedManager] currentRestaurant];
+    NSSet *waiters = [[[RestaurantManager sharedManager] currentRestaurant].staff setByAddingObject:newWaiter];
+    [[[RestaurantManager sharedManager] currentRestaurant] addStaff:waiters];
+    [[RestaurantManager sharedManager] saveContext];
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
-#pragma mark - Core Data Methods
+//#pragma mark - Core Data Methods
 
-- (NSManagedObjectContext *)getContext {
-    return [self getContainer].viewContext;
-}
-
-- (NSPersistentContainer *)getContainer{
-    return [self appDelegate].persistentContainer;
-}
-
-- (AppDelegate *)appDelegate {
-    return (AppDelegate *)[[UIApplication sharedApplication] delegate];
-}
+//- (NSManagedObjectContext *)getContext {
+//    return [self getContainer].viewContext;
+//}
+//
+//- (NSPersistentContainer *)getContainer{
+//    return [self appDelegate].persistentContainer;
+//}
+//
+//- (AppDelegate *)appDelegate {
+//    return (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//}
 
 
 /*
