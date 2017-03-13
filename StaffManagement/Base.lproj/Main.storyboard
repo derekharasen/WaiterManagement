@@ -68,28 +68,65 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter waiter's name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cu0-OX-CE9">
-                                <rect key="frame" x="37" y="84" width="300" height="53.5"/>
+                                <rect key="frame" x="37" y="76" width="300" height="53.5"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6rR-tA-u3c">
+                                <rect key="frame" x="37" y="195" width="300" height="400"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="HP5-eR-BkT" id="8qo-Lp-APw"/>
+                                    <outlet property="delegate" destination="HP5-eR-BkT" id="XXz-wB-BwC"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shifts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxP-B3-jF8">
+                                <rect key="frame" x="37" y="141.5" width="300" height="53.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gje-v1-5LV">
+                                <rect key="frame" x="262" y="607" width="75" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Add Shift"/>
+                                <connections>
+                                    <action selector="addShift:" destination="HP5-eR-BkT" eventType="touchUpInside" id="Cqz-cU-HlC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Cu0-OX-CE9" firstAttribute="top" secondItem="8km-JD-BOc" secondAttribute="bottom" constant="20" id="Fpt-s1-Vbh"/>
+                            <constraint firstItem="sxP-B3-jF8" firstAttribute="width" secondItem="0tv-NU-gfD" secondAttribute="width" multiplier="0.8" id="1HS-EW-R1a"/>
+                            <constraint firstItem="sxP-B3-jF8" firstAttribute="centerX" secondItem="0tv-NU-gfD" secondAttribute="centerX" id="5IM-u4-nxn"/>
+                            <constraint firstItem="6rR-tA-u3c" firstAttribute="height" secondItem="0tv-NU-gfD" secondAttribute="height" multiplier="0.6" id="7uM-oV-6uM"/>
+                            <constraint firstItem="6rR-tA-u3c" firstAttribute="centerX" secondItem="0tv-NU-gfD" secondAttribute="centerX" id="BHT-iI-FNV"/>
+                            <constraint firstItem="Cu0-OX-CE9" firstAttribute="top" secondItem="8km-JD-BOc" secondAttribute="bottom" constant="12" id="Fpt-s1-Vbh"/>
+                            <constraint firstItem="sxP-B3-jF8" firstAttribute="top" secondItem="Cu0-OX-CE9" secondAttribute="bottom" constant="12" id="Hxw-TJ-ciP"/>
                             <constraint firstItem="Cu0-OX-CE9" firstAttribute="centerX" secondItem="0tv-NU-gfD" secondAttribute="centerX" id="Ng9-6a-Kxs"/>
+                            <constraint firstItem="6rR-tA-u3c" firstAttribute="width" secondItem="0tv-NU-gfD" secondAttribute="width" multiplier="0.8" id="YwU-WJ-0oB"/>
+                            <constraint firstItem="6rR-tA-u3c" firstAttribute="top" secondItem="sxP-B3-jF8" secondAttribute="bottom" id="fW5-G6-4c4"/>
                             <constraint firstItem="Cu0-OX-CE9" firstAttribute="width" secondItem="0tv-NU-gfD" secondAttribute="width" multiplier="0.8" id="j83-Yq-SM9"/>
                             <constraint firstItem="Cu0-OX-CE9" firstAttribute="height" secondItem="0tv-NU-gfD" secondAttribute="height" multiplier="0.08" id="kM5-Wt-Irj"/>
+                            <constraint firstItem="gje-v1-5LV" firstAttribute="width" secondItem="0tv-NU-gfD" secondAttribute="width" multiplier="0.2" id="l6D-9y-mH0"/>
+                            <constraint firstItem="gje-v1-5LV" firstAttribute="height" secondItem="0tv-NU-gfD" secondAttribute="height" multiplier="0.05" id="por-SI-gvc"/>
+                            <constraint firstItem="sxP-B3-jF8" firstAttribute="height" secondItem="0tv-NU-gfD" secondAttribute="height" multiplier="0.08" id="rDQ-jq-KM4"/>
+                            <constraint firstItem="gje-v1-5LV" firstAttribute="top" secondItem="6rR-tA-u3c" secondAttribute="bottom" constant="12" id="w08-Se-ZZX"/>
+                            <constraint firstItem="gje-v1-5LV" firstAttribute="trailing" secondItem="6rR-tA-u3c" secondAttribute="trailing" id="xMH-sw-FZf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eZ7-Xi-2qm"/>
                     <connections>
+                        <outlet property="addShiftOutlet" destination="gje-v1-5LV" id="FvG-aq-Qjv"/>
                         <outlet property="addWaiterTextField" destination="Cu0-OX-CE9" id="ZPq-Ym-ufW"/>
+                        <outlet property="shiftsLabel" destination="sxP-B3-jF8" id="c4V-Zh-94s"/>
+                        <outlet property="tableView" destination="6rR-tA-u3c" id="PZP-bM-fKg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lnI-bU-9Fe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2633" y="148"/>
+            <point key="canvasLocation" x="2632.8000000000002" y="147.97601199400302"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="G1Y-4w-TVQ">

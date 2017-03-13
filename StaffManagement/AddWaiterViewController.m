@@ -13,6 +13,9 @@
 @interface AddWaiterViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *addWaiterTextField;
+@property (weak, nonatomic) IBOutlet UIButton *addShiftOutlet;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *shiftsLabel;
 
 @end
 
@@ -26,10 +29,17 @@
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelAddWaiter:)];
     self.navigationItem.leftBarButtonItem = cancelButton;
     [self setTitle:@"Add Waiter"];
+    self.tableView.hidden = YES;
+    self.addShiftOutlet.hidden = YES;
+    self.shiftsLabel.hidden = YES;
+    
     
     if (self.waiter != nil) {
         [self setTitle:@"Edit Waiter"];
         self.addWaiterTextField.text = self.waiter.name;
+        self.tableView.hidden = NO;
+        self.addShiftOutlet.hidden = NO;
+        self.shiftsLabel.hidden = YES;
     }
     
 }
@@ -67,6 +77,10 @@
     if (_waiter != waiter) {
         _waiter = waiter;
     }
+}
+
+- (IBAction)addShift:(UIButton *)sender {
+    
 }
 
 @end
