@@ -127,17 +127,17 @@
     return _managedObjectContext;
 }
 
-- (NSManagedObjectContext *)getContext {
-    return [self getContainer].viewContext;
-}
-
-- (NSPersistentContainer *)getContainer{
-    return [self appDelegate].persistentContainer;
-}
-
-- (AppDelegate *)appDelegate {
-    return (AppDelegate *)[[UIApplication sharedApplication] delegate];
-}
+//- (NSManagedObjectContext *)getContext {
+//    return [self getContainer].viewContext;
+//}
+//
+//- (NSPersistentContainer *)getContainer{
+//    return [self appDelegate].persistentContainer;
+//}
+//
+//- (AppDelegate *)appDelegate {
+//    return (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//}
 
 #pragma mark - Core Data Saving support
 
@@ -153,5 +153,6 @@
         }
     }
 }
+
 
 @end

@@ -8,6 +8,7 @@
 
 #import "AddWaiterViewController.h"
 #import "RestaurantManager.h"
+#import "AppDelegate.h"
 
 @interface AddWaiterViewController ()
 
@@ -32,12 +33,36 @@
 
 
 - (IBAction)addWaiter:(UIBarButtonItem*)sender {
-    self.waiter.name = self.addWaiterTextField.text;
     
-    [[[RestaurantManager sharedManager] appDelegate] getContext];
+//    Waiter *newWaiter = [[NSEntityDescription insertNewObjectForEntityForName:@"Waiter" inManagedObjectContext:[RestaurantManager sharedManager]
+    
+    NSManagedObjectContext *context = [[RestaurantManager sharedManager] appDelegate].managedObjectContext;
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:context];
+    NSFetchRequest *fetch = [Waiter fetchRequest];
+    [fetch setEntity:entity];
+    
+    Waiter *newWaiter = [NSEntityDescription insertNewObjectForEntityForName:@"Waiter" inManagedObjectContext:[self getContext]];
+    newWaiter.name = self.addWaiterTextField.text;
+    self.waiter.restaurant = [[RestaurantManager sharedManager] restaurant];
+    [[[RestaurantManager sharedManager] currentRestaurant] addStaffObject:newWaiter];
     [[[RestaurantManager sharedManager] appDelegate] saveContext];
     [self dismissViewControllerAnimated:NO completion:nil];
 }
+
+#pragma mark - Core Data Methods
+
+- (NSManagedObjectContext *)getContext {
+    return [self getContainer].viewContext;
+}
+
+- (NSPersistentContainer *)getContainer{
+    return [self appDelegate].persistentContainer;
+}
+
+- (AppDelegate *)appDelegate {
+    return (AppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
 
 /*
 #pragma mark - Navigation

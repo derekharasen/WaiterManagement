@@ -44,6 +44,7 @@
 		3CB9DFAF1E76537200BD22B8 /* Restaurant+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Restaurant+CoreDataClass.m"; path = "../Restaurant+CoreDataClass.m"; sourceTree = "<group>"; };
 		3CB9DFB01E76537200BD22B8 /* Restaurant+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Restaurant+CoreDataProperties.h"; path = "../Restaurant+CoreDataProperties.h"; sourceTree = "<group>"; };
 		3CB9DFB11E76537200BD22B8 /* Restaurant+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Restaurant+CoreDataProperties.m"; path = "../Restaurant+CoreDataProperties.m"; sourceTree = "<group>"; };
+		3CB9DFB71E76640300BD22B8 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		651CBBA91AB4E1CC00F265E8 /* StaffManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StaffManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		651CBBAD1AB4E1CC00F265E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		651CBBAE1AB4E1CC00F265E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -80,12 +81,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3CB9DFB61E76640200BD22B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3CB9DFB71E76640300BD22B8 /* libsqlite3.0.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		651CBBA01AB4E1CC00F265E8 = {
 			isa = PBXGroup;
 			children = (
 				651CBBAB1AB4E1CC00F265E8 /* StaffManagement */,
 				651CBBC81AB4E1CD00F265E8 /* StaffManagementTests */,
 				651CBBAA1AB4E1CC00F265E8 /* Products */,
+				3CB9DFB61E76640200BD22B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

@@ -32,24 +32,25 @@
     {
         Restaurant *aRestaurant;
         NSError *error = nil;
-        AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        self.appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
         NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Restaurant"];
-        NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:request error:&error];
+        NSArray *results = [self.appDelegate.managedObjectContext executeFetchRequest:request error:&error];
         
         if(results.count > 0){
             aRestaurant = results[0];
         }
         else{
-            NSEntityDescription *restaurantEntity = [NSEntityDescription entityForName:@"Restaurant" inManagedObjectContext:appDelegate.managedObjectContext];
-            NSEntityDescription *waiterEntity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:appDelegate.managedObjectContext];
-            aRestaurant = [[Restaurant alloc] initWithEntity:restaurantEntity insertIntoManagedObjectContext:appDelegate.managedObjectContext];
+            NSEntityDescription *restaurantEntity = [NSEntityDescription entityForName:@"Restaurant" inManagedObjectContext:self.appDelegate.managedObjectContext];
+            NSEntityDescription *waiterEntity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:self.appDelegate.managedObjectContext];
+            aRestaurant = [[Restaurant alloc] initWithEntity:restaurantEntity insertIntoManagedObjectContext:self.appDelegate.managedObjectContext];
             
-            Waiter *initialWaiter = [[Waiter alloc]initWithEntity:waiterEntity insertIntoManagedObjectContext:appDelegate.managedObjectContext];
+            Waiter *initialWaiter = [[Waiter alloc]initWithEntity:waiterEntity insertIntoManagedObjectContext:self.appDelegate.managedObjectContext];
             initialWaiter.name = NSLocalizedString(@"John Smith", nil);
             [aRestaurant addStaffObject:initialWaiter];
-            [appDelegate.managedObjectContext save:&error];
+            [self.appDelegate.managedObjectContext save:&error];
         }
         self.restaurant = aRestaurant;
+        self.restaurant.name = @"TouchBistro";
     }
     return self.restaurant;
 }

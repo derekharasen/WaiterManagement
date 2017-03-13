@@ -70,7 +70,7 @@
                                 <rect key="frame" x="37" y="156.5" width="300" height="53.5"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -93,7 +93,6 @@
         <!--Navigation Controller-->
         <scene sceneID="G1Y-4w-TVQ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aDh-tO-ys7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yUR-a4-QZe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="McO-2z-W8w">
@@ -105,6 +104,7 @@
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="YYv-2Y-Lar"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aDh-tO-ys7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="298" y="148"/>
         </scene>
