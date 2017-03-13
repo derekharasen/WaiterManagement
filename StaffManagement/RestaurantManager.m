@@ -90,6 +90,21 @@
     return waiter;
 }
 
+-(BOOL)removeShift:(Shift*)shift{
+    NSError *error = nil;
+    
+    if (self.selected != nil){
+        [self.selected removeShiftsObject:shift];
+        [self.managedContext deleteObject:shift];
+        if (![self.managedContext save:&error]){
+            NSLog(@"Error ! %@", error.localizedDescription);
+            return false;
+        }
+        return true;
+    }
+    return false;
+}
+
 -(Waiter*)removeWaiter:(NSString*)name{
     Waiter *waiter = [self getWaiter:name];
     NSError *error = nil;

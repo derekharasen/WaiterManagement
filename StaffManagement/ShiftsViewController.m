@@ -9,9 +9,10 @@
 #import "ShiftsViewController.h"
 #import "RestaurantManager.h"
 #import "Waiter.h"
+#import "ShiftsTableViewCell.h"
 
 @interface ShiftsViewController ()
-@property (nonatomic) NSSet *shifts;
+@property (nonatomic) NSMutableArray *shifts;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) RestaurantManager *manager;
 @end
@@ -21,10 +22,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.manager = [RestaurantManager sharedManager];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
-    Waiter *waiter = self.manager.selected;
-    self.shifts = waiter.shifts;
+  //  [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+   
     // Do any additional setup after loading the view.
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+     Waiter *waiter = self.manager.selected;
+     self.shifts = [NSMutableArray arrayWithArray:[waiter.shifts allObjects]];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,9 +57,10 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-//    Waiter *waiter = self.waiters[indexPath.row];
-//    cell.textLabel.text = waiter.name;
+    ShiftsTableViewCell *cell = (ShiftsTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    Shift *shift = self.shifts[indexPath.row];
+    cell.startDateLabel.text = [NSString stringWithFormat:@"Start: %@",[self shiftDate:shift.start]];
+    cell.endDateLabel.text = [NSString stringWithFormat:@"End: %@",[self shiftDate:shift.end]];
     return cell;
 }
 
@@ -63,7 +70,18 @@
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    Shift *shift = self.shifts[indexPath.row];
+    if ([self.manager removeShift:shift]){
+        [self.shifts removeObject:shift];
+        [self.tableView reloadData];
+    }
+}
+
+-(NSString*)shiftDate:(NSDate*)date{
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    NSString *newDateString = [dateFormatter stringFromDate:date];
+    return newDateString;
 }
 
 /*

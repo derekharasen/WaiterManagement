@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Restaurant.h"
 @class Waiter;
+@class Shift;
 
 @interface RestaurantManager : NSObject
 + (id)sharedManager;
@@ -18,4 +19,5 @@
 -(Waiter*)newWaiter:(NSString*)name;
 -(Waiter*)removeWaiter:(NSString*)name;
 -(Waiter*)getWaiter:(NSString*)name;
+-(BOOL)removeShift:(Shift*)shift;
 @end

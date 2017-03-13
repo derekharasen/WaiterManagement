@@ -10,6 +10,8 @@
 #import <CoreData/CoreData.h>
 #import "Shift.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class Restaurant;
 
 @interface Waiter : NSManagedObject
@@ -20,16 +22,18 @@
 
 @end
 
-//@interface Waiter (CoreDataGeneratedAccessors)
-//
-//- (void)addShiftsObject:(Shift *)value;
-//- (void)removeShiftsObject:(Shift *)value;
-//- (void)addShifts:(NSSet<Shift *> *)values;
-//- (void)removeShifts:(NSSet<Shift *> *)values;
-//
-//@end
 
 
+@interface Waiter (CoreDataGeneratedAccessors)
+
+- (void)addShiftsObject:(Shift *)value;
+- (void)removeShiftsObject:(Shift *)value;
+- (void)addShifts:(NSSet<Shift *> *)values;
+- (void)removeShifts:(NSSet<Shift *> *)values;
+
+@end
+
+NS_ASSUME_NONNULL_END
 
 
 

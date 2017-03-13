@@ -21,6 +21,7 @@
 		C8E528261E7604E8000EF7F5 /* Waiter.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E528251E7604E8000EF7F5 /* Waiter.m */; };
 		C8E528291E7605C9000EF7F5 /* Shift.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E528281E7605C9000EF7F5 /* Shift.m */; };
 		C8E5282C1E761611000EF7F5 /* NewShiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E5282B1E761611000EF7F5 /* NewShiftViewController.m */; };
+		C8E5282F1E76F1D5000EF7F5 /* ShiftsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E5282E1E76F1D5000EF7F5 /* ShiftsTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		C8E528281E7605C9000EF7F5 /* Shift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shift.m; sourceTree = "<group>"; };
 		C8E5282A1E761611000EF7F5 /* NewShiftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewShiftViewController.h; sourceTree = "<group>"; };
 		C8E5282B1E761611000EF7F5 /* NewShiftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewShiftViewController.m; sourceTree = "<group>"; };
+		C8E5282D1E76F1D5000EF7F5 /* ShiftsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShiftsTableViewCell.h; sourceTree = "<group>"; };
+		C8E5282E1E76F1D5000EF7F5 /* ShiftsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShiftsTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,8 @@
 				C8E528031E748EEC000EF7F5 /* ShiftsViewController.m */,
 				C8E5282A1E761611000EF7F5 /* NewShiftViewController.h */,
 				C8E5282B1E761611000EF7F5 /* NewShiftViewController.m */,
+				C8E5282D1E76F1D5000EF7F5 /* ShiftsTableViewCell.h */,
+				C8E5282E1E76F1D5000EF7F5 /* ShiftsTableViewCell.m */,
 				651CBBB91AB4E1CD00F265E8 /* Main.storyboard */,
 				651CBBBC1AB4E1CD00F265E8 /* Images.xcassets */,
 				651CBBBE1AB4E1CD00F265E8 /* LaunchScreen.xib */,
@@ -265,6 +270,7 @@
 				651CBBD71AB4E31400F265E8 /* RestaurantManager.m in Sources */,
 				C8E528041E748EEC000EF7F5 /* ShiftsViewController.m in Sources */,
 				651CBBB51AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld in Sources */,
+				C8E5282F1E76F1D5000EF7F5 /* ShiftsTableViewCell.m in Sources */,
 				651CBBB21AB4E1CC00F265E8 /* AppDelegate.m in Sources */,
 				C8E528261E7604E8000EF7F5 /* Waiter.m in Sources */,
 				651CBBB81AB4E1CD00F265E8 /* ViewController.m in Sources */,

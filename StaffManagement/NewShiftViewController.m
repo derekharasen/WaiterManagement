@@ -36,7 +36,8 @@
     shift.start = self.startDate.date;
     shift.end = self.endDate.date;
     shift.waiter = waiter;
-    [waiter.shifts setByAddingObject:shift];
+    [waiter addShiftsObject:shift];
+  //  [waiter.shifts setByAddingObject:shift];
     NSError *error = nil;
     if (![manager.managedContext save:&error]){
         NSLog(@"Error ! %@", error.localizedDescription);
