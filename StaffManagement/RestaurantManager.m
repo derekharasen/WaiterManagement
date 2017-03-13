@@ -7,14 +7,18 @@
 //
 
 #import "RestaurantManager.h"
-#import "AppDelegate.h"
 #import "Waiter.h"
 #import "Restaurant.h"
+#import "AppDelegate.h"
+
 @interface RestaurantManager()
+
 @property (nonatomic, retain) Restaurant *restaurant;
+
 @end
 
 @implementation RestaurantManager
+
 + (id)sharedManager {
     static RestaurantManager *sharedManager = nil;
     static dispatch_once_t once;
@@ -23,12 +27,13 @@
     });
     return sharedManager;
 }
+
 -(Restaurant*)currentRestaurant{
     if(self.restaurant == nil)
     {
         Restaurant *aRestaurant;
         NSError *error = nil;
-        AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+        AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
         NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Restaurant"];
         NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:request error:&error];
         
@@ -43,7 +48,6 @@
             Waiter *initialWaiter = [[Waiter alloc]initWithEntity:waiterEntity insertIntoManagedObjectContext:appDelegate.managedObjectContext];
             initialWaiter.name = NSLocalizedString(@"John Smith", nil);
             [aRestaurant addStaffObject:initialWaiter];
-            
             [appDelegate.managedObjectContext save:&error];
         }
         self.restaurant = aRestaurant;
