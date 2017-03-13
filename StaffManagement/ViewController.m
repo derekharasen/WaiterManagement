@@ -7,9 +7,9 @@
 //
 
 #import "ViewController.h"
-#import "Restaurant.h"
+#import "Restaurant+CoreDataProperties.h"
 #import "RestaurantManager.h"
-#import "Waiter.h"
+#import "Waiter+CoreDataProperties.h"
 
 static NSString * const kCellIdentifier = @"CellIdentifier";
 
@@ -41,9 +41,11 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.waiters.count;
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier forIndexPath:indexPath];
     Waiter *waiter = self.waiters[indexPath.row];
@@ -59,16 +61,5 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
         [[[RestaurantManager sharedManager] appDelegate] saveContext];
     }
 }
-
-
-//#pragma mark - Core Data Methods
-//
-//- (NSManagedObjectContext *)getContext {
-//    return [self getContainer].viewContext;
-//}
-
-//- (NSPersistentContainer *)getContainer{
-//    return [RestaurantManager sharedManager].persistentStoreCoordinator;
-//}
 
 @end

@@ -7,9 +7,8 @@
 //
 
 #import "RestaurantManager.h"
-#import "Waiter.h"
-#import "Restaurant.h"
-//#import "AppDelegate.h"
+#import "Waiter+CoreDataProperties.h"
+#import "Restaurant+CoreDataProperties.h"
 
 @interface RestaurantManager()
 

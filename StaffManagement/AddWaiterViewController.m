@@ -36,6 +36,7 @@
     
     [[[RestaurantManager sharedManager] appDelegate] getContext];
     [[[RestaurantManager sharedManager] appDelegate] saveContext];
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 /*

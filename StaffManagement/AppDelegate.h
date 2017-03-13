@@ -19,7 +19,7 @@
 @property (readonly, strong) NSPersistentContainer *persistentContainer;
 
 - (void)saveContext;
-- (void)getContext;
+- (NSManagedObjectContext *)getContext;
 - (NSURL *)applicationDocumentsDirectory;
 
 
