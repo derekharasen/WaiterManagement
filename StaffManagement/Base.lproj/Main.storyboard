@@ -81,6 +81,9 @@
                             <constraint firstItem="Cu0-OX-CE9" firstAttribute="height" secondItem="0tv-NU-gfD" secondAttribute="height" multiplier="0.08" id="kM5-Wt-Irj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addWaiterTextField" destination="Cu0-OX-CE9" id="ZPq-Ym-ufW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lnI-bU-9Fe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

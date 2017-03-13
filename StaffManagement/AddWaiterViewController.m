@@ -7,8 +7,11 @@
 //
 
 #import "AddWaiterViewController.h"
+#import "RestaurantManager.h"
 
 @interface AddWaiterViewController ()
+
+@property (weak, nonatomic) IBOutlet UITextField *addWaiterTextField;
 
 @end
 
@@ -28,9 +31,13 @@
 }
 
 
-- (void)addWaiter:(id)sender {
+- (IBAction)addWaiter:(UIBarButtonItem*)sender {
+    self.waiter.name = self.addWaiterTextField.text;
     
+    [[[RestaurantManager sharedManager] appDelegate] getContext];
+    [[[RestaurantManager sharedManager] appDelegate] saveContext];
 }
+
 /*
 #pragma mark - Navigation
 

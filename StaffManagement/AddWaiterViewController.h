@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Waiter+CoreDataProperties.h"
 
 @interface AddWaiterViewController : UIViewController
+
+@property (nonatomic) Waiter *waiter;
 
 @end
