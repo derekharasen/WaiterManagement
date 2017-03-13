@@ -7,7 +7,7 @@
 //
 
 #import "ShiftsViewController.h"
-#import "RestaurantManager.h"
+#import "StaffManagement-Swift.h"
 #import "Waiter.h"
 #import "ShiftsTableViewCell.h"
 
@@ -22,7 +22,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.manager = [RestaurantManager sharedManager];   
-    // Do any additional setup after loading the view.
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -33,7 +32,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)doneButton:(id)sender {
@@ -68,7 +66,7 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     Shift *shift = self.shifts[indexPath.row];
-    if ([self.manager removeShift:shift]){
+    if ([self.manager removeShiftWithShift:shift]){
         [self.shifts removeObject:shift];
         [self.tableView reloadData];
     }

@@ -5,7 +5,6 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "Restaurant.h"
-#import "RestaurantManager.h"
 #import "Waiter.h"
 #import "ShiftsViewController.h"
 

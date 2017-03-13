@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @class Waiter;
+@class RestaurantManager;
+
 
 @interface ShiftsViewController : UIViewController
 

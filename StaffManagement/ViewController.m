@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "Restaurant.h"
-#import "RestaurantManager.h"
+#import "StaffManagement-Swift.h"
 #import "Waiter.h"
 #import "ShiftsViewController.h"
 
@@ -30,12 +30,10 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     NSSortDescriptor *sortByName = [[NSSortDescriptor alloc]initWithKey:@"name" ascending:YES];
     self.waiters = [[[[RestaurantManager sharedManager]currentRestaurant].staff sortedArrayUsingDescriptors:@[sortByName]] mutableCopy];
     self.manager = [RestaurantManager sharedManager];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - TableView Data Source
@@ -60,7 +58,7 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     if (name == nil){
         return;
     }
-    self.manager.selected = [self.manager getWaiter:name];
+    self.manager.selected = [self.manager getWaiterWithName:name];
     [self performSegueWithIdentifier:@"Shifts" sender:self];
 }
 
@@ -72,10 +70,10 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     NSString *name = cell.textLabel.text;
     if (self.waiters.count > 0){
-        Waiter *removedWaiter = [self.manager getWaiter:name];
+        Waiter *removedWaiter = [self.manager getWaiterWithName:name];
         if(removedWaiter != nil){
             [self.waiters removeObject:removedWaiter];
-            [self.manager removeWaiter:name];
+            [self.manager removeWaiterWithName:name];
             [self.tableView reloadData];
         }
     }
@@ -86,7 +84,7 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     if (self.nameTextField.text == nil){
         return YES;
     }
-    Waiter *newWaiter = [self.manager newWaiter:self.nameTextField.text];
+    Waiter *newWaiter = [self.manager newWaiterWithName:self.nameTextField.text];
     if (newWaiter != nil){
         [self.waiters addObject:newWaiter];
         [self.tableView reloadData];

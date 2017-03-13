@@ -8,10 +8,10 @@
 
 import UIKit
 
-class SwiftRestaurantManager: NSObject {
+class RestaurantManager: NSObject {
     
-    static let sharedManager: SwiftRestaurantManager = {
-        let instance = SwiftRestaurantManager()
+    static let sharedManager: RestaurantManager = {
+        let instance = RestaurantManager()
         return instance
     }()
     
@@ -59,7 +59,7 @@ class SwiftRestaurantManager: NSObject {
         return restaurant!
     }
     
-    func newWaiter(name: String) -> Waiter?{
+    public func newWaiter(name: String) -> Waiter?{
         for waiterName in waiterNames {
             if (waiterName == name){
                 return nil
@@ -81,7 +81,7 @@ class SwiftRestaurantManager: NSObject {
         return waiter
     }
     
-    func removeShift(shift: Shift) -> Bool{
+    public func removeShift(shift: Shift) -> Bool{
         guard selected != nil else{
             return false
         }
@@ -96,7 +96,7 @@ class SwiftRestaurantManager: NSObject {
         return true
     }
 
-    func removeWaiter(name: String) -> Waiter?{
+    public func removeWaiter(name: String) -> Waiter?{
         let waiter = getWaiter(name: name)
         
         guard (waiter != nil) else {
@@ -118,13 +118,13 @@ class SwiftRestaurantManager: NSObject {
         return waiter
     }
     
-    func getWaiter(name: String) -> Waiter?{
+    public func getWaiter(name: String) -> Waiter?{
         var fetchedObjects = [Waiter]()
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
         let entity = NSEntityDescription.entity(forEntityName: "Waiter", in: managedContext!)
         fetchRequest.entity = entity
         
-        let predicate = NSPredicate.init(format: "name", name)
+        let predicate = NSPredicate.init(format: "name == %@", name)
         fetchRequest.predicate = predicate
         
         do{

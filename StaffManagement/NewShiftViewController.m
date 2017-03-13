@@ -7,9 +7,10 @@
 //
 
 #import "NewShiftViewController.h"
-#import "RestaurantManager.h"
 #import "Waiter.h"
 #import "Shift.h"
+#import "StaffManagement-Swift.h"
+
 
 @interface NewShiftViewController ()
 @property (weak, nonatomic) IBOutlet UIDatePicker *startDate;
@@ -20,12 +21,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)saveButton:(id)sender {

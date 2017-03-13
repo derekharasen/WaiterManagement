@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class RestaurantManager;
+
 @interface NewShiftViewController : UIViewController <UIPickerViewDelegate>
 
 @end
