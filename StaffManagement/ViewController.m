@@ -54,13 +54,14 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.waiters removeObjectAtIndex:indexPath.row];
-        
+        [[[RestaurantManager sharedManager] managedObjectContext] deleteObject:self.waiters[indexPath.row]];
         [tableView reloadData];
+        [[RestaurantManager sharedManager] saveContext];
     }
 }
 
 - (IBAction)addWaiter:(UIBarButtonItem *)sender {
-    [[RestaurantManager sharedManager] currentRestaurant];
+//    [[RestaurantManager sharedManager] currentRestaurant];
 }
 
 @end
