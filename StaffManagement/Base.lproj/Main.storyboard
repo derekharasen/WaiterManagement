@@ -42,12 +42,13 @@
                     <navigationItem key="navigationItem" id="PzY-n6-wX9">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ny2-BY-XBd">
                             <connections>
-                                <segue destination="ocZ-jY-S4e" kind="presentation" id="nRz-kR-gGP"/>
+                                <segue destination="ocZ-jY-S4e" kind="presentation" identifier="AddWaiter" id="nRz-kR-gGP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="idB-MD-rVO" id="ugC-k3-Uqe"/>
+                        <segue destination="ocZ-jY-S4e" kind="presentation" identifier="EditWaiter" id="Pd6-ZP-DMt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -106,7 +107,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDh-tO-ys7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="298" y="148"/>
+            <point key="canvasLocation" x="447" y="148"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Dj5-WS-Bg6">
@@ -120,6 +121,7 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="HP5-eR-BkT" kind="relationship" relationship="rootViewController" id="5nE-qM-4jb"/>
+                        <segue destination="HP5-eR-BkT" kind="presentation" id="Pst-Ua-rRx"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gbZ-Uj-Xxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -127,4 +129,8 @@
             <point key="canvasLocation" x="1845.5999999999999" y="147.97601199400302"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="nRz-kR-gGP"/>
+        <segue reference="5nE-qM-4jb"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -10,6 +10,7 @@
 #import "Restaurant+CoreDataProperties.h"
 #import "RestaurantManager.h"
 #import "Waiter+CoreDataProperties.h"
+#import "AddWaiterViewController.h"
 
 static NSString * const kCellIdentifier = @"CellIdentifier";
 
@@ -69,14 +70,26 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    [self performSegueWithIdentifier:@"EditWaiter" sender:self];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [[[RestaurantManager sharedManager] managedObjectContext] deleteObject:self.waiters[indexPath.row]];
         [[RestaurantManager sharedManager] saveContext];
+        [self.waiters removeObjectAtIndex:indexPath.row];
         [tableView reloadData];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"EditWaiter"]) {
+        UINavigationController *nav = [segue destinationViewController];
+        AddWaiterViewController *addWaiterVC = nav.viewControllers[0];
+        
+        NSIndexPath *indexPath = [[self tableView] indexPathForSelectedRow];
+        addWaiterVC.waiter = self.waiters[indexPath.row];
+        [addWaiterVC displayDetailView:addWaiterVC.waiter];
     }
 }
 

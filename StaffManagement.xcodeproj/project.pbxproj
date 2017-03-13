@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3CA9DC431E773EF300877A43 /* WaiterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA9DC421E773EF300877A43 /* WaiterTableViewCell.m */; };
 		3CB9DFA91E76416900BD22B8 /* AddWaiterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB9DFA81E76416900BD22B8 /* AddWaiterViewController.m */; };
 		3CB9DFB21E76537200BD22B8 /* Waiter+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB9DFAB1E76537200BD22B8 /* Waiter+CoreDataClass.m */; };
 		3CB9DFB31E76537200BD22B8 /* Waiter+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB9DFAD1E76537200BD22B8 /* Waiter+CoreDataProperties.m */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3CA9DC411E773EF300877A43 /* WaiterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaiterTableViewCell.h; sourceTree = "<group>"; };
+		3CA9DC421E773EF300877A43 /* WaiterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaiterTableViewCell.m; sourceTree = "<group>"; };
 		3CB9DFA71E76416900BD22B8 /* AddWaiterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddWaiterViewController.h; sourceTree = "<group>"; };
 		3CB9DFA81E76416900BD22B8 /* AddWaiterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddWaiterViewController.m; sourceTree = "<group>"; };
 		3CB9DFAA1E76537200BD22B8 /* Waiter+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Waiter+CoreDataClass.h"; path = "../Waiter+CoreDataClass.h"; sourceTree = "<group>"; };
@@ -119,6 +122,8 @@
 				651CBBB71AB4E1CD00F265E8 /* ViewController.m */,
 				3CB9DFA71E76416900BD22B8 /* AddWaiterViewController.h */,
 				3CB9DFA81E76416900BD22B8 /* AddWaiterViewController.m */,
+				3CA9DC411E773EF300877A43 /* WaiterTableViewCell.h */,
+				3CA9DC421E773EF300877A43 /* WaiterTableViewCell.m */,
 				651CBBB91AB4E1CD00F265E8 /* Main.storyboard */,
 				651CBBBC1AB4E1CD00F265E8 /* Images.xcassets */,
 				651CBBBE1AB4E1CD00F265E8 /* LaunchScreen.xib */,
@@ -275,6 +280,7 @@
 				651CBBB51AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld in Sources */,
 				651CBBB21AB4E1CC00F265E8 /* AppDelegate.m in Sources */,
 				651CBBB81AB4E1CD00F265E8 /* ViewController.m in Sources */,
+				3CA9DC431E773EF300877A43 /* WaiterTableViewCell.m in Sources */,
 				3CB9DFA91E76416900BD22B8 /* AddWaiterViewController.m in Sources */,
 				3CB9DFB31E76537200BD22B8 /* Waiter+CoreDataProperties.m in Sources */,
 				3CB9DFB41E76537200BD22B8 /* Restaurant+CoreDataClass.m in Sources */,
