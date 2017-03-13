@@ -10,6 +10,7 @@
 #import "Restaurant.h"
 #import "RestaurantManager.h"
 #import "Waiter.h"
+#import "ShiftsViewController.h"
 
 static NSString * const kCellIdentifier = @"CellIdentifier";
 
@@ -41,7 +42,7 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     if (self.nameTextField.text == nil){
         return;
     }
-    Waiter *newWaiter = [self.manager saveWaiter:self.nameTextField.text];
+    Waiter *newWaiter = [self.manager newWaiter:self.nameTextField.text];
     if (newWaiter != nil){
         [self.waiters addObject:newWaiter];
         [self.tableView reloadData];
@@ -66,6 +67,12 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    NSString *name = cell.textLabel.text;
+    if (name == nil){
+        return;
+    }
+    self.manager.selected = [self.manager getWaiter:name];
     [self performSegueWithIdentifier:@"Shifts" sender:self];
 }
 
@@ -75,8 +82,10 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    NSString *name = cell.textLabel.text;
     if (self.waiters.count > 0){
-        Waiter *removedWaiter = [self.manager removeWaiter:self.waiters[0]];
+        Waiter *removedWaiter = [self.manager getWaiter:name];
         if(removedWaiter != nil){
             [self.waiters removeObject:removedWaiter];
             [self.tableView reloadData];
@@ -94,7 +103,9 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"Shifts"]){
-        
+        ShiftsViewController *svc = (ShiftsViewController*)[segue destinationViewController];
+//        svc.waiter = self.selected;
+//        self.selected = nil;
     }
 }
 

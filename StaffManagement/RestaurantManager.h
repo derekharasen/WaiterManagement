@@ -12,7 +12,10 @@
 
 @interface RestaurantManager : NSObject
 + (id)sharedManager;
+@property Waiter *selected;
+@property (nonatomic) NSManagedObjectContext *managedContext;
 -(Restaurant*)currentRestaurant;
--(Waiter*)saveWaiter:(NSString*)name;
--(Waiter*)removeWaiter:(Waiter*)waiter;
+-(Waiter*)newWaiter:(NSString*)name;
+-(Waiter*)removeWaiter:(NSString*)name;
+-(Waiter*)getWaiter:(NSString*)name;
 @end

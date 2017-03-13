@@ -12,7 +12,6 @@
 #import "Restaurant.h"
 @interface RestaurantManager()
 @property (nonatomic, retain) Restaurant *restaurant;
-@property (nonatomic) NSManagedObjectContext *managedContext;
 @property (nonatomic) NSMutableArray *waiterNames;
 @end
 
@@ -66,7 +65,7 @@
 
 #pragma mark - Core Data Functions
 
--(Waiter*)saveWaiter:(NSString*)name{
+-(Waiter*)newWaiter:(NSString*)name{
     NSError *error = nil;
     for (NSString *waiterName in self.waiterNames) {
         if ([waiterName isEqualToString:name]){
@@ -91,8 +90,23 @@
     return waiter;
 }
 
--(Waiter*)removeWaiter:(Waiter*)waiter{
-    NSString *name = waiter.name;
+-(Waiter*)removeWaiter:(NSString*)name{
+    Waiter *waiter = [self getWaiter:name];
+    NSError *error = nil;
+    
+    if (waiter != nil){
+        [self.managedContext deleteObject:waiter];
+        [self.waiterNames removeObject:name];
+        if (![self.managedContext save:&error]){
+            NSLog(@"Error ! %@", error.localizedDescription);
+            return nil;
+        }
+    }
+    
+    return waiter;
+}
+
+-(Waiter*)getWaiter:(NSString*)name{
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:self.managedContext];
     [fetchRequest setEntity:entity];
@@ -108,15 +122,8 @@
     }
     
     if (fetchedObjects.count > 0){
-        [self.managedContext deleteObject:fetchedObjects[0]];
-        [self.waiterNames removeObject:name];
-        if (![self.managedContext save:&error]){
-            NSLog(@"Error ! %@", error.localizedDescription);
-            return nil;
-        }
         return fetchedObjects[0];
     }
-    
     return nil;
 }
 

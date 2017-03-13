@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class Waiter;
+
 @interface ShiftsViewController : UIViewController
 
-@property (nonatomic) NSString *waiterName;
+//@property (nonatomic) Waiter *waiter;
 
 @end

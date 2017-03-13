@@ -93,7 +93,14 @@
                                 <rect key="frame" x="155" y="20" width="64" height="30"/>
                                 <state key="normal" title="Add Shift"/>
                                 <connections>
-                                    <segue destination="DGM-3a-ptb" kind="presentation" id="KfF-aa-n4E"/>
+                                    <segue destination="DGM-3a-ptb" kind="presentation" id="d9a-Dj-Tc3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdu-w1-3Cn">
+                                <rect key="frame" x="322" y="20" width="37" height="30"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneButton:" destination="V3N-47-h1V" eventType="touchUpInside" id="FBN-7W-zaX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -101,21 +108,26 @@
                         <constraints>
                             <constraint firstItem="tgA-FT-awe" firstAttribute="top" secondItem="uGA-4H-PtD" secondAttribute="bottom" id="8VW-eO-JpM"/>
                             <constraint firstItem="tgA-FT-awe" firstAttribute="centerX" secondItem="d0m-Du-jnh" secondAttribute="centerX" id="Fos-34-UVI"/>
+                            <constraint firstItem="fdu-w1-3Cn" firstAttribute="top" secondItem="uGA-4H-PtD" secondAttribute="bottom" id="Ndq-kn-8I5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gsH-Za-ubW" secondAttribute="trailing" constant="-16" id="Odu-Sx-XI1"/>
                             <constraint firstItem="gsH-Za-ubW" firstAttribute="leading" secondItem="d0m-Du-jnh" secondAttribute="leadingMargin" constant="-16" id="dBp-83-GT6"/>
                             <constraint firstItem="twU-1y-QEf" firstAttribute="top" secondItem="gsH-Za-ubW" secondAttribute="bottom" constant="-1" id="doy-sS-Lsa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fdu-w1-3Cn" secondAttribute="trailing" id="hjY-ug-XbO"/>
                             <constraint firstItem="gsH-Za-ubW" firstAttribute="height" secondItem="d0m-Du-jnh" secondAttribute="height" multiplier="0.9" id="pTb-Z7-kAs"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="gsH-Za-ubW" id="09Y-XL-UDX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OJk-7q-aEG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1204" y="37.331334332833585"/>
         </scene>
-        <!--View Controller-->
+        <!--New Shift View Controller-->
         <scene sceneID="MIn-7o-T07">
             <objects>
-                <viewController id="DGM-3a-ptb" sceneMemberID="viewController">
+                <viewController id="DGM-3a-ptb" customClass="NewShiftViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gxd-WX-Azp"/>
                         <viewControllerLayoutGuide type="bottom" id="7Oy-xy-pns"/>
@@ -148,12 +160,21 @@
                                     <!--2017-03-12 20:19:11 +0000-->
                                 </date>
                             </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3n-mG-JSp">
+                                <rect key="frame" x="170" y="617" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="DGM-3a-ptb" eventType="touchUpInside" id="i8l-I2-hew"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="K5R-mb-L0A" firstAttribute="centerX" secondItem="ojM-On-nk5" secondAttribute="centerX" id="Glo-p7-50j"/>
                             <constraint firstItem="Zru-0o-b5i" firstAttribute="centerX" secondItem="ojM-On-nk5" secondAttribute="centerX" id="Hsx-cY-jfi"/>
+                            <constraint firstItem="W3n-mG-JSp" firstAttribute="centerX" secondItem="ojM-On-nk5" secondAttribute="centerX" id="UgH-Vm-xCk"/>
                             <constraint firstItem="T9c-GZ-jGb" firstAttribute="top" secondItem="Zru-0o-b5i" secondAttribute="bottom" constant="8" id="bnD-w8-RHA"/>
+                            <constraint firstItem="7Oy-xy-pns" firstAttribute="top" secondItem="W3n-mG-JSp" secondAttribute="bottom" constant="20" id="dNl-TX-kDy"/>
                             <constraint firstItem="T9c-GZ-jGb" firstAttribute="centerX" secondItem="ojM-On-nk5" secondAttribute="centerX" id="ezv-L0-bd9"/>
                             <constraint firstItem="Yyr-lU-e4e" firstAttribute="centerX" secondItem="ojM-On-nk5" secondAttribute="centerX" id="spV-8q-OnO"/>
                             <constraint firstItem="Yyr-lU-e4e" firstAttribute="centerY" secondItem="ojM-On-nk5" secondAttribute="centerY" id="wbO-NI-eoj"/>
@@ -161,6 +182,10 @@
                             <constraint firstItem="K5R-mb-L0A" firstAttribute="top" secondItem="Yyr-lU-e4e" secondAttribute="bottom" constant="8" id="zQ6-u4-ROI"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="endDate" destination="K5R-mb-L0A" id="d8g-Bc-KV6"/>
+                        <outlet property="startDate" destination="T9c-GZ-jGb" id="enl-bu-2Gx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6j1-vG-rDU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

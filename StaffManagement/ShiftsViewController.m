@@ -7,21 +7,37 @@
 //
 
 #import "ShiftsViewController.h"
+#import "RestaurantManager.h"
+#import "Waiter.h"
 
 @interface ShiftsViewController ()
-@property (nonatomic) NSMutableArray *shifts;
+@property (nonatomic) NSSet *shifts;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic) RestaurantManager *manager;
 @end
 
 @implementation ShiftsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.manager = [RestaurantManager sharedManager];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    Waiter *waiter = self.manager.selected;
+    self.shifts = waiter.shifts;
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)doneButton:(id)sender {
+    NSError *error = nil;
+    if (![self.manager.managedContext save:&error]){
+        NSLog(@"Error ! %@", error.localizedDescription);
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -47,6 +63,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
 }
 
 /*
