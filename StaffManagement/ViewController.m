@@ -60,12 +60,6 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     }
 }
 
-- (IBAction)addWaiter:(UIBarButtonItem *)sender {
-    
-    
-    [[[RestaurantManager sharedManager] appDelegate] saveContext];
-}
-
 
 //#pragma mark - Core Data Methods
 //

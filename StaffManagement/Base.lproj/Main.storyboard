@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -41,7 +42,7 @@
                     <navigationItem key="navigationItem" id="PzY-n6-wX9">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ny2-BY-XBd">
                             <connections>
-                                <action selector="addWaiter:" destination="vXZ-lx-hvc" id="4N5-MT-WsW"/>
+                                <segue destination="HP5-eR-BkT" kind="show" id="Y32-2J-c79"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -53,9 +54,42 @@
             </objects>
             <point key="canvasLocation" x="1068" y="147.97601199400302"/>
         </scene>
+        <!--Add Waiter View Controller-->
+        <scene sceneID="svj-o1-DCZ">
+            <objects>
+                <viewController id="HP5-eR-BkT" customClass="AddWaiterViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8km-JD-BOc"/>
+                        <viewControllerLayoutGuide type="bottom" id="25o-I1-0Ju"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0tv-NU-gfD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter waiter's name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cu0-OX-CE9">
+                                <rect key="frame" x="37" y="156.5" width="300" height="53.5"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Cu0-OX-CE9" firstAttribute="top" secondItem="8km-JD-BOc" secondAttribute="bottom" constant="92.5" id="Fpt-s1-Vbh"/>
+                            <constraint firstItem="Cu0-OX-CE9" firstAttribute="centerX" secondItem="0tv-NU-gfD" secondAttribute="centerX" id="Ng9-6a-Kxs"/>
+                            <constraint firstItem="Cu0-OX-CE9" firstAttribute="width" secondItem="0tv-NU-gfD" secondAttribute="width" multiplier="0.8" id="j83-Yq-SM9"/>
+                            <constraint firstItem="Cu0-OX-CE9" firstAttribute="height" secondItem="0tv-NU-gfD" secondAttribute="height" multiplier="0.08" id="kM5-Wt-Irj"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lnI-bU-9Fe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1846" y="148"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="G1Y-4w-TVQ">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aDh-tO-ys7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yUR-a4-QZe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="McO-2z-W8w">
@@ -67,9 +101,8 @@
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="YYv-2Y-Lar"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aDh-tO-ys7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="128.80000000000001" y="147.97601199400302"/>
+            <point key="canvasLocation" x="298" y="148"/>
         </scene>
     </scenes>
 </document>

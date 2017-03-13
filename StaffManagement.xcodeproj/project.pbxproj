@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3CB9DFA51E76107600BD22B8 /* Restaurant+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB9DFA11E76107600BD22B8 /* Restaurant+CoreDataProperties.m */; };
 		3CB9DFA61E76112000BD22B8 /* Waiter+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB9DF9D1E76107600BD22B8 /* Waiter+CoreDataProperties.m */; };
+		3CB9DFA91E76416900BD22B8 /* AddWaiterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB9DFA81E76416900BD22B8 /* AddWaiterViewController.m */; };
 		651CBBAF1AB4E1CC00F265E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBAE1AB4E1CC00F265E8 /* main.m */; };
 		651CBBB21AB4E1CC00F265E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBB11AB4E1CC00F265E8 /* AppDelegate.m */; };
 		651CBBB51AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBB31AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld */; };
@@ -41,6 +42,8 @@
 		3CB9DF9F1E76107600BD22B8 /* Restaurant+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Restaurant+CoreDataClass.m"; path = "../Restaurant+CoreDataClass.m"; sourceTree = "<group>"; };
 		3CB9DFA01E76107600BD22B8 /* Restaurant+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Restaurant+CoreDataProperties.h"; path = "../Restaurant+CoreDataProperties.h"; sourceTree = "<group>"; };
 		3CB9DFA11E76107600BD22B8 /* Restaurant+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Restaurant+CoreDataProperties.m"; path = "../Restaurant+CoreDataProperties.m"; sourceTree = "<group>"; };
+		3CB9DFA71E76416900BD22B8 /* AddWaiterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddWaiterViewController.h; sourceTree = "<group>"; };
+		3CB9DFA81E76416900BD22B8 /* AddWaiterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddWaiterViewController.m; sourceTree = "<group>"; };
 		651CBBA91AB4E1CC00F265E8 /* StaffManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StaffManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		651CBBAD1AB4E1CC00F265E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		651CBBAE1AB4E1CC00F265E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -108,6 +111,8 @@
 				651CBBD61AB4E31400F265E8 /* RestaurantManager.m */,
 				651CBBB61AB4E1CD00F265E8 /* ViewController.h */,
 				651CBBB71AB4E1CD00F265E8 /* ViewController.m */,
+				3CB9DFA71E76416900BD22B8 /* AddWaiterViewController.h */,
+				3CB9DFA81E76416900BD22B8 /* AddWaiterViewController.m */,
 				651CBBB91AB4E1CD00F265E8 /* Main.storyboard */,
 				651CBBBC1AB4E1CD00F265E8 /* Images.xcassets */,
 				651CBBBE1AB4E1CD00F265E8 /* LaunchScreen.xib */,
@@ -271,6 +276,7 @@
 				651CBBB81AB4E1CD00F265E8 /* ViewController.m in Sources */,
 				651CBBDD1AB4E4A100F265E8 /* Waiter.m in Sources */,
 				651CBBDA1AB4E4A000F265E8 /* Restaurant.m in Sources */,
+				3CB9DFA91E76416900BD22B8 /* AddWaiterViewController.m in Sources */,
 				651CBBAF1AB4E1CC00F265E8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
