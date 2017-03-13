@@ -29,7 +29,22 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     NSArray *temp = [[[RestaurantManager sharedManager]currentRestaurant].staff sortedArrayUsingDescriptors:@[sortByName]];
     self.waiters = [temp mutableCopy];
     
-    // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    NSManagedObjectContext *context = [[RestaurantManager sharedManager] managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:context];
+    NSFetchRequest *fetch = [Waiter fetchRequest];
+    [fetch setEntity:entity];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetch error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"error: %@", error.localizedDescription);
+    }
+    self.waiters = [fetchedObjects mutableCopy];
+    
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,12 +68,15 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.waiters removeObjectAtIndex:indexPath.row];
         [[[RestaurantManager sharedManager] managedObjectContext] deleteObject:self.waiters[indexPath.row]];
-        [tableView reloadData];
         [[RestaurantManager sharedManager] saveContext];
+        [tableView reloadData];
     }
 }
 

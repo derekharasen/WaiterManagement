@@ -37,8 +37,7 @@
     NSManagedObjectContext *context = [[RestaurantManager sharedManager] managedObjectContext];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Restaurant" inManagedObjectContext:context];
     NSFetchRequest *fetch = [Waiter fetchRequest];
-    [fetch setEntity:entity];
-    
+    [fetch setEntity:entity]; 
     
     Waiter *newWaiter = [NSEntityDescription insertNewObjectForEntityForName:@"Waiter" inManagedObjectContext:context];
     newWaiter.name = self.addWaiterTextField.text;
@@ -48,30 +47,5 @@
     [[RestaurantManager sharedManager] saveContext];
     [self dismissViewControllerAnimated:NO completion:nil];
 }
-
-//#pragma mark - Core Data Methods
-
-//- (NSManagedObjectContext *)getContext {
-//    return [self getContainer].viewContext;
-//}
-//
-//- (NSPersistentContainer *)getContainer{
-//    return [self appDelegate].persistentContainer;
-//}
-//
-//- (AppDelegate *)appDelegate {
-//    return (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//}
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
