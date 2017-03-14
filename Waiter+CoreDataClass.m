@@ -7,7 +7,8 @@
 //
 
 #import "Waiter+CoreDataClass.h"
-#import "Restaurant+CoreDataProperties.h"
+#import "Restaurant+CoreDataClass.h"
+#import "Shift+CoreDataClass.h"
 @implementation Waiter
 
 @end

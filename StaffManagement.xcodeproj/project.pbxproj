@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		3CB7A24F1E776F1400BFC475 /* AddShiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB7A24E1E776F1400BFC475 /* AddShiftViewController.m */; };
 		3CB9DFA91E76416900BD22B8 /* AddWaiterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB9DFA81E76416900BD22B8 /* AddWaiterViewController.m */; };
-		3CB9DFB21E76537200BD22B8 /* Waiter+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB9DFAB1E76537200BD22B8 /* Waiter+CoreDataClass.m */; };
-		3CB9DFB31E76537200BD22B8 /* Waiter+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB9DFAD1E76537200BD22B8 /* Waiter+CoreDataProperties.m */; };
-		3CB9DFB41E76537200BD22B8 /* Restaurant+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB9DFAF1E76537200BD22B8 /* Restaurant+CoreDataClass.m */; };
-		3CB9DFB51E76537200BD22B8 /* Restaurant+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB9DFB11E76537200BD22B8 /* Restaurant+CoreDataProperties.m */; };
+		3CC503341E77784A00BFB602 /* Shift+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC5032B1E77784A00BFB602 /* Shift+CoreDataProperties.m */; };
+		3CC503361E77784A00BFB602 /* Waiter+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC5032F1E77784A00BFB602 /* Waiter+CoreDataProperties.m */; };
+		3CC503381E77784A00BFB602 /* Restaurant+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC503331E77784A00BFB602 /* Restaurant+CoreDataProperties.m */; };
+		3CC5033C1E777CC200BFB602 /* Shift+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC5033A1E77795E00BFB602 /* Shift+CoreDataClass.m */; };
+		3CC5033D1E777CCC00BFB602 /* Waiter+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC5032D1E77784A00BFB602 /* Waiter+CoreDataClass.m */; };
+		3CC5033E1E777CD100BFB602 /* Restaurant+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC503311E77784A00BFB602 /* Restaurant+CoreDataClass.m */; };
 		651CBBAF1AB4E1CC00F265E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBAE1AB4E1CC00F265E8 /* main.m */; };
 		651CBBB21AB4E1CC00F265E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBB11AB4E1CC00F265E8 /* AppDelegate.m */; };
 		651CBBB51AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBB31AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld */; };
@@ -39,15 +41,19 @@
 		3CB7A24E1E776F1400BFC475 /* AddShiftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddShiftViewController.m; sourceTree = "<group>"; };
 		3CB9DFA71E76416900BD22B8 /* AddWaiterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddWaiterViewController.h; sourceTree = "<group>"; };
 		3CB9DFA81E76416900BD22B8 /* AddWaiterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddWaiterViewController.m; sourceTree = "<group>"; };
-		3CB9DFAA1E76537200BD22B8 /* Waiter+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Waiter+CoreDataClass.h"; path = "../Waiter+CoreDataClass.h"; sourceTree = "<group>"; };
-		3CB9DFAB1E76537200BD22B8 /* Waiter+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Waiter+CoreDataClass.m"; path = "../Waiter+CoreDataClass.m"; sourceTree = "<group>"; };
-		3CB9DFAC1E76537200BD22B8 /* Waiter+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Waiter+CoreDataProperties.h"; path = "../Waiter+CoreDataProperties.h"; sourceTree = "<group>"; };
-		3CB9DFAD1E76537200BD22B8 /* Waiter+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Waiter+CoreDataProperties.m"; path = "../Waiter+CoreDataProperties.m"; sourceTree = "<group>"; };
-		3CB9DFAE1E76537200BD22B8 /* Restaurant+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Restaurant+CoreDataClass.h"; path = "../Restaurant+CoreDataClass.h"; sourceTree = "<group>"; };
-		3CB9DFAF1E76537200BD22B8 /* Restaurant+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Restaurant+CoreDataClass.m"; path = "../Restaurant+CoreDataClass.m"; sourceTree = "<group>"; };
-		3CB9DFB01E76537200BD22B8 /* Restaurant+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Restaurant+CoreDataProperties.h"; path = "../Restaurant+CoreDataProperties.h"; sourceTree = "<group>"; };
-		3CB9DFB11E76537200BD22B8 /* Restaurant+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Restaurant+CoreDataProperties.m"; path = "../Restaurant+CoreDataProperties.m"; sourceTree = "<group>"; };
 		3CB9DFB71E76640300BD22B8 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		3CC5032A1E77784A00BFB602 /* Shift+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Shift+CoreDataProperties.h"; path = "../Shift+CoreDataProperties.h"; sourceTree = "<group>"; };
+		3CC5032B1E77784A00BFB602 /* Shift+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Shift+CoreDataProperties.m"; path = "../Shift+CoreDataProperties.m"; sourceTree = "<group>"; };
+		3CC5032C1E77784A00BFB602 /* Waiter+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Waiter+CoreDataClass.h"; path = "../Waiter+CoreDataClass.h"; sourceTree = "<group>"; };
+		3CC5032D1E77784A00BFB602 /* Waiter+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Waiter+CoreDataClass.m"; path = "../Waiter+CoreDataClass.m"; sourceTree = "<group>"; };
+		3CC5032E1E77784A00BFB602 /* Waiter+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Waiter+CoreDataProperties.h"; path = "../Waiter+CoreDataProperties.h"; sourceTree = "<group>"; };
+		3CC5032F1E77784A00BFB602 /* Waiter+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Waiter+CoreDataProperties.m"; path = "../Waiter+CoreDataProperties.m"; sourceTree = "<group>"; };
+		3CC503301E77784A00BFB602 /* Restaurant+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Restaurant+CoreDataClass.h"; path = "../Restaurant+CoreDataClass.h"; sourceTree = "<group>"; };
+		3CC503311E77784A00BFB602 /* Restaurant+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Restaurant+CoreDataClass.m"; path = "../Restaurant+CoreDataClass.m"; sourceTree = "<group>"; };
+		3CC503321E77784A00BFB602 /* Restaurant+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Restaurant+CoreDataProperties.h"; path = "../Restaurant+CoreDataProperties.h"; sourceTree = "<group>"; };
+		3CC503331E77784A00BFB602 /* Restaurant+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Restaurant+CoreDataProperties.m"; path = "../Restaurant+CoreDataProperties.m"; sourceTree = "<group>"; };
+		3CC503391E77795300BFB602 /* Shift+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Shift+CoreDataClass.h"; sourceTree = SOURCE_ROOT; };
+		3CC5033A1E77795E00BFB602 /* Shift+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Shift+CoreDataClass.m"; sourceTree = SOURCE_ROOT; };
 		651CBBA91AB4E1CC00F265E8 /* StaffManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StaffManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		651CBBAD1AB4E1CC00F265E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		651CBBAE1AB4E1CC00F265E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -162,14 +168,18 @@
 		651CBBDE1AB4E4AC00F265E8 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				3CB9DFAA1E76537200BD22B8 /* Waiter+CoreDataClass.h */,
-				3CB9DFAB1E76537200BD22B8 /* Waiter+CoreDataClass.m */,
-				3CB9DFAC1E76537200BD22B8 /* Waiter+CoreDataProperties.h */,
-				3CB9DFAD1E76537200BD22B8 /* Waiter+CoreDataProperties.m */,
-				3CB9DFAE1E76537200BD22B8 /* Restaurant+CoreDataClass.h */,
-				3CB9DFAF1E76537200BD22B8 /* Restaurant+CoreDataClass.m */,
-				3CB9DFB01E76537200BD22B8 /* Restaurant+CoreDataProperties.h */,
-				3CB9DFB11E76537200BD22B8 /* Restaurant+CoreDataProperties.m */,
+				3CC503391E77795300BFB602 /* Shift+CoreDataClass.h */,
+				3CC5033A1E77795E00BFB602 /* Shift+CoreDataClass.m */,
+				3CC5032A1E77784A00BFB602 /* Shift+CoreDataProperties.h */,
+				3CC5032B1E77784A00BFB602 /* Shift+CoreDataProperties.m */,
+				3CC5032C1E77784A00BFB602 /* Waiter+CoreDataClass.h */,
+				3CC5032D1E77784A00BFB602 /* Waiter+CoreDataClass.m */,
+				3CC5032E1E77784A00BFB602 /* Waiter+CoreDataProperties.h */,
+				3CC5032F1E77784A00BFB602 /* Waiter+CoreDataProperties.m */,
+				3CC503301E77784A00BFB602 /* Restaurant+CoreDataClass.h */,
+				3CC503311E77784A00BFB602 /* Restaurant+CoreDataClass.m */,
+				3CC503321E77784A00BFB602 /* Restaurant+CoreDataProperties.h */,
+				3CC503331E77784A00BFB602 /* Restaurant+CoreDataProperties.m */,
 				651CBBB31AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld */,
 			);
 			name = "Core Data";
@@ -275,17 +285,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CB9DFB51E76537200BD22B8 /* Restaurant+CoreDataProperties.m in Sources */,
+				3CC5033C1E777CC200BFB602 /* Shift+CoreDataClass.m in Sources */,
 				651CBBD71AB4E31400F265E8 /* RestaurantManager.m in Sources */,
 				651CBBB51AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld in Sources */,
+				3CC5033E1E777CD100BFB602 /* Restaurant+CoreDataClass.m in Sources */,
 				651CBBB21AB4E1CC00F265E8 /* AppDelegate.m in Sources */,
 				651CBBB81AB4E1CD00F265E8 /* ViewController.m in Sources */,
+				3CC5033D1E777CCC00BFB602 /* Waiter+CoreDataClass.m in Sources */,
 				3CB9DFA91E76416900BD22B8 /* AddWaiterViewController.m in Sources */,
+				3CC503361E77784A00BFB602 /* Waiter+CoreDataProperties.m in Sources */,
 				3CB7A24F1E776F1400BFC475 /* AddShiftViewController.m in Sources */,
-				3CB9DFB31E76537200BD22B8 /* Waiter+CoreDataProperties.m in Sources */,
-				3CB9DFB41E76537200BD22B8 /* Restaurant+CoreDataClass.m in Sources */,
-				3CB9DFB21E76537200BD22B8 /* Waiter+CoreDataClass.m in Sources */,
+				3CC503341E77784A00BFB602 /* Shift+CoreDataProperties.m in Sources */,
 				651CBBAF1AB4E1CC00F265E8 /* main.m in Sources */,
+				3CC503381E77784A00BFB602 /* Restaurant+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,7 +370,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -397,6 +409,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -414,6 +427,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = StaffManagement/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.TouchBistro.$(PRODUCT_NAME:rfc1034identifier)";
@@ -425,6 +439,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = StaffManagement/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.TouchBistro.$(PRODUCT_NAME:rfc1034identifier)";

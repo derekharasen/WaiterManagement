@@ -1,5 +1,5 @@
 //
-//  Waiter+CoreDataClass.h
+//  Shift+CoreDataClass.h
 //  StaffManagement
 //
 //  Created by Chris Jones on 2017-03-13.
@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Restaurant, Shift;
+@class Waiter;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Waiter : NSManagedObject
+@interface Shift : NSManagedObject
 
 @end
 
 NS_ASSUME_NONNULL_END
 
-#import "Waiter+CoreDataProperties.h"
+#import "Shift+CoreDataProperties.h"

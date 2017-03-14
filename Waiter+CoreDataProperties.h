@@ -17,6 +17,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nullable, nonatomic, copy) NSString *name;
 @property (nullable, nonatomic, retain) Restaurant *restaurant;
+@property (nullable, nonatomic, retain) NSSet<Shift *> *shift;
+
+@end
+
+@interface Waiter (CoreDataGeneratedAccessors)
+
+- (void)addShiftObject:(Shift *)value;
+- (void)removeShiftObject:(Shift *)value;
+- (void)addShift:(NSSet<Shift *> *)values;
+- (void)removeShift:(NSSet<Shift *> *)values;
 
 @end
 
