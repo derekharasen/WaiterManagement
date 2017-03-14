@@ -7,16 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C0E54EF1E77872600B5A43B /* Waiter+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0E54E81E77872600B5A43B /* Waiter+CoreDataProperties.m */; };
+		3C0E54F01E77872600B5A43B /* Restaurant+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0E54EA1E77872600B5A43B /* Restaurant+CoreDataProperties.m */; };
+		3C0E54F11E77872600B5A43B /* Shift+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0E54EC1E77872600B5A43B /* Shift+CoreDataClass.m */; };
+		3C0E54F21E77872600B5A43B /* Shift+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0E54EE1E77872600B5A43B /* Shift+CoreDataProperties.m */; };
+		3C0E54F51E77875000B5A43B /* Restaurant+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0E54F41E77875000B5A43B /* Restaurant+CoreDataClass.m */; };
+		3C0E54F81E77876700B5A43B /* Waiter+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0E54F71E77876700B5A43B /* Waiter+CoreDataClass.m */; };
 		3CB7A24F1E776F1400BFC475 /* AddShiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB7A24E1E776F1400BFC475 /* AddShiftViewController.m */; };
 		3CB9DFA91E76416900BD22B8 /* AddWaiterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB9DFA81E76416900BD22B8 /* AddWaiterViewController.m */; };
-
-		3CB9DFB21E76537200BD22B8 /* Waiter+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB9DFAB1E76537200BD22B8 /* Waiter+CoreDataClass.m */; };
-		3CB9DFB31E76537200BD22B8 /* Waiter+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB9DFAD1E76537200BD22B8 /* Waiter+CoreDataProperties.m */; };
-		3CB9DFB41E76537200BD22B8 /* Restaurant+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB9DFAF1E76537200BD22B8 /* Restaurant+CoreDataClass.m */; };
-		3CB9DFB51E76537200BD22B8 /* Restaurant+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB9DFB11E76537200BD22B8 /* Restaurant+CoreDataProperties.m */; };
-		3CC5034E1E7784A800BFB602 /* Shift+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC5034B1E7784A800BFB602 /* Shift+CoreDataClass.m */; };
-		3CC5034F1E7784A800BFB602 /* Shift+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC5034D1E7784A800BFB602 /* Shift+CoreDataProperties.m */; };
-
+		3CB9DFB51E76537200BD22B8 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		651CBBAF1AB4E1CC00F265E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBAE1AB4E1CC00F265E8 /* main.m */; };
 		651CBBB21AB4E1CC00F265E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBB11AB4E1CC00F265E8 /* AppDelegate.m */; };
 		651CBBB51AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 651CBBB31AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld */; };
@@ -39,16 +38,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C0E54E71E77872600B5A43B /* Waiter+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Waiter+CoreDataProperties.h"; path = "../Waiter+CoreDataProperties.h"; sourceTree = "<group>"; };
+		3C0E54E81E77872600B5A43B /* Waiter+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Waiter+CoreDataProperties.m"; path = "../Waiter+CoreDataProperties.m"; sourceTree = "<group>"; };
+		3C0E54E91E77872600B5A43B /* Restaurant+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Restaurant+CoreDataProperties.h"; path = "../Restaurant+CoreDataProperties.h"; sourceTree = "<group>"; };
+		3C0E54EA1E77872600B5A43B /* Restaurant+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Restaurant+CoreDataProperties.m"; path = "../Restaurant+CoreDataProperties.m"; sourceTree = "<group>"; };
+		3C0E54EB1E77872600B5A43B /* Shift+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Shift+CoreDataClass.h"; path = "../Shift+CoreDataClass.h"; sourceTree = "<group>"; };
+		3C0E54EC1E77872600B5A43B /* Shift+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Shift+CoreDataClass.m"; path = "../Shift+CoreDataClass.m"; sourceTree = "<group>"; };
+		3C0E54ED1E77872600B5A43B /* Shift+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Shift+CoreDataProperties.h"; path = "../Shift+CoreDataProperties.h"; sourceTree = "<group>"; };
+		3C0E54EE1E77872600B5A43B /* Shift+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Shift+CoreDataProperties.m"; path = "../Shift+CoreDataProperties.m"; sourceTree = "<group>"; };
+		3C0E54F31E77875000B5A43B /* Restaurant+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Restaurant+CoreDataClass.h"; sourceTree = SOURCE_ROOT; };
+		3C0E54F41E77875000B5A43B /* Restaurant+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Restaurant+CoreDataClass.m"; sourceTree = SOURCE_ROOT; };
+		3C0E54F61E77876700B5A43B /* Waiter+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Waiter+CoreDataClass.h"; sourceTree = SOURCE_ROOT; };
+		3C0E54F71E77876700B5A43B /* Waiter+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Waiter+CoreDataClass.m"; sourceTree = SOURCE_ROOT; };
 		3CB7A24D1E776F1400BFC475 /* AddShiftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddShiftViewController.h; sourceTree = "<group>"; };
 		3CB7A24E1E776F1400BFC475 /* AddShiftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddShiftViewController.m; sourceTree = "<group>"; };
 		3CB9DFA71E76416900BD22B8 /* AddWaiterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddWaiterViewController.h; sourceTree = "<group>"; };
 		3CB9DFA81E76416900BD22B8 /* AddWaiterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddWaiterViewController.m; sourceTree = "<group>"; };
 		3CB9DFB71E76640300BD22B8 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		3CC5034A1E7784A800BFB602 /* Shift+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Shift+CoreDataClass.h"; path = "../Shift+CoreDataClass.h"; sourceTree = "<group>"; };
-		3CC5034B1E7784A800BFB602 /* Shift+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Shift+CoreDataClass.m"; path = "../Shift+CoreDataClass.m"; sourceTree = "<group>"; };
-		3CC5034C1E7784A800BFB602 /* Shift+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Shift+CoreDataProperties.h"; path = "../Shift+CoreDataProperties.h"; sourceTree = "<group>"; };
-		3CC5034D1E7784A800BFB602 /* Shift+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Shift+CoreDataProperties.m"; path = "../Shift+CoreDataProperties.m"; sourceTree = "<group>"; };
-
 		651CBBA91AB4E1CC00F265E8 /* StaffManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StaffManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		651CBBAD1AB4E1CC00F265E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		651CBBAE1AB4E1CC00F265E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -163,20 +169,18 @@
 		651CBBDE1AB4E4AC00F265E8 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-
-				3CC5034A1E7784A800BFB602 /* Shift+CoreDataClass.h */,
-				3CC5034B1E7784A800BFB602 /* Shift+CoreDataClass.m */,
-				3CC5034C1E7784A800BFB602 /* Shift+CoreDataProperties.h */,
-				3CC5034D1E7784A800BFB602 /* Shift+CoreDataProperties.m */,
-				3CB9DFAA1E76537200BD22B8 /* Waiter+CoreDataClass.h */,
-				3CB9DFAB1E76537200BD22B8 /* Waiter+CoreDataClass.m */,
-				3CB9DFAC1E76537200BD22B8 /* Waiter+CoreDataProperties.h */,
-				3CB9DFAD1E76537200BD22B8 /* Waiter+CoreDataProperties.m */,
-				3CB9DFAE1E76537200BD22B8 /* Restaurant+CoreDataClass.h */,
-				3CB9DFAF1E76537200BD22B8 /* Restaurant+CoreDataClass.m */,
-				3CB9DFB01E76537200BD22B8 /* Restaurant+CoreDataProperties.h */,
-				3CB9DFB11E76537200BD22B8 /* Restaurant+CoreDataProperties.m */,
-
+				3C0E54F61E77876700B5A43B /* Waiter+CoreDataClass.h */,
+				3C0E54F71E77876700B5A43B /* Waiter+CoreDataClass.m */,
+				3C0E54E71E77872600B5A43B /* Waiter+CoreDataProperties.h */,
+				3C0E54E81E77872600B5A43B /* Waiter+CoreDataProperties.m */,
+				3C0E54F31E77875000B5A43B /* Restaurant+CoreDataClass.h */,
+				3C0E54F41E77875000B5A43B /* Restaurant+CoreDataClass.m */,
+				3C0E54E91E77872600B5A43B /* Restaurant+CoreDataProperties.h */,
+				3C0E54EA1E77872600B5A43B /* Restaurant+CoreDataProperties.m */,
+				3C0E54EB1E77872600B5A43B /* Shift+CoreDataClass.h */,
+				3C0E54EC1E77872600B5A43B /* Shift+CoreDataClass.m */,
+				3C0E54ED1E77872600B5A43B /* Shift+CoreDataProperties.h */,
+				3C0E54EE1E77872600B5A43B /* Shift+CoreDataProperties.m */,
 				651CBBB31AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld */,
 			);
 			name = "Core Data";
@@ -282,24 +286,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
-				3CC5034E1E7784A800BFB602 /* Shift+CoreDataClass.m in Sources */,
-				3CB9DFB51E76537200BD22B8 /* Restaurant+CoreDataProperties.m in Sources */,
-
+				3C0E54F11E77872600B5A43B /* Shift+CoreDataClass.m in Sources */,
+				3C0E54F01E77872600B5A43B /* Restaurant+CoreDataProperties.m in Sources */,
+				3CB9DFB51E76537200BD22B8 /* (null) in Sources */,
+				3C0E54F51E77875000B5A43B /* Restaurant+CoreDataClass.m in Sources */,
 				651CBBD71AB4E31400F265E8 /* RestaurantManager.m in Sources */,
+				3C0E54F81E77876700B5A43B /* Waiter+CoreDataClass.m in Sources */,
+				3C0E54EF1E77872600B5A43B /* Waiter+CoreDataProperties.m in Sources */,
 				651CBBB51AB4E1CD00F265E8 /* StaffManagement.xcdatamodeld in Sources */,
-				3CC5033E1E777CD100BFB602 /* Restaurant+CoreDataClass.m in Sources */,
+				3C0E54F21E77872600B5A43B /* Shift+CoreDataProperties.m in Sources */,
 				651CBBB21AB4E1CC00F265E8 /* AppDelegate.m in Sources */,
 				651CBBB81AB4E1CD00F265E8 /* ViewController.m in Sources */,
-
-				3CC5034F1E7784A800BFB602 /* Shift+CoreDataProperties.m in Sources */,
-
 				3CB9DFA91E76416900BD22B8 /* AddWaiterViewController.m in Sources */,
-				3CC503361E77784A00BFB602 /* Waiter+CoreDataProperties.m in Sources */,
 				3CB7A24F1E776F1400BFC475 /* AddShiftViewController.m in Sources */,
-				3CC503341E77784A00BFB602 /* Shift+CoreDataProperties.m in Sources */,
 				651CBBAF1AB4E1CC00F265E8 /* main.m in Sources */,
-				3CC503381E77784A00BFB602 /* Restaurant+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

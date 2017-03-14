@@ -17,10 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc]initWithTitle:@"Save" style:UIBarButtonItemStylePlain target:self action:@selector(addShift:)];
-    self.navigationItem.rightBarButtonItem = saveButton;
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelAddShift:)];
-    self.navigationItem.leftBarButtonItem = cancelButton;
+    self.navigationController.title = @"Set Up Shift";
     
 }
 

@@ -15,10 +15,8 @@
 }
 
 @dynamic date;
-
 @dynamic endTime;
 @dynamic startTime;
-
 @dynamic waiter;
 
 @end

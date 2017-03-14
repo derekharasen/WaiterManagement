@@ -16,9 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSFetchRequest<Shift *> *)fetchRequest;
 
 @property (nullable, nonatomic, copy) NSDate *date;
-@property (nullable, nonatomic, copy) NSDate *startTime;
 @property (nullable, nonatomic, copy) NSDate *endTime;
-
+@property (nullable, nonatomic, copy) NSDate *startTime;
 @property (nullable, nonatomic, retain) Waiter *waiter;
 
 @end
