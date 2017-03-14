@@ -45,6 +45,9 @@
         self.addShiftOutlet.hidden = NO;
         self.shiftsLabel.hidden = NO;
     }
+    NSSortDescriptor *sortByShift = [[NSSortDescriptor alloc]initWithKey:@"date" ascending:YES];
+    NSArray *temp = [self.waiter.shift sortedArrayUsingDescriptors:@[sortByShift]];
+    self.shiftsArray = [temp mutableCopy];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -58,7 +61,13 @@
     if (fetchedObjects == nil) {
         NSLog(@"error: %@", error.localizedDescription);
     }
-    self.shiftsArray = [fetchedObjects mutableCopy];
+    NSMutableArray *temp = [NSMutableArray new];
+    for (Shift *shift in fetchedObjects) {
+        if (shift.waiter == self.waiter) {
+            [temp addObject:shift];
+        }
+    }
+    self.shiftsArray = temp;
     
     [self.tableView reloadData];
 }
@@ -112,7 +121,6 @@
     }
 }
 
-
 #pragma mark - TableView Data Source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -130,9 +138,9 @@
     NSDateFormatter *timeFormatterStart = [NSDateFormatter new];
     NSDateFormatter *timeFormatterEnd = [NSDateFormatter new];
     
-    [dateFormatter setDateFormat:@"MMM/dd/yyyy"];
-    [timeFormatterStart setDateFormat:@"HH:mm"];
-    [timeFormatterEnd setDateFormat:@"HH:mm"];
+    [dateFormatter setDateFormat:@"MMM dd, yyyy"];
+    [timeFormatterStart setDateFormat:@"HH:mm a"];
+    [timeFormatterEnd setDateFormat:@"HH:mm a"];
     
     NSString *dateString = [dateFormatter stringFromDate:shift.date];
     NSString *timeStringStart = [timeFormatterStart stringFromDate:shift.startTime];
