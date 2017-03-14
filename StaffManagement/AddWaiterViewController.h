@@ -13,6 +13,6 @@
 
 @property (nonatomic) Waiter *waiter;
 
-- (void)displayDetailView:(Waiter *)waiter;
+- (void)displayEditView:(Waiter *)waiter;
 
 @end

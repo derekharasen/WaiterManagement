@@ -67,17 +67,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter waiter's name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cu0-OX-CE9">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter waiter's name..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cu0-OX-CE9">
                                 <rect key="frame" x="37" y="76" width="300" height="53.5"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="74" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6rR-tA-u3c">
                                 <rect key="frame" x="37" y="195" width="300" height="400"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="74" id="sBl-Z4-fpn">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="74" id="sBl-Z4-fpn">
                                         <rect key="frame" x="0.0" y="28" width="300" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sBl-Z4-fpn" id="brw-cm-xJf">
@@ -157,7 +157,7 @@
                                 <state key="normal" title="Add Shift"/>
                                 <connections>
                                     <action selector="addShift:" destination="HP5-eR-BkT" eventType="touchUpInside" id="Cqz-cU-HlC"/>
-                                    <segue destination="80q-ns-zaH" kind="show" id="9CG-CN-wg8"/>
+                                    <segue destination="80q-ns-zaH" kind="show" identifier="AddShift" id="9CG-CN-wg8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -193,10 +193,10 @@
             </objects>
             <point key="canvasLocation" x="2632.8000000000002" y="147.97601199400302"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Shift View Controller-->
         <scene sceneID="NFi-mR-Zh1">
             <objects>
-                <viewController id="3zg-jt-TUI" sceneMemberID="viewController">
+                <viewController id="3zg-jt-TUI" customClass="AddShiftViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XcI-Q5-lQZ"/>
                         <viewControllerLayoutGuide type="bottom" id="EW4-BD-eR8"/>
@@ -212,14 +212,14 @@
                                 </date>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4qe-AG-AZh">
-                                <rect key="frame" x="37" y="79" width="300" height="53.5"/>
+                                <rect key="frame" x="37" y="79" width="300" height="54"/>
                                 <color key="backgroundColor" red="0.84606995558375631" green="0.84606995558375631" blue="0.84606995558375631" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Start Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTg-Eq-J8P">
-                                <rect key="frame" x="37" y="315" width="300" height="53.5"/>
+                                <rect key="frame" x="37" y="315" width="300" height="54"/>
                                 <color key="backgroundColor" red="0.84606995559999998" green="0.84606995559999998" blue="0.84606995559999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -231,15 +231,15 @@
                                     <!--2017-03-14 02:17:37 +0000-->
                                 </date>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Start Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibn-94-7yc">
-                                <rect key="frame" x="37.5" y="484" width="300" height="53.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set End Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibn-94-7yc">
+                                <rect key="frame" x="38" y="484" width="300" height="54"/>
                                 <color key="backgroundColor" red="0.84606995559999998" green="0.84606995559999998" blue="0.84606995559999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="MCr-Kw-7F0">
-                                <rect key="frame" x="0.0" y="537.5" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="538" width="375" height="100"/>
                                 <date key="date" timeIntervalSinceReferenceDate="511150657.93999499">
                                     <!--2017-03-14 02:17:37 +0000-->
                                 </date>
@@ -274,9 +274,22 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kiR-ks-vW3">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="i07-Pg-76O"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Csb-NN-BmQ"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="i07-Pg-76O">
+                            <connections>
+                                <action selector="cancelAddShift:" destination="3zg-jt-TUI" id="Ahk-JB-fmW"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Csb-NN-BmQ">
+                            <connections>
+                                <action selector="addShift:" destination="3zg-jt-TUI" id="NGZ-EW-QOb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="chooseDate" destination="9RB-Ao-Pud" id="dY9-mR-UnN"/>
+                        <outlet property="setEndTime" destination="MCr-Kw-7F0" id="ODk-Ud-bHQ"/>
+                        <outlet property="setStartTime" destination="x1x-tZ-EXS" id="dt5-Y6-hSk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uhl-Mh-bZk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -312,7 +325,7 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="HP5-eR-BkT" kind="relationship" relationship="rootViewController" id="5nE-qM-4jb"/>
-                        <segue destination="HP5-eR-BkT" kind="presentation" id="Pst-Ua-rRx"/>
+                        <segue destination="HP5-eR-BkT" kind="presentation" identifier="NewWaiter" id="Pst-Ua-rRx"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gbZ-Uj-Xxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -339,7 +352,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nRz-kR-gGP"/>
+        <segue reference="Pd6-ZP-DMt"/>
         <segue reference="5nE-qM-4jb"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -89,7 +89,7 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
         
         NSIndexPath *indexPath = [[self tableView] indexPathForSelectedRow];
         addWaiterVC.waiter = self.waiters[indexPath.row];
-        [addWaiterVC displayDetailView:addWaiterVC.waiter];
+        [addWaiterVC displayEditView:addWaiterVC.waiter];
     }
 }
 

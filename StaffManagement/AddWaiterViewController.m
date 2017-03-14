@@ -9,6 +9,7 @@
 #import "AddWaiterViewController.h"
 #import "RestaurantManager.h"
 #import "AppDelegate.h"
+#import "AddShiftViewController.h"
 
 static NSString * const kCellIdentifier = @"CellIdentifier";
 
@@ -75,7 +76,7 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
-- (void)displayDetailView:(Waiter *)waiter {
+- (void)displayEditView:(Waiter *)waiter {
     if (_waiter != waiter) {
         _waiter = waiter;
     }
@@ -84,6 +85,16 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 - (IBAction)addShift:(UIButton *)sender {
     
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"AddShift"]) {
+        UINavigationController *nav = [segue destinationViewController];
+        AddShiftViewController *addShiftVC = nav.viewControllers[0];
+        addShiftVC.waiter = self.waiter;
+        [addShiftVC displayShiftView:addShiftVC.waiter];
+    }
+}
+
 
 #pragma mark - TableView Data Source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

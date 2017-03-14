@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Waiter+CoreDataClass.h"
 
 @interface AddShiftViewController : UIViewController
+
+@property (nonatomic) Waiter *waiter;
+
+- (void)displayShiftView:(Waiter *)waiter;
 
 @end

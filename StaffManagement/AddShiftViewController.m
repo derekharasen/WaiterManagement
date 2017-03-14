@@ -7,8 +7,13 @@
 //
 
 #import "AddShiftViewController.h"
+#import "RestaurantManager.h"
+#import "Shift+CoreDataProperties.h"
 
 @interface AddShiftViewController ()
+@property (weak, nonatomic) IBOutlet UIDatePicker *chooseDate;
+@property (weak, nonatomic) IBOutlet UIDatePicker *setStartTime;
+@property (weak, nonatomic) IBOutlet UIDatePicker *setEndTime;
 
 @end
 
@@ -18,7 +23,7 @@
     [super viewDidLoad];
     
     self.navigationController.title = @"Set Up Shift";
-    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,12 +33,32 @@
 
 - (IBAction)addShift:(UIBarButtonItem *)sender {
     
+    NSManagedObjectContext *context = [[RestaurantManager sharedManager] managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:context];
+    NSFetchRequest *fetch = [Shift fetchRequest];
+    [fetch setEntity:entity];
+    
+    Shift *newShift = [NSEntityDescription insertNewObjectForEntityForName:@"Shift" inManagedObjectContext:context];
+    newShift.date = self.chooseDate.date;
+    newShift.startTime = self.setStartTime.date;
+    newShift.endTime = self.setEndTime.date;
+    
+    newShift.waiter = self.waiter;
+    NSSet *shifts = [self.waiter.shift setByAddingObject:newShift];
+    [self.waiter addShift:shifts];
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 - (IBAction)cancelAddShift:(UIBarButtonItem *)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
+
+- (void)displayShiftView:(Waiter *)waiter {
+    if (_waiter != waiter) {
+        _waiter = waiter;
+    }
+}
 
 /*
 #pragma mark - Navigation
