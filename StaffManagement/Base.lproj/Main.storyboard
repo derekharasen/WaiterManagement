@@ -157,6 +157,7 @@
                                 <state key="normal" title="Add Shift"/>
                                 <connections>
                                     <action selector="addShift:" destination="HP5-eR-BkT" eventType="touchUpInside" id="Cqz-cU-HlC"/>
+                                    <segue destination="3zg-jt-TUI" kind="show" id="9CG-CN-wg8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -191,6 +192,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lnI-bU-9Fe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2632.8000000000002" y="147.97601199400302"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="NFi-mR-Zh1">
+            <objects>
+                <viewController id="3zg-jt-TUI" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XcI-Q5-lQZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="EW4-BD-eR8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="olQ-rV-jTC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uhl-Mh-bZk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3503" y="148"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="G1Y-4w-TVQ">
