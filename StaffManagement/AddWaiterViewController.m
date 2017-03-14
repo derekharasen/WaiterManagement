@@ -109,10 +109,6 @@
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
-- (IBAction)addShift:(UIButton *)sender {
-    
-}
-
 #pragma mark - Segue
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -121,6 +117,13 @@
         AddShiftViewController *addShiftVC = nav.viewControllers[0];
         addShiftVC.waiter = self.waiter;
         [addShiftVC displayShiftView:addShiftVC.waiter];
+    }
+    if ([segue.identifier isEqualToString:@"EditShift"]) {
+        UINavigationController *nav = [segue destinationViewController];
+        AddShiftViewController *addShiftVC = nav.viewControllers[0];
+        NSIndexPath *indexPath = [[self tableView] indexPathForSelectedRow];
+        addShiftVC.shift = self.shiftsArray[indexPath.row];
+        [addShiftVC displayShiftForEdit:addShiftVC.shift];
     }
 }
 
@@ -142,8 +145,8 @@
     NSDateFormatter *timeFormatterEnd = [NSDateFormatter new];
     
     [dateFormatter setDateFormat:@"MMM dd, yyyy"];
-    [timeFormatterStart setDateFormat:@"HH:mm a"];
-    [timeFormatterEnd setDateFormat:@"HH:mm a"];
+    [timeFormatterStart setDateFormat:@"hh:mm a"];
+    [timeFormatterEnd setDateFormat:@"hh:mm a"];
     
     NSString *dateString = [dateFormatter stringFromDate:shift.date];
     NSString *timeStringStart = [timeFormatterStart stringFromDate:shift.startTime];
@@ -154,6 +157,10 @@
     cell.endTimeLabel.text = timeStringEnd;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"EditShift" sender:self];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {

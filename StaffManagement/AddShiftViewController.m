@@ -24,6 +24,12 @@
     
     self.navigationController.title = @"Set Up Shift";
 
+    if (self.shift != nil) {
+        self.chooseDate.date = self.shift.date;
+        self.setStartTime.date = self.shift.startTime;
+        self.setEndTime.date = self.shift.endTime;
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,7 +38,7 @@
 }
 
 - (IBAction)addShift:(UIBarButtonItem *)sender {
-    
+    if (self.shift == nil) {
     NSManagedObjectContext *context = [[RestaurantManager sharedManager] managedObjectContext];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:context];
     NSFetchRequest *fetch = [Shift fetchRequest];
@@ -46,6 +52,11 @@
     newShift.waiter = self.waiter;
     NSSet *shifts = [self.waiter.shift setByAddingObject:newShift];
     [self.waiter addShift:shifts];
+    } else {
+        self.shift.date = self.chooseDate.date;
+        self.shift.startTime = self.setStartTime.date;
+        self.shift.endTime = self.setEndTime.date;
+    }
     [[RestaurantManager sharedManager] saveContext];
     [self dismissViewControllerAnimated:NO completion:nil];
 }
@@ -57,6 +68,12 @@
 - (void)displayShiftView:(Waiter *)waiter {
     if (_waiter != waiter) {
         _waiter = waiter;
+    }
+}
+
+- (void)displayShiftForEdit:(Shift *)shift {
+    if (_shift != shift) {
+        _shift = shift;
     }
 }
 

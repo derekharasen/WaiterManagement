@@ -85,7 +85,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Add Shift"/>
                                 <connections>
-                                    <action selector="addShift:" destination="HP5-eR-BkT" eventType="touchUpInside" id="Cqz-cU-HlC"/>
                                     <segue destination="80q-ns-zaH" kind="show" identifier="AddShift" id="9CG-CN-wg8"/>
                                 </connections>
                             </button>
@@ -97,7 +96,7 @@
                                         <rect key="frame" x="0.0" y="28" width="300" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sBl-Z4-fpn" id="brw-cm-xJf">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="73.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="74"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rP3-rF-u7u">
@@ -194,6 +193,7 @@
                         <outlet property="addWaiterTextField" destination="Cu0-OX-CE9" id="ZPq-Ym-ufW"/>
                         <outlet property="shiftsLabel" destination="sxP-B3-jF8" id="c4V-Zh-94s"/>
                         <outlet property="tableView" destination="6rR-tA-u3c" id="PZP-bM-fKg"/>
+                        <segue destination="80q-ns-zaH" kind="presentation" identifier="EditShift" id="Su3-My-tsp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lnI-bU-9Fe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -351,6 +351,7 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="3zg-jt-TUI" kind="relationship" relationship="rootViewController" id="fHy-78-bZX"/>
+                        <segue destination="3zg-jt-TUI" kind="presentation" id="bFn-Sq-Cg3"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B8K-RV-qJE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -361,5 +362,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="Pd6-ZP-DMt"/>
         <segue reference="5nE-qM-4jb"/>
+        <segue reference="Su3-My-tsp"/>
+        <segue reference="fHy-78-bZX"/>
     </inferredMetricsTieBreakers>
 </document>
