@@ -16,8 +16,9 @@
         <relationship name="shift" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Shift" inverseName="waiter" inverseEntity="Shift" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Restaurant" positionX="-63" positionY="-18" width="128" height="73"/>
-        <element name="Shift" positionX="178" positionY="207" width="128" height="103"/>
-        <element name="Waiter" positionX="180" positionY="-99" width="128" height="88"/>
+
+        <element name="Restaurant" positionX="-387" positionY="-324" width="128" height="73"/>
+        <element name="Waiter" positionX="-54" positionY="-9" width="128" height="88"/>
+        <element name="Shift" positionX="-47" positionY="-405" width="128" height="103"/>
     </elements>
 </model>
