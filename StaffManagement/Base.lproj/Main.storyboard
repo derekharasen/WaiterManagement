@@ -81,7 +81,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gje-v1-5LV">
-                                <rect key="frame" x="262" y="619" width="75" height="33.5"/>
+                                <rect key="frame" x="243.5" y="607" width="93.5" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Add Shift"/>
                                 <connections>
@@ -180,10 +180,10 @@
                             <constraint firstItem="6rR-tA-u3c" firstAttribute="top" secondItem="sxP-B3-jF8" secondAttribute="bottom" constant="12" id="fW5-G6-4c4"/>
                             <constraint firstItem="Cu0-OX-CE9" firstAttribute="width" secondItem="0tv-NU-gfD" secondAttribute="width" multiplier="0.8" id="j83-Yq-SM9"/>
                             <constraint firstItem="Cu0-OX-CE9" firstAttribute="height" secondItem="0tv-NU-gfD" secondAttribute="height" multiplier="0.08" id="kM5-Wt-Irj"/>
-                            <constraint firstItem="gje-v1-5LV" firstAttribute="width" secondItem="0tv-NU-gfD" secondAttribute="width" multiplier="0.2" id="l6D-9y-mH0"/>
+                            <constraint firstItem="gje-v1-5LV" firstAttribute="width" secondItem="0tv-NU-gfD" secondAttribute="width" multiplier="0.25" id="l6D-9y-mH0"/>
                             <constraint firstItem="gje-v1-5LV" firstAttribute="height" secondItem="0tv-NU-gfD" secondAttribute="height" multiplier="0.05" id="por-SI-gvc"/>
                             <constraint firstItem="sxP-B3-jF8" firstAttribute="height" secondItem="0tv-NU-gfD" secondAttribute="height" multiplier="0.08" id="rDQ-jq-KM4"/>
-                            <constraint firstItem="gje-v1-5LV" firstAttribute="top" secondItem="6rR-tA-u3c" secondAttribute="bottom" constant="12" id="w08-Se-ZZX"/>
+                            <constraint firstItem="gje-v1-5LV" firstAttribute="top" secondItem="6rR-tA-u3c" secondAttribute="bottom" id="w08-Se-ZZX"/>
                             <constraint firstItem="gje-v1-5LV" firstAttribute="trailing" secondItem="6rR-tA-u3c" secondAttribute="trailing" id="xMH-sw-FZf"/>
                         </constraints>
                     </view>
