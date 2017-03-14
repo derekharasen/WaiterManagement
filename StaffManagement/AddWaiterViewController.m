@@ -72,11 +72,18 @@
     [self.tableView reloadData];
 }
 
+- (void)displayEditView:(Waiter *)waiter {
+    if (_waiter != waiter) {
+        _waiter = waiter;
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Buttons
 
 - (IBAction)addWaiter:(UIBarButtonItem*)sender {
     
@@ -102,15 +109,11 @@
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
-- (void)displayEditView:(Waiter *)waiter {
-    if (_waiter != waiter) {
-        _waiter = waiter;
-    }
-}
-
 - (IBAction)addShift:(UIButton *)sender {
     
 }
+
+#pragma mark - Segue
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"AddShift"]) {
@@ -151,6 +154,15 @@
     cell.endTimeLabel.text = timeStringEnd;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [[[RestaurantManager sharedManager] managedObjectContext] deleteObject:self.shiftsArray[indexPath.row]];
+        [[RestaurantManager sharedManager] saveContext];
+        [self.shiftsArray removeObjectAtIndex:indexPath.row];
+        [tableView reloadData];
+    }
 }
 
 @end
