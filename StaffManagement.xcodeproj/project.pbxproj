@@ -13,6 +13,7 @@
 		3C0E54F21E77872600B5A43B /* Shift+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0E54EE1E77872600B5A43B /* Shift+CoreDataProperties.m */; };
 		3C0E54F51E77875000B5A43B /* Restaurant+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0E54F41E77875000B5A43B /* Restaurant+CoreDataClass.m */; };
 		3C0E54F81E77876700B5A43B /* Waiter+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0E54F71E77876700B5A43B /* Waiter+CoreDataClass.m */; };
+		3C0E54FB1E77A4A900B5A43B /* ShiftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0E54FA1E77A4A900B5A43B /* ShiftTableViewCell.m */; };
 		3CB7A24F1E776F1400BFC475 /* AddShiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB7A24E1E776F1400BFC475 /* AddShiftViewController.m */; };
 		3CB9DFA91E76416900BD22B8 /* AddWaiterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB9DFA81E76416900BD22B8 /* AddWaiterViewController.m */; };
 		3CB9DFB51E76537200BD22B8 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -50,6 +51,8 @@
 		3C0E54F41E77875000B5A43B /* Restaurant+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Restaurant+CoreDataClass.m"; sourceTree = SOURCE_ROOT; };
 		3C0E54F61E77876700B5A43B /* Waiter+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Waiter+CoreDataClass.h"; sourceTree = SOURCE_ROOT; };
 		3C0E54F71E77876700B5A43B /* Waiter+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Waiter+CoreDataClass.m"; sourceTree = SOURCE_ROOT; };
+		3C0E54F91E77A4A900B5A43B /* ShiftTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShiftTableViewCell.h; sourceTree = "<group>"; };
+		3C0E54FA1E77A4A900B5A43B /* ShiftTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShiftTableViewCell.m; sourceTree = "<group>"; };
 		3CB7A24D1E776F1400BFC475 /* AddShiftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddShiftViewController.h; sourceTree = "<group>"; };
 		3CB7A24E1E776F1400BFC475 /* AddShiftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddShiftViewController.m; sourceTree = "<group>"; };
 		3CB9DFA71E76416900BD22B8 /* AddWaiterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddWaiterViewController.h; sourceTree = "<group>"; };
@@ -131,6 +134,8 @@
 				3CB9DFA81E76416900BD22B8 /* AddWaiterViewController.m */,
 				3CB7A24D1E776F1400BFC475 /* AddShiftViewController.h */,
 				3CB7A24E1E776F1400BFC475 /* AddShiftViewController.m */,
+				3C0E54F91E77A4A900B5A43B /* ShiftTableViewCell.h */,
+				3C0E54FA1E77A4A900B5A43B /* ShiftTableViewCell.m */,
 				651CBBB91AB4E1CD00F265E8 /* Main.storyboard */,
 				651CBBBC1AB4E1CD00F265E8 /* Images.xcassets */,
 				651CBBBE1AB4E1CD00F265E8 /* LaunchScreen.xib */,
@@ -298,6 +303,7 @@
 				651CBBB21AB4E1CC00F265E8 /* AppDelegate.m in Sources */,
 				651CBBB81AB4E1CD00F265E8 /* ViewController.m in Sources */,
 				3CB9DFA91E76416900BD22B8 /* AddWaiterViewController.m in Sources */,
+				3C0E54FB1E77A4A900B5A43B /* ShiftTableViewCell.m in Sources */,
 				3CB7A24F1E776F1400BFC475 /* AddShiftViewController.m in Sources */,
 				651CBBAF1AB4E1CC00F265E8 /* main.m in Sources */,
 			);

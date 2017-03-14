@@ -46,13 +46,13 @@
     newShift.waiter = self.waiter;
     NSSet *shifts = [self.waiter.shift setByAddingObject:newShift];
     [self.waiter addShift:shifts];
+    [[RestaurantManager sharedManager] saveContext];
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 - (IBAction)cancelAddShift:(UIBarButtonItem *)sender {
     [self dismissViewControllerAnimated:NO completion:nil];
 }
-
 
 - (void)displayShiftView:(Waiter *)waiter {
     if (_waiter != waiter) {

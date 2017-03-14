@@ -10,8 +10,8 @@
 #import "RestaurantManager.h"
 #import "AppDelegate.h"
 #import "AddShiftViewController.h"
-
-static NSString * const kCellIdentifier = @"CellIdentifier";
+#import "ShiftTableViewCell.h"
+#import "Shift+CoreDataProperties.h"
 
 @interface AddWaiterViewController ()
 
@@ -20,7 +20,7 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *shiftsLabel;
 
-@property (nonatomic) NSMutableArray *shifts;
+@property (nonatomic, retain) NSMutableArray *shiftsArray;
 
 @end
 
@@ -46,6 +46,23 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
         self.shiftsLabel.hidden = NO;
     }
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    NSManagedObjectContext *context = [[RestaurantManager sharedManager] managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Shift" inManagedObjectContext:context];
+    NSFetchRequest *fetch = [Shift fetchRequest];
+    [fetch setEntity:entity];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetch error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"error: %@", error.localizedDescription);
+    }
+    self.shiftsArray = [fetchedObjects mutableCopy];
+    
+    [self.tableView reloadData];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -102,16 +119,30 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.shifts.count;
+    return self.shiftsArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier forIndexPath:indexPath];
+    ShiftTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    Shift *shift = self.shiftsArray[indexPath.row];
+    
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    NSDateFormatter *timeFormatterStart = [NSDateFormatter new];
+    NSDateFormatter *timeFormatterEnd = [NSDateFormatter new];
+    
+    [dateFormatter setDateFormat:@"MMM/dd/yyyy"];
+    [timeFormatterStart setDateFormat:@"HH:mm"];
+    [timeFormatterEnd setDateFormat:@"HH:mm"];
+    
+    NSString *dateString = [dateFormatter stringFromDate:shift.date];
+    NSString *timeStringStart = [timeFormatterStart stringFromDate:shift.startTime];
+    NSString *timeStringEnd = [timeFormatterEnd stringFromDate:shift.endTime];
+    
+    cell.dateLabel.text = dateString;
+    cell.startTimeLabel.text = timeStringStart;
+    cell.endTimeLabel.text = timeStringEnd;
     
     return cell;
 }
-
-
-
 
 @end
