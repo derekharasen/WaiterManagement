@@ -39,7 +39,7 @@
 
 - (IBAction)addShift:(UIBarButtonItem *)sender {
     if (self.shift == nil) {
-    NSManagedObjectContext *context = [[RestaurantManager sharedManager] managedObjectContext];
+    NSManagedObjectContext *context = [[RestaurantManager sharedManager] appDelegate].managedObjectContext;
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:context];
     NSFetchRequest *fetch = [Shift fetchRequest];
     [fetch setEntity:entity];
@@ -57,7 +57,7 @@
         self.shift.startTime = self.setStartTime.date;
         self.shift.endTime = self.setEndTime.date;
     }
-    [[RestaurantManager sharedManager] saveContext];
+    [[[RestaurantManager sharedManager] appDelegate] saveContext];
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 

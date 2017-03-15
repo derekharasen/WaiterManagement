@@ -200,10 +200,10 @@
             </objects>
             <point key="canvasLocation" x="2632.8000000000002" y="147.97601199400302"/>
         </scene>
-        <!--Add Shift View Controller-->
+        <!--Shift View Controller-->
         <scene sceneID="NFi-mR-Zh1">
             <objects>
-                <viewController id="3zg-jt-TUI" customClass="AddShiftViewController" sceneMemberID="viewController">
+                <viewController id="3zg-jt-TUI" customClass="ShiftViewController" customModule="StaffManagement" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XcI-Q5-lQZ"/>
                         <viewControllerLayoutGuide type="bottom" id="EW4-BD-eR8"/>
@@ -283,19 +283,19 @@
                     <navigationItem key="navigationItem" id="kiR-ks-vW3">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="i07-Pg-76O">
                             <connections>
-                                <action selector="cancelAddShift:" destination="3zg-jt-TUI" id="Ahk-JB-fmW"/>
+                                <action selector="cancelShift:" destination="3zg-jt-TUI" id="oen-f4-bhu"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Csb-NN-BmQ">
                             <connections>
-                                <action selector="addShift:" destination="3zg-jt-TUI" id="NGZ-EW-QOb"/>
+                                <action selector="saveShift:" destination="3zg-jt-TUI" id="OWq-ae-UtU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="chooseDate" destination="9RB-Ao-Pud" id="dY9-mR-UnN"/>
-                        <outlet property="setEndTime" destination="MCr-Kw-7F0" id="ODk-Ud-bHQ"/>
-                        <outlet property="setStartTime" destination="x1x-tZ-EXS" id="dt5-Y6-hSk"/>
+                        <outlet property="chooseDate" destination="9RB-Ao-Pud" id="qBd-WL-Aa5"/>
+                        <outlet property="finishTime" destination="MCr-Kw-7F0" id="v8y-CY-HjA"/>
+                        <outlet property="startTime" destination="x1x-tZ-EXS" id="PHE-re-HhQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uhl-Mh-bZk" userLabel="First Responder" sceneMemberID="firstResponder"/>

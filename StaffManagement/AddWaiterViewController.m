@@ -51,7 +51,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    NSManagedObjectContext *context = [[RestaurantManager sharedManager] managedObjectContext];
+    NSManagedObjectContext *context = [[RestaurantManager sharedManager] appDelegate].managedObjectContext;
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Shift" inManagedObjectContext:context];
     NSFetchRequest *fetch = [Shift fetchRequest];
     [fetch setEntity:entity];
@@ -88,7 +88,7 @@
 - (IBAction)addWaiter:(UIBarButtonItem*)sender {
     
     if (self.waiter == nil) {
-        NSManagedObjectContext *context = [[RestaurantManager sharedManager] managedObjectContext];
+        NSManagedObjectContext *context = [[RestaurantManager sharedManager] appDelegate].managedObjectContext;
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"Restaurant" inManagedObjectContext:context];
         NSFetchRequest *fetch = [Waiter fetchRequest];
         [fetch setEntity:entity];
@@ -101,7 +101,7 @@
     } else {
         self.waiter.name = self.addWaiterTextField.text;
     }
-    [[RestaurantManager sharedManager] saveContext];
+    [[[RestaurantManager sharedManager] appDelegate] saveContext];
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
@@ -165,8 +165,8 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [[[RestaurantManager sharedManager] managedObjectContext] deleteObject:self.shiftsArray[indexPath.row]];
-        [[RestaurantManager sharedManager] saveContext];
+        [[[RestaurantManager sharedManager] appDelegate].managedObjectContext deleteObject:self.shiftsArray[indexPath.row]];
+        [[[RestaurantManager sharedManager] appDelegate] saveContext];
         [self.shiftsArray removeObjectAtIndex:indexPath.row];
         [tableView reloadData];
     }
