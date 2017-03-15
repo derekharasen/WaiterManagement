@@ -7,8 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Restaurant.h"
+#import "Restaurant+CoreDataProperties.h"
+#import "AppDelegate.h"
+
 @interface RestaurantManager : NSObject
+
+@property (nonatomic) AppDelegate *appDelegate;
+
 + (id)sharedManager;
 -(Restaurant*)currentRestaurant;
+
 @end

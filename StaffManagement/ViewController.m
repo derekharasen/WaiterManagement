@@ -7,15 +7,18 @@
 //
 
 #import "ViewController.h"
-#import "Restaurant.h"
+#import "Restaurant+CoreDataProperties.h"
 #import "RestaurantManager.h"
-#import "Waiter.h"
+#import "Waiter+CoreDataProperties.h"
+#import "AddWaiterViewController.h"
 
 static NSString * const kCellIdentifier = @"CellIdentifier";
 
 @interface ViewController ()
+
 @property IBOutlet UITableView *tableView;
-@property (nonatomic, retain) NSArray *waiters;
+@property (nonatomic, retain) NSMutableArray *waiters;
+
 @end
 
 @implementation ViewController
@@ -24,25 +27,69 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     [super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCellIdentifier];
     NSSortDescriptor *sortByName = [[NSSortDescriptor alloc]initWithKey:@"name" ascending:YES];
-    self.waiters = [[[RestaurantManager sharedManager]currentRestaurant].staff sortedArrayUsingDescriptors:@[sortByName]];
-    // Do any additional setup after loading the view, typically from a nib.
+    NSArray *temp = [[[RestaurantManager sharedManager] currentRestaurant].staff sortedArrayUsingDescriptors:@[sortByName]];
+    self.waiters = [temp mutableCopy];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    NSManagedObjectContext *context = [[RestaurantManager sharedManager] appDelegate].managedObjectContext;
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:context];
+    NSFetchRequest *fetch = [Waiter fetchRequest];
+    [fetch setEntity:entity];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetch error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"error: %@", error.localizedDescription);
+    }
+    self.waiters = [fetchedObjects mutableCopy];
+    
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 #pragma mark - TableView Data Source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.waiters.count;
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier forIndexPath:indexPath];
     Waiter *waiter = self.waiters[indexPath.row];
     cell.textLabel.text = waiter.name;
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"EditWaiter" sender:self];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [[[RestaurantManager sharedManager] appDelegate].managedObjectContext deleteObject:self.waiters[indexPath.row]];
+        [[[RestaurantManager sharedManager] appDelegate] saveContext];
+        [self.waiters removeObjectAtIndex:indexPath.row];
+        [tableView reloadData];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"EditWaiter"]) {
+        UINavigationController *nav = [segue destinationViewController];
+        AddWaiterViewController *addWaiterVC = nav.viewControllers[0];
+        
+        NSIndexPath *indexPath = [[self tableView] indexPathForSelectedRow];
+        addWaiterVC.waiter = self.waiters[indexPath.row];
+        [addWaiterVC displayEditView:addWaiterVC.waiter];
+    }
+}
+
 @end

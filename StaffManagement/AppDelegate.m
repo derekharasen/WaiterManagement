@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "RestaurantManager.h"
 
 @interface AppDelegate ()
 
@@ -93,6 +94,24 @@
     return _persistentStoreCoordinator;
 }
 
+@synthesize persistentContainer = _persistentContainer;
+
+- (NSPersistentContainer *)persistentContainer {
+    
+    @synchronized (self) {
+        if (_persistentContainer == nil) {
+            _persistentContainer = [[NSPersistentContainer alloc] initWithName:@"StaffManagement"];
+            [_persistentContainer loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription *storeDescription, NSError *error) {
+                if (error != nil) {
+                    NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+                    abort();
+                }
+            }];
+        }
+    }
+    
+    return _persistentContainer;
+}
 
 - (NSManagedObjectContext *)managedObjectContext {
     // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.)
@@ -109,6 +128,14 @@
     return _managedObjectContext;
 }
 
+- (NSManagedObjectContext *)getContext {
+    return [self getContainer].viewContext;
+}
+
+- (NSPersistentContainer *)getContainer{
+    return self.persistentContainer;
+}
+
 #pragma mark - Core Data Saving support
 
 - (void)saveContext {
@@ -123,5 +150,7 @@
         }
     }
 }
+
+
 
 @end

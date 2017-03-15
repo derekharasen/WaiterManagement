@@ -1,4 +1,4 @@
-//
+
 //  RestaurantManager.m
 //  StaffManagement
 //
@@ -7,15 +7,18 @@
 //
 
 #import "RestaurantManager.h"
-#import "AppDelegate.h"
-#import "Waiter.h"
-#import "Restaurant.h"
+#import "Waiter+CoreDataProperties.h"
+#import "Restaurant+CoreDataProperties.h"
+
 @interface RestaurantManager()
+
 @property (nonatomic, retain) Restaurant *restaurant;
+
 @end
 
 @implementation RestaurantManager
-+ (id)sharedManager {
+
++ (id)sharedManager{
     static RestaurantManager *sharedManager = nil;
     static dispatch_once_t once;
     dispatch_once(&once, ^{
@@ -23,31 +26,33 @@
     });
     return sharedManager;
 }
+
 -(Restaurant*)currentRestaurant{
     if(self.restaurant == nil)
     {
         Restaurant *aRestaurant;
         NSError *error = nil;
-        AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+        self.appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
         NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Restaurant"];
-        NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:request error:&error];
+        NSArray *results = [self.appDelegate.managedObjectContext executeFetchRequest:request error:&error];
         
         if(results.count > 0){
             aRestaurant = results[0];
         }
         else{
-            NSEntityDescription *restaurantEntity = [NSEntityDescription entityForName:@"Restaurant" inManagedObjectContext:appDelegate.managedObjectContext];
-            NSEntityDescription *waiterEntity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:appDelegate.managedObjectContext];
-            aRestaurant = [[Restaurant alloc] initWithEntity:restaurantEntity insertIntoManagedObjectContext:appDelegate.managedObjectContext];
+            NSEntityDescription *restaurantEntity = [NSEntityDescription entityForName:@"Restaurant" inManagedObjectContext:[[RestaurantManager sharedManager] appDelegate].managedObjectContext];
+            NSEntityDescription *waiterEntity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:[[RestaurantManager sharedManager] appDelegate].managedObjectContext];
+            aRestaurant = [[Restaurant alloc] initWithEntity:restaurantEntity insertIntoManagedObjectContext:[[RestaurantManager sharedManager] appDelegate].managedObjectContext];
             
-            Waiter *initialWaiter = [[Waiter alloc]initWithEntity:waiterEntity insertIntoManagedObjectContext:appDelegate.managedObjectContext];
+            Waiter *initialWaiter = [[Waiter alloc]initWithEntity:waiterEntity insertIntoManagedObjectContext:[[RestaurantManager sharedManager] appDelegate].managedObjectContext];
             initialWaiter.name = NSLocalizedString(@"John Smith", nil);
             [aRestaurant addStaffObject:initialWaiter];
-            
-            [appDelegate.managedObjectContext save:&error];
+            [self.appDelegate.managedObjectContext save:&error];
         }
         self.restaurant = aRestaurant;
+        self.restaurant.name = @"TouchBistro";
     }
     return self.restaurant;
 }
+
 @end
