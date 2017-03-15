@@ -46,9 +46,6 @@
         self.addShiftOutlet.hidden = NO;
         self.shiftsLabel.hidden = NO;
     }
-    NSSortDescriptor *sortByShift = [[NSSortDescriptor alloc]initWithKey:@"date" ascending:YES];
-    NSArray *temp = [self.waiter.shift sortedArrayUsingDescriptors:@[sortByShift]];
-    self.shiftsArray = [temp mutableCopy];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -69,6 +66,10 @@
         }
     }
     self.shiftsArray = temp;
+    
+    NSSortDescriptor *sortByShiftDate = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
+    NSArray *tempArray = [self.waiter.shift sortedArrayUsingDescriptors:@[sortByShiftDate]];
+    self.shiftsArray = [tempArray mutableCopy];
     
     [self.tableView reloadData];
 }
@@ -140,6 +141,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ShiftTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    
     Shift *shift = self.shiftsArray[indexPath.row];
     
     NSDateFormatter *dateFormatter = [NSDateFormatter new];

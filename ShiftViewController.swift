@@ -8,14 +8,6 @@
 
 import UIKit
 
-//extension UIViewController {
-//    func displayShiftView(waiter:Waiter){
-//
-//    }
-//    func dispalyShiftForEdit(shift:Shift){
-//}
-
-
 class ShiftViewController: UIViewController {
     
     var shift: Shift?
@@ -41,7 +33,6 @@ class ShiftViewController: UIViewController {
     public func displayShiftView(waiter:Waiter) {
         self.waiter = waiter
     }
-    
     
     public func dispalyShiftForEdit(shift:Shift) {
         self.shift = shift
@@ -84,7 +75,6 @@ class ShiftViewController: UIViewController {
         
         delegate.saveContext()
         dismiss(animated: false, completion: nil)
-        
     }
     
     @IBAction func cancelShift(_ sender: UIBarButtonItem) {

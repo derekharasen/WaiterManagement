@@ -33,7 +33,6 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 
 - (void)viewWillAppear:(BOOL)animated {
     NSManagedObjectContext *context = [[RestaurantManager sharedManager] appDelegate].managedObjectContext;
-//    [[RestaurantManager sharedManager] managedObjectContext];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:context];
     NSFetchRequest *fetch = [Waiter fetchRequest];
     [fetch setEntity:entity];
