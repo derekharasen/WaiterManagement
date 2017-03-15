@@ -1,4 +1,4 @@
-//
+
 //  RestaurantManager.m
 //  StaffManagement
 //
@@ -32,7 +32,7 @@
     {
         Restaurant *aRestaurant;
         NSError *error = nil;
-//        self.appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        self.appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
         NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Restaurant"];
         NSArray *results = [self.appDelegate.managedObjectContext executeFetchRequest:request error:&error];
         
@@ -40,11 +40,11 @@
             aRestaurant = results[0];
         }
         else{
-            NSEntityDescription *restaurantEntity = [NSEntityDescription entityForName:@"Restaurant" inManagedObjectContext:self.appDelegate.managedObjectContext];
-            NSEntityDescription *waiterEntity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:self.appDelegate.managedObjectContext];
-            aRestaurant = [[Restaurant alloc] initWithEntity:restaurantEntity insertIntoManagedObjectContext:self.appDelegate.managedObjectContext];
+            NSEntityDescription *restaurantEntity = [NSEntityDescription entityForName:@"Restaurant" inManagedObjectContext:[[RestaurantManager sharedManager] appDelegate].managedObjectContext];
+            NSEntityDescription *waiterEntity = [NSEntityDescription entityForName:@"Waiter" inManagedObjectContext:[[RestaurantManager sharedManager] appDelegate].managedObjectContext];
+            aRestaurant = [[Restaurant alloc] initWithEntity:restaurantEntity insertIntoManagedObjectContext:[[RestaurantManager sharedManager] appDelegate].managedObjectContext];
             
-            Waiter *initialWaiter = [[Waiter alloc]initWithEntity:waiterEntity insertIntoManagedObjectContext:self.appDelegate.managedObjectContext];
+            Waiter *initialWaiter = [[Waiter alloc]initWithEntity:waiterEntity insertIntoManagedObjectContext:[[RestaurantManager sharedManager] appDelegate].managedObjectContext];
             initialWaiter.name = NSLocalizedString(@"John Smith", nil);
             [aRestaurant addStaffObject:initialWaiter];
             [self.appDelegate.managedObjectContext save:&error];

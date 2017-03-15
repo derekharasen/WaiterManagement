@@ -85,7 +85,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Add Shift"/>
                                 <connections>
-                                    <segue destination="80q-ns-zaH" kind="show" identifier="AddShift" id="9CG-CN-wg8"/>
+                                    <segue destination="80q-ns-zaH" kind="presentation" identifier="AddShift" id="tRq-WI-rTN"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="74" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6rR-tA-u3c">
@@ -362,7 +362,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="Pd6-ZP-DMt"/>
         <segue reference="5nE-qM-4jb"/>
-        <segue reference="Su3-My-tsp"/>
+        <segue reference="tRq-WI-rTN"/>
         <segue reference="fHy-78-bZX"/>
     </inferredMetricsTieBreakers>
 </document>

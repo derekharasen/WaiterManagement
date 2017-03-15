@@ -12,6 +12,7 @@
 #import "AddShiftViewController.h"
 #import "ShiftTableViewCell.h"
 #import "Shift+CoreDataProperties.h"
+#import "StaffManagement-Swift.h"
 
 @interface AddWaiterViewController ()
 
@@ -114,16 +115,17 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"AddShift"]) {
         UINavigationController *nav = [segue destinationViewController];
-        AddShiftViewController *addShiftVC = nav.viewControllers[0];
+        ShiftViewController *addShiftVC = nav.viewControllers[0];
         addShiftVC.waiter = self.waiter;
-        [addShiftVC displayShiftView:addShiftVC.waiter];
+        [addShiftVC displayShiftViewWithWaiter:addShiftVC.waiter];
     }
+    
     if ([segue.identifier isEqualToString:@"EditShift"]) {
         UINavigationController *nav = [segue destinationViewController];
-        AddShiftViewController *addShiftVC = nav.viewControllers[0];
+        ShiftViewController *addShiftVC = nav.viewControllers[0];
         NSIndexPath *indexPath = [[self tableView] indexPathForSelectedRow];
         addShiftVC.shift = self.shiftsArray[indexPath.row];
-        [addShiftVC displayShiftForEdit:addShiftVC.shift];
+        [addShiftVC dispalyShiftForEditWithShift:addShiftVC.shift];
     }
 }
 

@@ -8,17 +8,19 @@
 
 import UIKit
 
+//extension UIViewController {
+//    func displayShiftView(waiter:Waiter){
+//
+//    }
+//    func dispalyShiftForEdit(shift:Shift){
+//}
+
+
 class ShiftViewController: UIViewController {
     
-    //    class RestaurantManager {
-    //        static let sharedInstance: RestaurantManager = {
-    //            let instance = RestaurantManager()
-    //            return instance
-    //        }()
-    //    }
-    
     var shift: Shift?
-    var waiter = Waiter()
+    var waiter: Waiter?
+    var waiters = [Waiter]()
     let manager = RestaurantManager.sharedManager()
     
     @IBOutlet weak var chooseDate: UIDatePicker!
@@ -34,7 +36,16 @@ class ShiftViewController: UIViewController {
             startTime.date = shiftEdit.startTime!
             finishTime.date = shiftEdit.endTime!
         }
-        
+    }
+    
+    public func displayShiftView(waiter:Waiter) {
+        self.waiter = waiter
+    }
+    
+    
+    public func dispalyShiftForEdit(shift:Shift) {
+        self.shift = shift
+        self.waiter = shift.waiter!
     }
     
     override func didReceiveMemoryWarning() {
@@ -45,26 +56,30 @@ class ShiftViewController: UIViewController {
     @IBAction func saveShift(_ sender: UIBarButtonItem) {
         
         let delegate = UIApplication.shared.delegate as! AppDelegate
-        let managedObjectContext = delegate.persistentContainer.viewContext
         
         if let existingShift = shift {
             existingShift.date = chooseDate.date
             existingShift.startTime = startTime.date
             existingShift.endTime = finishTime.date
         } else {
-            let entity = NSEntityDescription.entity(forEntityName: "Waiter", in: managedObjectContext)
-            let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Waiter")
-            fetch.setValue(entity, forKey: "Waiter")
-        
-        let newShift:Shift = NSEntityDescription.insertNewObject(forEntityName: "Shift", into:delegate.managedObjectContext) as! Shift
-        newShift.date = chooseDate.date
-        newShift.startTime = startTime.date
-        newShift.endTime = finishTime.date
-        newShift.waiter = waiter
-        var setArray = [Shift]()
-        setArray.append(newShift)
-        let shifts = Set(setArray)
-        waiter.addShift(shifts)
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Waiter")
+            let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            
+            do {
+                waiters = try managedContext.fetch(fetchRequest) as! [Waiter]
+            } catch {
+                print("Fetching Failed")
+            }
+            
+            let newShift:Shift = NSEntityDescription.insertNewObject(forEntityName: "Shift", into:delegate.managedObjectContext) as! Shift
+            newShift.date = chooseDate.date
+            newShift.startTime = startTime.date
+            newShift.endTime = finishTime.date
+            newShift.waiter = waiter
+            var setArray = [Shift]()
+            setArray.append(newShift)
+            let shifts = Set(setArray)
+            waiter?.addShift(shifts)
         }
         
         delegate.saveContext()

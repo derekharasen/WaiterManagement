@@ -9,6 +9,7 @@
 #import "AddShiftViewController.h"
 #import "RestaurantManager.h"
 #import "Shift+CoreDataProperties.h"
+#import "StaffManagement-Swift.h"
 
 @interface AddShiftViewController ()
 @property (weak, nonatomic) IBOutlet UIDatePicker *chooseDate;
